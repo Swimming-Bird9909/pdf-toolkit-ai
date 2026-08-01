@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<title>How to extract images from a PDF (3 ways) — PDF Toolkit AI</title>
+<meta name="description" content="Three reliable ways to pull every image out of a PDF, including scanned documents, with privacy-first tools. Free, no signup, runs in your browser." />
+<link rel="canonical" href="https://pdftoolkit.ai/blog/extract-images-from-pdf.html" />
+<meta property="og:title" content="Extract every image from a PDF (3 ways)" />
+<meta property="og:description" content="Three reliable ways to pull every image out of a PDF, including scanned documents." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://pdftoolkit.ai/blog/extract-images-from-pdf.html" />
+<meta name="robots" content="index, follow" />
+<link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
+<meta name="theme-color" content="#6366f1" />
+<link rel="stylesheet" href="../css/style.css?v=6" />
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"Extract every image from a PDF (3 ways)",
+  "description":"Three reliable ways to pull every image out of a PDF, including scanned documents.",
+  "author":{"@type":"Organization","name":"PDF Toolkit AI"},
+  "publisher":{"@type":"Organization","name":"PDF Toolkit AI","url":"https://pdftoolkit.ai/"},
+  "datePublished":"2026-07-28",
+  "dateModified":"2026-07-28"
+}
+</script>
+</head>
+<body>
+
+<!-- ============================ Navbar ============================ -->
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="../" class="brand">
+      <div class="brand-logo">📄</div>
+      <span>PDF Toolkit AI</span>
+    </a>
+    <div class="nav-links">
+      <a href="../#tools">Tools</a>
+      <a href="../#features">Why us</a>
+      <a href="../blog.html" aria-current="page" style="color:var(--brand);">Blog</a>
+      <a href="../#faq">FAQ</a>
+    </div>
+    <div class="nav-cta">
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+      <a href="../tools/extract-images.html" class="btn btn-primary btn-sm">Get started</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================ Article Hero ============================ -->
+<header class="hero">
+  <div class="container" style="max-width:780px;">
+    <div class="hero-badges">
+      <span class="dot"></span>
+      <span>📦 Image workflows</span>
+    </div>
+    <h1>Extract every image from a PDF<br/><span class="grad">— 3 reliable ways</span></h1>
+    <p>Someone sent you a beautifully designed PDF report. You want the charts for your own presentation. You try right-click → Save Image As. Nothing happens. Here's how to actually get them out.</p>
+    <div class="hero-cta" style="justify-content:center;">
+      <a href="../tools/extract-images.html" class="btn btn-primary btn-lg">Try the extractor →</a>
+      <a href="../blog.html" class="btn btn-ghost btn-lg">← All articles</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============================ Article ============================ -->
+<main class="container section" style="max-width:780px;">
+  <article class="prose">
+    <p class="soft">📅 July 28, 2026 · 5 min read · <a href="../tools/extract-images.html">Extract Images</a> tool</p>
+
+    <h2>Why right-click doesn't work</h2>
+    <p>PDFs embed images as <strong>XObjects</strong> inside a compressed object stream. Browsers don't expose them as separate DOM elements. Right-click gives you "Save as PDF" (the whole file), not the individual images.</p>
+
+    <h2>Method 1: The fast way (modern PDFs)</h2>
+    <p>Open our <a href="../tools/extract-images.html">image extractor</a>, drop your PDF, click Extract. It walks the PDF's internal structure and pulls every embedded image, preserving original resolution. You get a ZIP of PNGs/JPGs/WebPs — whatever the source PDF used.</p>
+    <p><strong>Best for:</strong> Reports, presentations, brochures, any PDF generated from Word/Keynote/PowerPoint/InDesign.</p>
+
+    <h2>Method 2: For scanned PDFs (no embedded images)</h2>
+    <p>If Method 1 returns "no images found", your PDF is a scan — every page is just one big image. Solution: use our <a href="../tools/pdf-to-image.html">PDF to Images converter</a> which renders each page to PNG/JPG at 1.5x or 2x resolution. You can then crop individual elements with any image editor.</p>
+    <p><strong>Best for:</strong> Scanned books, contracts, receipts.</p>
+
+    <h2>Method 3: The geek way (Acrobat)</h2>
+    <p>Adobe Acrobat Pro → File → Export To → Image → choose "Export All Images". It works, but it's $22.99/month and requires upload to Adobe's cloud (privacy concern for sensitive docs).</p>
+
+    <h2>Common gotchas</h2>
+
+    <h3>"I get hundreds of tiny images"</h3>
+    <p>Many PDFs include small icons, dividers, and decorative elements as separate images. Set the minimum size filter to <strong>200×200</strong> in our extractor to skip the noise.</p>
+
+    <h3>"The images come out at lower resolution"</h3>
+    <p>That's the resolution they were embedded at — PDFs often compress images aggressively. Try the "PDF to Images" method at 2x or 3x scale to get a higher-res rendering of the entire page.</p>
+
+    <h3>"I lost the original filename"</h3>
+    <p>Our extractor names files by page and order: <code>image_p003_001.png</code>. If you need the original filename, that's stored in the PDF's metadata — use our <a href="../tools/remove-metadata.html">metadata viewer</a> (well, not yet — but you can extract it with pdf-lib).</p>
+
+    <h2>Privacy</h2>
+    <p>Both extraction methods run locally with pdf.js. Your PDFs never leave your browser. If you're extracting images from a confidential client deck, that's safe with us.</p>
+
+    <p style="margin-top:40px; text-align:center;">
+      <a class="btn btn-primary btn-lg" href="../tools/extract-images.html">Try the extractor →</a>
+    </p>
+  </article>
+</main>
+
+<!-- ============================ Footer ============================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="../" class="brand">
+          <div class="brand-logo">📄</div>
+          <span>PDF Toolkit AI</span>
+        </a>
+        <p class="soft" style="margin-top:12px; max-width:300px;">10 free, private, browser-based PDF tools. Your files never leave your device.</p>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="../tools/compress.html">Compress PDF</a></li>
+          <li><a href="../tools/merge.html">Merge PDF</a></li>
+          <li><a href="../tools/split.html">Split PDF</a></li>
+          <li><a href="../tools/ocr.html">PDF OCR</a></li>
+          <li><a href="../tools/ai-summary.html">AI Summary</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>More</h4>
+        <ul>
+          <li><a href="../blog.html">Blog</a></li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="../terms.html">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 PDF Toolkit AI</span>
+      <span>Made with care · Files never leave your browser</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js?v=6"></script>
+</body>
+</html>

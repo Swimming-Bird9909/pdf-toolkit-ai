@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Compress PDF to 100KB Online Free — No Quality Loss | PDF Toolkit AI</title>
+<meta name="description" content="Compress PDF to 100KB or any target size. Perfect for email attachments, job applications, and form uploads. 100% free, no signup, files stay in your browser." />
+<meta name="keywords" content="compress pdf to 100kb, compress pdf for email attachment, reduce pdf size without losing quality, compress pdf online free" />
+<link rel="canonical" href="https://pdftoolkit.ai/tools/compress.html" />
+<meta property="og:title" content="Compress PDF to 100KB Online Free" />
+<meta property="og:description" content="Shrink any PDF to a target size — 100KB, 200KB, or email-ready — without losing quality." />
+<meta name="robots" content="index, follow" />
+<link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
+<link rel="stylesheet" href="../css/style.css" />
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"HowTo",
+  "name":"How to compress a PDF to 100KB",
+  "step":[
+    {"@type":"HowToStep","name":"Upload your PDF","text":"Drop your file or click to choose."},
+    {"@type":"HowToStep","name":"Pick a target size","text":"Choose 100KB, 200KB, email-ready, or custom."},
+    {"@type":"HowToStep","name":"Click Compress","text":"We compress in your browser — no upload."},
+    {"@type":"HowToStep","name":"Download","text":"Save the compressed PDF."}
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="../" class="brand"><div class="brand-logo">📄</div><span>PDF Toolkit AI</span></a>
+    <div class="nav-links">
+      <a href="../#tools">Tools</a>
+      <a href="../blog/">Blog</a>
+      <a href="../#faq">FAQ</a>
+    </div>
+    <div class="nav-cta">
+      <button id="themeToggle" class="theme-toggle">🌙</button>
+      <a href="../" class="btn btn-ghost btn-sm">← All tools</a>
+    </div>
+  </div>
+</nav>
+
+<header class="tool-hero">
+  <div class="container">
+    <div class="hero-badges"><span class="dot"></span><span>100% private — files stay in your browser</span></div>
+    <h1>Compress PDF to any size</h1>
+    <p>Target 100KB for job applications, email-ready size, or shrink with no visible quality loss. Pick a preset or set a custom target.</p>
+  </div>
+</header>
+
+<main class="container">
+  <div class="workspace">
+    <div class="dropzone" id="dz">
+      <span class="icon">📄</span>
+      <h3>Drop your PDF here</h3>
+      <p>or click to browse · max 50MB (free) / 500MB (pro)</p>
+      <input type="file" accept="application/pdf,.pdf" />
+    </div>
+
+    <div class="options-panel">
+      <div class="grid grid-2">
+        <div class="field">
+          <label>Compression preset</label>
+          <select id="preset">
+            <option value="email" selected>Email-ready (~300 KB, recommended)</option>
+            <option value="500kb">Compress to 500 KB</option>
+            <option value="200kb">Compress to 200 KB</option>
+            <option value="100kb">Compress to 100 KB (text only, see notes)</option>
+            <option value="lossless">Smart pack — no quality loss</option>
+            <option value="custom">Custom target size</option>
+          </select>
+        </div>
+        <div class="field" id="customField" style="display:none;">
+          <label>Custom target size (KB)</label>
+          <input type="number" id="customSize" min="20" max="50000" value="200" />
+        </div>
+      </div>
+    <div class="field">
+      <label>Output filename</label>
+      <input type="text" id="outName" value="compressed.pdf" />
+    </div>
+    <p class="soft" style="font-size:.85rem;margin-top:.4rem">
+      <strong>Quality-first policy:</strong> we never drop below 144 DPI / 75% JPEG.
+      If your target is too small to keep text crisp, we'll show you the best
+      we could do and suggest alternatives (split pages, larger target, or
+      lossless repack). Text is never sacrificed for size.
+    </p>
+    </div>
+
+    <div class="file-list" id="fileList"></div>
+
+    <div class="actions">
+      <button id="btnCompress" class="btn btn-primary btn-lg" disabled>🗜️ Compress PDF</button>
+      <button id="btnReset" class="btn btn-ghost btn-lg">Reset</button>
+    </div>
+
+    <div class="progress-wrap" id="progress">
+      <div class="progress-label"><span class="txt">Processing…</span><span class="pct">0%</span></div>
+      <div class="progress"><div class="progress-bar"></div></div>
+    </div>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <section class="prose">
+    <h2>How to compress a PDF online</h2>
+    <ol>
+      <li>Drop your PDF into the box above (or click to browse).</li>
+      <li>Pick a preset — 100KB, 200KB, email-ready, or custom.</li>
+      <li>Click <strong>Compress PDF</strong>. Files are processed in your browser, never uploaded.</li>
+      <li>Download the result. Done.</li>
+    </ol>
+    <h3>What compression does</h3>
+    <p>We re-render each PDF page at a reduced DPI and re-encode embedded images at a lower JPEG/WebP quality until the file fits your target. Text stays crisp because we never re-rasterize text layers.</p>
+    <h3>Privacy</h3>
+    <p>Everything runs in your browser. No upload, no server. Open DevTools → Network and you'll see zero traffic. Files are never seen by us or anyone else.</p>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 PDF Toolkit AI</span>
+      <span><a href="../privacy-policy.html">Privacy</a> · <a href="../terms.html">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="../js/tools/compress.js"></script>
+</body>
+</html>

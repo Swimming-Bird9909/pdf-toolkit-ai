@@ -1,0 +1,11 @@
+# Netlify redirects
+/tools/compress    /tools/compress.html    301
+/tools/split      /tools/split.html      301
+/tools/merge      /tools/merge.html      301
+/tools/ocr        /tools/ocr.html        301
+/tools/summary    /tools/ai-summary.html 301
+/blog             /blog/index.html       301
+/blog/            /blog/index.html       301
+
+# SPA fallback (in case you add client-side routing later)
+/*    /404.html   404
