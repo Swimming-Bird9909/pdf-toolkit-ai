@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PDF to Word Converter — Free Online | PDF Toolkit AI</title>
+<meta name="description" content="Convert PDF to editable Word (.docx) documents. Free, no signup, 100% private. Files never leave your browser." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://pdftoolkit.ai/tools/pdf-to-word.html" />
+<meta property="og:title" content="PDF to Word Converter — Free Online | PDF Toolkit AI" />
+<meta property="og:description" content="Convert PDF to editable Word (.docx) documents. Free, no signup, 100% private. Files never leave your browser." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://pdftoolkit.ai/tools/pdf-to-word.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
+<link rel="manifest" href="../manifest.json" />
+<meta name="theme-color" content="#6366f1" />
+<link rel="stylesheet" href="../css/style.css" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://pdftoolkit.ai/index.html"
+    },    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Convert PDF",
+      "item": "https://pdftoolkit.ai/convert-pdf.html"
+    },    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "PDF to Word",
+      "item": "https://pdftoolkit.ai/"
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "PDF to Word",
+  "applicationCategory": "ProductivityApplication",
+  "operatingSystem": "Any (Web Browser)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "Convert PDF to editable Word (.docx) documents. Free, no signup, 100% private. Files never leave your browser.",
+  "url": "https://pdftoolkit.ai/tools/pdf-to-word.html"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use PDF to Word",
+  "description": "Convert PDF to editable Word (.docx) documents. Free, no signup, 100% private. Files never leave your browser.",
+  "step": [
+    { "@type": "HowToStep", "name": "Upload your PDF", "text": "Drop or select your file. Everything happens locally." },
+    { "@type": "HowToStep", "name": "Configure options", "text": "Choose your preferred output settings." },
+    { "@type": "HowToStep", "name": "Download result", "text": "Click the action button and download your file." }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Will my formatting be preserved?", "acceptedAnswer": { "@type": "Answer", "text": "Paragraphs and basic text formatting (bold, italic) are preserved. Complex layouts (multi-column, headers, footers, tables) are simplified — Word documents are not pixel-perfect copies of PDFs. For exact layout, use PDF to Image." } },
+    { "@type": "Question", "name": "Can I convert scanned PDFs?", "acceptedAnswer": { "@type": "Answer", "text": "Only if you run OCR first to extract text. Scanned PDFs without OCR are just images, and there is no text to extract. Use our <a href=\"ocr.html\">OCR tool</a> first." } },
+    { "@type": "Question", "name": "What is the file size limit?", "acceptedAnswer": { "@type": "Answer", "text": "Free plan handles up to 50MB per file. Pro plan goes to 500MB. Output .docx files are typically much smaller than the input PDF." } }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="../index.html" class="brand">
+      <div class="brand-logo">📄</div>
+      <span>PDF Toolkit AI</span>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html#tools">Tools</a>
+      <a href="../convert-pdf.html">Convert PDF</a>
+      <a href="../edit-pdf.html">Edit PDF</a>
+      <a href="../ai-pdf-tools.html">AI PDF Tools</a>
+      <a href="../business-pdf-tools.html">Business</a>
+      <a href="../blog.html">Guides</a>
+    </div>
+    <div class="nav-cta">
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+      <a href="../tools/compress.html" class="btn btn-primary btn-sm">Get started</a>
+    </div>
+  </div>
+</nav>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+<a href="index.html">Home</a>
+<span class="sep">›</span>
+<a href="convert-pdf.html">Convert PDF</a>
+<span class="sep">›</span>
+<span class="current">PDF to Word</span>
+</nav>
+
+<header class="tool-hero">
+  <div class="container">
+    <div class="hero-badges"><span class="dot"></span><span>100% private — files stay in your browser</span></div>
+    <h1>PDF to Word</h1>
+    <p>Convert PDF files to editable .docx documents. Text, paragraphs, and basic formatting preserved.</p>
+  </div>
+</header>
+
+<main class="container">
+  <div class="workspace">
+    <div class="dropzone" id="dz">
+      <span class="icon">📝</span>
+      <h3>Drop your PDF here</h3>
+      <p>or click to browse · max 50MB (free) / 500MB (pro)</p>
+      <input type="file" accept="application/pdf,.pdf" />
+    </div>
+
+    <div class="options-panel" id="options">
+      <h3>Output format</h3>
+      <label class="opt-row">
+        <input type="radio" name="format" value="docx" checked />
+        <span><strong>Word document (.docx)</strong> — opens in Microsoft Word, Google Docs, LibreOffice. Best for editing.</span>
+      </label>
+      <label class="opt-row">
+        <input type="radio" name="format" value="html" />
+        <span><strong>HTML (.html)</strong> — preserves more formatting. Open in browser or import to Word.</span>
+      </label>
+      <label class="opt-row">
+        <input type="radio" name="format" value="txt" />
+        <span><strong>Plain text (.txt)</strong> — text only, no formatting. Smallest file size.</span>
+      </label>
+    </div>
+
+    <div class="file-list" id="fileList"></div>
+
+    <div class="actions">
+      <button id="btnRun" class="btn btn-primary btn-lg" disabled>Convert to Word</button>
+      <button id="btnReset" class="btn btn-ghost btn-lg">Reset</button>
+    </div>
+
+    <div class="progress-wrap" id="progress">
+      <div class="progress-label"><span class="txt">Processing…</span><span class="pct">0%</span></div>
+      <div class="progress"><div class="progress-bar"></div></div>
+    </div>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <section class="prose">
+    <h2>About this tool</h2>
+  <p>This converter extracts text from your PDF and packages it as a Word-compatible file. For digital PDFs (born-digital), text and basic paragraph structure are preserved. For scanned/image-only PDFs, run <a href="ocr.html">OCR</a> first to get editable text.</p>
+  <h3>How it works</h3>
+  <ul>
+    <li>Upload a PDF — everything happens in your browser, no upload.</li>
+    <li>We extract text page-by-page using pdf.js (Mozilla's PDF parser).</li>
+    <li>For .docx output, we build a minimal Office Open XML structure with JSZip — opens in Word, Google Docs, LibreOffice.</li>
+    <li>For .html output, we wrap text in semantic HTML with paragraph breaks preserved.</li>
+  </ul>
+  <h3>Tips for best results</h3>
+  <ul>
+    <li>Use digital PDFs (not scans) for best text extraction. For scanned PDFs, try <a href="ocr.html">OCR first</a>.</li>
+    <li>Tables, images, and complex layouts are simplified — Word documents are not pixel-perfect copies of PDFs.</li>
+    <li>Need to keep the original layout? Use <a href="pdf-to-image.html">PDF to Image</a> instead and embed in Word manually.</li>
+  </ul>
+
+    <h2>Frequently asked questions</h2>
+    <div class="faq">

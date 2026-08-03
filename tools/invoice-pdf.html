@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Invoice Generator — Create PDF Invoices Free | PDF Toolkit AI</title>
+<meta name="description" content="Free invoice generator. Create professional PDF invoices in 30 seconds. Fill in client info, line items, taxes — get a polished PDF." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://pdftoolkit.ai/tools/invoice-pdf.html" />
+<meta property="og:title" content="Invoice Generator — Create PDF Invoices Free | PDF Toolkit AI" />
+<meta property="og:description" content="Free invoice generator. Create professional PDF invoices in 30 seconds. Fill in client info, line items, taxes — get a polished PDF." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://pdftoolkit.ai/tools/invoice-pdf.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
+<link rel="manifest" href="../manifest.json" />
+<meta name="theme-color" content="#6366f1" />
+<link rel="stylesheet" href="../css/style.css" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://pdftoolkit.ai/index.html"
+    },    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Business PDF Tools",
+      "item": "https://pdftoolkit.ai/business-pdf-tools.html"
+    },    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Invoice Generator",
+      "item": "https://pdftoolkit.ai/"
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Invoice Generator",
+  "applicationCategory": "ProductivityApplication",
+  "operatingSystem": "Any (Web Browser)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "Free invoice generator. Create professional PDF invoices in 30 seconds. Fill in client info, line items, taxes — get a polished PDF.",
+  "url": "https://pdftoolkit.ai/tools/invoice-pdf.html"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use Invoice Generator",
+  "description": "Free invoice generator. Create professional PDF invoices in 30 seconds. Fill in client info, line items, taxes — get a polished PDF.",
+  "step": [
+    { "@type": "HowToStep", "name": "Upload your PDF", "text": "Drop or select your file. Everything happens locally." },
+    { "@type": "HowToStep", "name": "Configure options", "text": "Choose your preferred output settings." },
+    { "@type": "HowToStep", "name": "Download result", "text": "Click the action button and download your file." }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Can I add my logo?", "acceptedAnswer": { "@type": "Answer", "text": "Logo upload is on the roadmap. For now, your business name is displayed prominently. You can add a logo after generation by opening the PDF in any editor." } },
+    { "@type": "Question", "name": "Can I save the invoice as a template?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — fill in the form, then use your browser's bookmark or copy the form values. We don't store your data on any server." } },
+    { "@type": "Question", "name": "What currencies are supported?", "acceptedAnswer": { "@type": "Answer", "text": "USD, EUR, GBP, CNY, JPY by default. You can manually edit the currency field if you need a different one." } },
+    { "@type": "Question", "name": "Is the PDF suitable for printing?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — generated on A4 size with proper margins, professional typography, and color-coded totals. Print-ready." } }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="../index.html" class="brand">
+      <div class="brand-logo">📄</div>
+      <span>PDF Toolkit AI</span>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html#tools">Tools</a>
+      <a href="../convert-pdf.html">Convert PDF</a>
+      <a href="../edit-pdf.html">Edit PDF</a>
+      <a href="../ai-pdf-tools.html">AI PDF Tools</a>
+      <a href="../business-pdf-tools.html">Business</a>
+      <a href="../blog.html">Guides</a>
+    </div>
+    <div class="nav-cta">
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+      <a href="../tools/compress.html" class="btn btn-primary btn-sm">Get started</a>
+    </div>
+  </div>
+</nav>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+<a href="index.html">Home</a>
+<span class="sep">›</span>
+<a href="business-pdf-tools.html">Business PDF Tools</a>
+<span class="sep">›</span>
+<span class="current">Invoice Generator</span>
+</nav>
+
+<header class="tool-hero">
+  <div class="container">
+    <div class="hero-badges"><span class="dot"></span><span>100% private — files stay in your browser</span></div>
+    <h1>Generate a PDF invoice</h1>
+    <p>Create professional invoices in 30 seconds. Fill in client info, line items, and taxes — download a polished PDF ready to send.</p>
+  </div>
+</header>
+
+<main class="container">
+  <div class="workspace">
+    <form id="invoiceForm" style="display:grid;gap:24px;">
+
+      <fieldset style="border:none;padding:0;">
+        <legend style="font-size:18px;font-weight:700;margin-bottom:14px;">📋 Invoice details</legend>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+          <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Invoice number</label><input type="text" name="invoiceNo" placeholder="INV-001" required style="width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);" /></div>
+          <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Date</label><input type="date" name="date" required style="width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);" /></div>
+          <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Due date</label><input type="date" name="dueDate" style="width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);" /></div>
+          <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Currency</label>
+            <select name="currency" style="width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);">
+              <option>USD ($)</option><option>EUR (€)</option><option>GBP (£)</option><option>CNY (¥)</option><option>JPY (¥)</option>
+            </select>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset style="border:none;padding:0;">
+        <legend style="font-size:18px;font-weight:700;margin-bottom:14px;">🏢 Your business (from)</legend>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+          <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Business name</label><input type="text" name="fromName" placeholder="Your business name" required style="width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);" /></div>
+          <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Email</label><input type="email" name="fromEmail" placeholder="you@business.com" style="width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);" /></div>
+        </div>
+        <div style="margin-top:14px;"><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Address</label><textarea name="fromAddress" rows="2" placeholder="123 Main St, City, Country" style="width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);"></textarea></div>
+      </fieldset>
+
+      <fieldset style="border:none;padding:0;">
+        <legend style="font-size:18px;font-weight:700;margin-bottom:14px;">👤 Bill to (client)</legend>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+          <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Client name</label><input type="text" name="toName" placeholder="Client name or company" required style="width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);" /></div>
+          <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Client email</label><input type="email" name="toEmail" placeholder="client@example.com" style="width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);" /></div>
+        </div>
+        <div style="margin-top:14px;"><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Client address</label><textarea name="toAddress" rows="2" placeholder="Client address" style="width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);"></textarea></div>
+      </fieldset>
+
+      <fieldset style="border:none;padding:0;">
+        <legend style="font-size:18px;font-weight:700;margin-bottom:14px;">💰 Line items</legend>
+        <table id="itemsTable" style="width:100%;border-collapse:collapse;">
+          <thead><tr style="background:var(--bg-soft);">
+            <th style="text-align:left;padding:8px;font-size:13px;">Description</th>
+            <th style="text-align:right;padding:8px;font-size:13px;width:90px;">Qty</th>
+            <th style="text-align:right;padding:8px;font-size:13px;width:110px;">Unit price</th>
+            <th style="text-align:right;padding:8px;font-size:13px;width:110px;">Amount</th>
+            <th style="width:30px;"></th>
+          </tr></thead>
+          <tbody id="itemsBody">
+            <tr><td><input type="text" name="desc[]" placeholder="Service or product" required style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;background:var(--bg);color:var(--text);" /></td><td><input type="number" name="qty[]" min="0" step="0.01" value="1" required style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;background:var(--bg);color:var(--text);text-align:right;" /></td><td><input type="number" name="price[]" min="0" step="0.01" value="0" required style="width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;background:var(--bg);color:var(--text);text-align:right;" /></td><td class="lineAmount" style="text-align:right;padding:8px;font-weight:600;">0.00</td><td><button type="button" class="btn-row-del" style="background:transparent;border:none;color:var(--danger);cursor:pointer;font-size:18px;">×</button></td></tr>
+          </tbody>
+        </table>
+        <button type="button" id="addItem" class="btn btn-ghost btn-sm" style="margin-top:10px;">+ Add line item</button>
+      </fieldset>
+
+      <fieldset style="border:none;padding:0;">
+        <legend style="font-size:18px;font-weight:700;margin-bottom:14px;">🧮 Tax & extras</legend>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+          <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Tax rate (%)</label><input type="number" name="taxRate" min="0" step="0.01" value="0" style="width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);" /></div>
+          <div><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Discount (fixed amount)</label><input type="number" name="discount" min="0" step="0.01" value="0" style="width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);" /></div>
+        </div>
+        <div style="margin-top:14px;"><label style="display:block;font-size:13px;font-weight:600;margin-bottom:6px;">Notes / payment terms</label><textarea name="notes" rows="3" placeholder="Payment due within 30 days. Bank details: ..." style="width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);"></textarea></div>
+      </fieldset>
+
+      <div id="totalsBox" style="background:var(--bg-soft);padding:18px;border-radius:12px;">
+        <div style="display:flex;justify-content:space-between;padding:4px 0;"><span>Subtotal:</span><strong id="subTotal">0.00</strong></div>
+        <div style="display:flex;justify-content:space-between;padding:4px 0;"><span>Discount:</span><strong id="discountAmt">-0.00</strong></div>
+        <div style="display:flex;justify-content:space-between;padding:4px 0;"><span>Tax:</span><strong id="taxAmt">0.00</strong></div>
+        <div style="display:flex;justify-content:space-between;padding:8px 0;border-top:2px solid var(--border-strong);margin-top:6px;font-size:18px;"><span>Total:</span><strong id="grandTotal" style="color:var(--brand);">0.00</strong></div>
+      </div>
+
+      <div class="actions">
+        <button type="submit" id="btnGenerate" class="btn btn-primary btn-lg">Generate Invoice PDF</button>
+        <button type="button" id="btnReset" class="btn btn-ghost btn-lg">Reset</button>
+      </div>
+    </form>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <section class="prose">
+    <h2>About this tool</h2>
+  <p>Create a professional PDF invoice in 30 seconds. Fill in your business details, client info, line items, and tax — get a clean, print-ready PDF.</p>
+  <h3>Features</h3>
+  <ul>
+    <li>Multi-currency support (USD, EUR, GBP, CNY, JPY)</li>
+    <li>Auto-calculated subtotals, tax, and totals</li>
+    <li>Discount handling (fixed amount)</li>
+    <li>Custom notes and payment terms</li>
+    <li>Live preview of totals as you type</li>
+    <li>No signup, no watermark, no branding</li>
+  </ul>
+  <h3>Privacy</h3>
+  <ul>
+    <li>Everything happens in your browser. Client names, addresses, and amounts never touch a server.</li>
+    <li>Generated invoice is built locally with pdf-lib. Your data stays yours.</li>
+  </ul>
+
+    <h2>Frequently asked questions</h2>
+    <div class="faq">
