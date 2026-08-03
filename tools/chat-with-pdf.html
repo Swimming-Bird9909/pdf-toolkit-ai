@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Chat With PDF — Ask Questions About Your PDF | PDF Toolkit AI</title>
+<meta name="description" content="Chat with any PDF using AI. Ask questions in natural language, get cited answers with page references. Free, no signup." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://pdftoolkit.ai/tools/chat-with-pdf.html" />
+<meta property="og:title" content="Chat With PDF — Ask Questions About Your PDF | PDF Toolkit AI" />
+<meta property="og:description" content="Chat with any PDF using AI. Ask questions in natural language, get cited answers with page references. Free, no signup." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://pdftoolkit.ai/tools/chat-with-pdf.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
+<link rel="manifest" href="../manifest.json" />
+<meta name="theme-color" content="#6366f1" />
+<link rel="stylesheet" href="../css/style.css" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://pdftoolkit.ai/index.html"
+    },    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "AI PDF Tools",
+      "item": "https://pdftoolkit.ai/ai-pdf-tools.html"
+    },    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Chat With PDF",
+      "item": "https://pdftoolkit.ai/"
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Chat With PDF",
+  "applicationCategory": "ProductivityApplication",
+  "operatingSystem": "Any (Web Browser)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "Chat with any PDF using AI. Ask questions in natural language, get cited answers with page references. Free, no signup.",
+  "url": "https://pdftoolkit.ai/tools/chat-with-pdf.html"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use Chat With PDF",
+  "description": "Chat with any PDF using AI. Ask questions in natural language, get cited answers with page references. Free, no signup.",
+  "step": [
+    { "@type": "HowToStep", "name": "Upload your PDF", "text": "Drop or select your file. Everything happens locally." },
+    { "@type": "HowToStep", "name": "Configure options", "text": "Choose your preferred output settings." },
+    { "@type": "HowToStep", "name": "Download result", "text": "Click the action button and download your file." }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "How accurate are the answers?", "acceptedAnswer": { "@type": "Answer", "text": "The AI is constrained to answer only from your document. For most factual questions (what is X, when did Y happen, who is Z), answers are highly accurate. For subjective questions (is this contract fair?), the AI summarizes but flags it as opinion." } },
+    { "@type": "Question", "name": "Why is there a page limit?", "acceptedAnswer": { "@type": "Answer", "text": "Each question is sent with relevant document chunks, and we cap chunks to keep responses fast and within model context limits. Free plan: 25 pages. Pro: 200 pages. For longer docs, use the AI Summary tool first to get a condensed version." } },
+    { "@type": "Question", "name": "Can I use my own API key?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Go to settings (gear icon, top right) and paste your OpenAI or Anthropic API key. Your questions then go directly to that provider — our servers never see the document chunks or your questions." } },
+    { "@type": "Question", "name": "Does it work on scanned PDFs?", "acceptedAnswer": { "@type": "Answer", "text": "Only if the PDF has been OCR'd first. Scanned PDFs without an embedded text layer are just images, with no text for the AI to read. Use our <a href=\"ocr.html\">OCR tool</a> first." } }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="../index.html" class="brand">
+      <div class="brand-logo">📄</div>
+      <span>PDF Toolkit AI</span>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html#tools">Tools</a>
+      <a href="../convert-pdf.html">Convert PDF</a>
+      <a href="../edit-pdf.html">Edit PDF</a>
+      <a href="../ai-pdf-tools.html">AI PDF Tools</a>
+      <a href="../business-pdf-tools.html">Business</a>
+      <a href="../blog.html">Guides</a>
+    </div>
+    <div class="nav-cta">
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+      <a href="../tools/compress.html" class="btn btn-primary btn-sm">Get started</a>
+    </div>
+  </div>
+</nav>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+<a href="index.html">Home</a>
+<span class="sep">›</span>
+<a href="ai-pdf-tools.html">AI PDF Tools</a>
+<span class="sep">›</span>
+<span class="current">Chat With PDF</span>
+</nav>
+
+<header class="tool-hero">
+  <div class="container">
+    <div class="hero-badges"><span class="dot"></span><span>100% private — files stay in your browser</span></div>
+    <h1>Chat with your PDF</h1>
+    <p>Ask questions about your PDF in natural language. Get cited answers with page references — verify any claim in 2 clicks.</p>
+  </div>
+</header>
+
+<main class="container">
+  <div class="workspace">
+    <div class="dropzone" id="dz">
+      <span class="icon">💬</span>
+      <h3>Drop your PDF here</h3>
+      <p>or click to browse · max 25 pages (free) / 200 pages (pro)</p>
+      <input type="file" accept="application/pdf,.pdf" />
+    </div>
+
+    <div class="options-panel" id="options" style="display:none;">
+      <h3>Ask a question</h3>
+      <p class="soft" style="font-size:13px;margin-bottom:12px;">Try: "What is this document about?", "What are the key terms?", "Summarize page 3"</p>
+      <div style="display:flex;gap:8px;">
+        <input type="text" id="questionInput" placeholder="Type your question…" style="flex:1;padding:12px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);font-size:14px;" />
+        <button id="btnAsk" class="btn btn-primary">Ask</button>
+      </div>
+
+      <h3 style="margin-top:20px;">Suggested questions</h3>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;">
+        <button class="suggested-q btn btn-ghost btn-sm" data-q="What is this document about?">📄 What is this about?</button>
+        <button class="suggested-q btn btn-ghost btn-sm" data-q="What are the main points?">🎯 Main points?</button>
+        <button class="suggested-q btn btn-ghost btn-sm" data-q="Summarize in 3 bullet points">📋 Summarize in 3 bullets</button>
+        <button class="suggested-q btn btn-ghost btn-sm" data-q="List the key terms and conditions">📜 Key terms?</button>
+        <button class="suggested-q btn btn-ghost btn-sm" data-q="What is the conclusion?">🏁 Conclusion?</button>
+      </div>
+    </div>
+
+    <div id="chatHistory" style="margin-top:24px;display:none;">
+      <h3>Conversation</h3>
+      <div id="chatMessages" style="display:flex;flex-direction:column;gap:14px;margin-top:14px;"></div>
+    </div>
+
+    <div class="progress-wrap" id="progress">
+      <div class="progress-label"><span class="txt">Indexing PDF…</span><span class="pct">0%</span></div>
+      <div class="progress"><div class="progress-bar"></div></div>
+    </div>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <section class="prose">
+    <h2>About this tool</h2>
+  <p>Chat with any PDF using AI. Upload a document, ask questions in natural language, and get answers grounded in the document's content — with page references so you can verify.</p>
+  <h3>How it works</h3>
+  <ul>
+    <li>Upload a PDF — text is extracted locally using pdf.js. No upload, no server.</li>
+    <li>Your question + relevant document chunks are sent to an AI model (GPT-4o-mini or Claude 3.5 Haiku) for answering.</li>
+    <li>The AI is instructed to answer ONLY from the document, with page-number citations.</li>
+    <li>Click any citation to jump to the relevant page in the document.</li>
+  </ul>
+  <h3>Privacy</h3>
+  <ul>
+    <li>Text extraction happens locally in your browser.</li>
+    <li>Only the relevant chunks (not the full document) are sent to the AI for each question.</li>
+    <li>We pass "do not train" flags explicitly. Your documents are never used for model training.</li>
+    <li>For maximum privacy, set your own API key in settings — your questions go directly to OpenAI/Anthropic, not through our servers.</li>
+  </ul>
+  <h3>Best for</h3>
+  <ul>
+    <li>Reading long contracts, research papers, and reports</li>
+    <li>Extracting specific facts from dense documents</li>
+    <li>Quickly finding the section you need without reading the whole thing</li>
+  </ul>
+
+    <h2>Frequently asked questions</h2>
+    <div class="faq">

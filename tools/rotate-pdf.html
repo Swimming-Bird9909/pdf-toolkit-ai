@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rotate PDF Pages — Free Online | PDF Toolkit AI</title>
+<meta name="description" content="Rotate PDF pages by 90°, 180°, or 270°. Rotate all pages or selected pages. Free, no signup, 100% private." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://pdftoolkit.ai/tools/rotate-pdf.html" />
+<meta property="og:title" content="Rotate PDF Pages — Free Online | PDF Toolkit AI" />
+<meta property="og:description" content="Rotate PDF pages by 90°, 180°, or 270°. Rotate all pages or selected pages. Free, no signup, 100% private." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://pdftoolkit.ai/tools/rotate-pdf.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
+<link rel="manifest" href="../manifest.json" />
+<meta name="theme-color" content="#6366f1" />
+<link rel="stylesheet" href="../css/style.css" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://pdftoolkit.ai/index.html"
+    },    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Edit PDF",
+      "item": "https://pdftoolkit.ai/edit-pdf.html"
+    },    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Rotate PDF",
+      "item": "https://pdftoolkit.ai/"
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Rotate PDF",
+  "applicationCategory": "ProductivityApplication",
+  "operatingSystem": "Any (Web Browser)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "Rotate PDF pages by 90°, 180°, or 270°. Rotate all pages or selected pages. Free, no signup, 100% private.",
+  "url": "https://pdftoolkit.ai/tools/rotate-pdf.html"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use Rotate PDF",
+  "description": "Rotate PDF pages by 90°, 180°, or 270°. Rotate all pages or selected pages. Free, no signup, 100% private.",
+  "step": [
+    { "@type": "HowToStep", "name": "Upload your PDF", "text": "Drop or select your file. Everything happens locally." },
+    { "@type": "HowToStep", "name": "Configure options", "text": "Choose your preferred output settings." },
+    { "@type": "HowToStep", "name": "Download result", "text": "Click the action button and download your file." }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Is the rotation permanent?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The rotation is written into the PDF page properties. When you open the file in any PDF reader, the pages display rotated." } },
+    { "@type": "Question", "name": "Can I rotate different pages in different directions?", "acceptedAnswer": { "@type": "Answer", "text": "This tool rotates all selected pages the same way. For per-page rotation in different directions, use a desktop tool like Adobe Acrobat or PDFsam." } },
+    { "@type": "Question", "name": "Will rotating increase the file size?", "acceptedAnswer": { "@type": "Answer", "text": "No. Rotation is just a property change, not a re-encoding. File size stays the same or may even decrease slightly due to stream re-compression." } }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="../index.html" class="brand">
+      <div class="brand-logo">📄</div>
+      <span>PDF Toolkit AI</span>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html#tools">Tools</a>
+      <a href="../convert-pdf.html">Convert PDF</a>
+      <a href="../edit-pdf.html">Edit PDF</a>
+      <a href="../ai-pdf-tools.html">AI PDF Tools</a>
+      <a href="../business-pdf-tools.html">Business</a>
+      <a href="../blog.html">Guides</a>
+    </div>
+    <div class="nav-cta">
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+      <a href="../tools/compress.html" class="btn btn-primary btn-sm">Get started</a>
+    </div>
+  </div>
+</nav>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+<a href="index.html">Home</a>
+<span class="sep">›</span>
+<a href="edit-pdf.html">Edit PDF</a>
+<span class="sep">›</span>
+<span class="current">Rotate PDF</span>
+</nav>
+
+<header class="tool-hero">
+  <div class="container">
+    <div class="hero-badges"><span class="dot"></span><span>100% private — files stay in your browser</span></div>
+    <h1>Rotate PDF pages</h1>
+    <p>Rotate all pages or selected pages by 90°, 180°, or 270°. Lossless rotation preserves text and image quality.</p>
+  </div>
+</header>
+
+<main class="container">
+  <div class="workspace">
+    <div class="dropzone" id="dz">
+      <span class="icon">🔄</span>
+      <h3>Drop your PDF here</h3>
+      <p>or click to browse · max 50MB (free) / 500MB (pro)</p>
+      <input type="file" accept="application/pdf,.pdf" />
+    </div>
+
+    <div class="options-panel" id="options">
+      <h3>Rotation angle</h3>
+      <div class="opt-row-group">
+        <label class="opt-row"><input type="radio" name="angle" value="90" checked /><span><strong>90° clockwise</strong> — landscape to portrait</span></label>
+        <label class="opt-row"><input type="radio" name="angle" value="180" /><span><strong>180°</strong> — flip upside down</span></label>
+        <label class="opt-row"><input type="radio" name="angle" value="270" /><span><strong>270° clockwise (90° counter-clockwise)</strong> — portrait to landscape</span></label>
+      </div>
+      <h3>Pages to rotate</h3>
+      <label class="opt-row">
+        <input type="radio" name="scope" value="all" checked />
+        <span><strong>All pages</strong> — rotate every page in the document</span>
+      </label>
+      <label class="opt-row">
+        <input type="radio" name="scope" value="custom" />
+        <span><strong>Specific pages</strong> — rotate only selected pages (e.g., 1, 3, 5-7)</span>
+      </label>
+      <div id="customPagesWrap" style="display:none;margin-top:10px;">
+        <input type="text" id="customPages" placeholder="e.g., 1, 3, 5-7" style="width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);" />
+        <p class="soft" style="font-size:12px;margin-top:6px;">Enter page numbers or ranges separated by commas.</p>
+      </div>
+    </div>
+
+    <div class="file-list" id="fileList"></div>
+
+    <div class="actions">
+      <button id="btnRun" class="btn btn-primary btn-lg" disabled>Rotate PDF</button>
+      <button id="btnReset" class="btn btn-ghost btn-lg">Reset</button>
+    </div>
+
+    <div class="progress-wrap" id="progress">
+      <div class="progress-label"><span class="txt">Processing…</span><span class="pct">0%</span></div>
+      <div class="progress"><div class="progress-bar"></div></div>
+    </div>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <section class="prose">
+    <h2>About this tool</h2>
+  <p>Rotate pages in a PDF by 90°, 180°, or 270° — clockwise. Useful for fixing scanned documents that were saved sideways, or for preparing PDFs for printing in a specific orientation.</p>
+  <h3>How it works</h3>
+  <ul>
+    <li>Upload a PDF — everything happens in your browser, no upload.</li>
+    <li>Choose the rotation angle and which pages to rotate.</li>
+    <li>We use pdf-lib to set the page rotation property — this is a <strong>lossless</strong> operation. No re-encoding, no quality loss.</li>
+    <li>Download the rotated PDF. Original is untouched.</li>
+  </ul>
+  <h3>Why this is lossless</h3>
+  <ul>
+    <li>PDF supports a "rotation" property per page. Setting this property rotates the page when displayed without re-encoding the content.</li>
+    <li>This is different from "render the page, rotate the image, embed back" — which is what most online tools do and causes quality loss.</li>
+    <li>Your fonts, images, and vector graphics are preserved byte-for-byte.</li>
+  </ul>
+
+    <h2>Frequently asked questions</h2>
+    <div class="faq">

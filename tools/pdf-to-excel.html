@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PDF to Excel Converter — Extract Tables Free Online | PDF Toolkit AI</title>
+<meta name="description" content="Convert PDF tables and data to Excel (.csv, .xlsx). Free, no signup, 100% private. Files never leave your browser." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://pdftoolkit.ai/tools/pdf-to-excel.html" />
+<meta property="og:title" content="PDF to Excel Converter — Extract Tables Free Online | PDF Toolkit AI" />
+<meta property="og:description" content="Convert PDF tables and data to Excel (.csv, .xlsx). Free, no signup, 100% private. Files never leave your browser." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://pdftoolkit.ai/tools/pdf-to-excel.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
+<link rel="manifest" href="../manifest.json" />
+<meta name="theme-color" content="#6366f1" />
+<link rel="stylesheet" href="../css/style.css" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://pdftoolkit.ai/index.html"
+    },    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Convert PDF",
+      "item": "https://pdftoolkit.ai/convert-pdf.html"
+    },    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "PDF to Excel",
+      "item": "https://pdftoolkit.ai/"
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "PDF to Excel",
+  "applicationCategory": "ProductivityApplication",
+  "operatingSystem": "Any (Web Browser)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "Convert PDF tables and data to Excel (.csv, .xlsx). Free, no signup, 100% private. Files never leave your browser.",
+  "url": "https://pdftoolkit.ai/tools/pdf-to-excel.html"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use PDF to Excel",
+  "description": "Convert PDF tables and data to Excel (.csv, .xlsx). Free, no signup, 100% private. Files never leave your browser.",
+  "step": [
+    { "@type": "HowToStep", "name": "Upload your PDF", "text": "Drop or select your file. Everything happens locally." },
+    { "@type": "HowToStep", "name": "Configure options", "text": "Choose your preferred output settings." },
+    { "@type": "HowToStep", "name": "Download result", "text": "Click the action button and download your file." }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Will my tables be perfectly preserved?", "acceptedAnswer": { "@type": "Answer", "text": "Honest answer: no. PDF has no native table structure — tables are visual layouts of text. Our \"block grouping\" mode approximates table rows by spatial proximity, but complex tables with merged cells, multi-line cells, or unusual layouts will need cleanup in Excel. We optimize for common cases (financial tables, data lists, simple grids)." } },
+    { "@type": "Question", "name": "CSV or TSV?", "acceptedAnswer": { "@type": "Answer", "text": "CSV (comma-separated) is the universal default. Choose TSV (tab-separated) if your data contains many commas — TSV avoids the need to escape them." } },
+    { "@type": "Question", "name": "Can I convert directly to .xlsx?", "acceptedAnswer": { "@type": "Answer", "text": "Currently we output CSV/TSV, which Excel opens natively. A native .xlsx export is on the roadmap — for now, just rename .csv to .xlsx or open in Excel and save as .xlsx." } }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="../index.html" class="brand">
+      <div class="brand-logo">📄</div>
+      <span>PDF Toolkit AI</span>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html#tools">Tools</a>
+      <a href="../convert-pdf.html">Convert PDF</a>
+      <a href="../edit-pdf.html">Edit PDF</a>
+      <a href="../ai-pdf-tools.html">AI PDF Tools</a>
+      <a href="../business-pdf-tools.html">Business</a>
+      <a href="../blog.html">Guides</a>
+    </div>
+    <div class="nav-cta">
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+      <a href="../tools/compress.html" class="btn btn-primary btn-sm">Get started</a>
+    </div>
+  </div>
+</nav>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+<a href="index.html">Home</a>
+<span class="sep">›</span>
+<a href="convert-pdf.html">Convert PDF</a>
+<span class="sep">›</span>
+<span class="current">PDF to Excel</span>
+</nav>
+
+<header class="tool-hero">
+  <div class="container">
+    <div class="hero-badges"><span class="dot"></span><span>100% private — files stay in your browser</span></div>
+    <h1>PDF to Excel</h1>
+    <p>Extract tables and data from PDF into Excel-compatible files. Edit cells, run formulas, share with your team.</p>
+  </div>
+</header>
+
+<main class="container">
+  <div class="workspace">
+    <div class="dropzone" id="dz">
+      <span class="icon">📊</span>
+      <h3>Drop your PDF here</h3>
+      <p>or click to browse · max 50MB (free) / 500MB (pro)</p>
+      <input type="file" accept="application/pdf,.pdf" />
+    </div>
+
+    <div class="options-panel" id="options">
+      <h3>Output format</h3>
+      <label class="opt-row">
+        <input type="radio" name="format" value="csv" checked />
+        <span><strong>CSV (.csv)</strong> — universal spreadsheet format, opens in Excel, Google Sheets, Numbers. Comma-separated.</span>
+      </label>
+      <label class="opt-row">
+        <input type="radio" name="format" value="tsv" />
+        <span><strong>TSV (.tsv)</strong> — tab-separated. Better when values contain commas.</span>
+      </label>
+      <h3>Extraction mode</h3>
+      <label class="opt-row">
+        <input type="radio" name="mode" value="lines" checked />
+        <span><strong>Line-by-line</strong> — each line of text becomes a row. Best for simple data lists.</span>
+      </label>
+      <label class="opt-row">
+        <input type="radio" name="mode" value="blocks" />
+        <span><strong>Block grouping</strong> — groups lines by spatial proximity to approximate table rows.</span>
+      </label>
+    </div>
+
+    <div class="file-list" id="fileList"></div>
+
+    <div class="actions">
+      <button id="btnRun" class="btn btn-primary btn-lg" disabled>Convert to Excel</button>
+      <button id="btnReset" class="btn btn-ghost btn-lg">Reset</button>
+    </div>
+
+    <div class="progress-wrap" id="progress">
+      <div class="progress-label"><span class="txt">Processing…</span><span class="pct">0%</span></div>
+      <div class="progress"><div class="progress-bar"></div></div>
+    </div>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <section class="prose">
+    <h2>About this tool</h2>
+  <p>This tool extracts text from your PDF and structures it for spreadsheet import. Two extraction modes: <strong>line-by-line</strong> (each line is a row) for simple lists, and <strong>block grouping</strong> (groups spatially-close lines) for approximating table rows.</p>
+  <h3>How it works</h3>
+  <ul>
+    <li>Upload a PDF — everything happens in your browser, no upload.</li>
+    <li>We extract text with positional information using pdf.js.</li>
+    <li>In line mode, each line is one CSV row with columns derived from x-coordinate grouping.</li>
+    <li>In block mode, we group nearby lines vertically and align them by x-position to approximate table structure.</li>
+    <li>Output opens in Excel, Google Sheets, Numbers, and any spreadsheet app.</li>
+  </ul>
+  <h3>Limitations</h3>
+  <ul>
+    <li>Real table detection (with merged cells, borders) is best-effort. For complex tables, expect to clean up in Excel.</li>
+    <li>Scanned PDFs need <a href="ocr.html">OCR first</a> to have extractable text.</li>
+    <li>For pixel-perfect tables, use <a href="pdf-to-image.html">PDF to Image</a> + a paid OCR service.</li>
+  </ul>
+
+    <h2>Frequently asked questions</h2>
+    <div class="faq">

@@ -712,3 +712,180 @@ img { max-width: 100%; display: block; }
 }
 .prose ul, .prose ol { padding-left: 22px; }
 .prose a { color: var(--brand); }
+
+/* ============================== Breadcrumb ============================== */
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-mute);
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 18px 24px 0;
+}
+.breadcrumb a {
+  color: var(--text-soft);
+  text-decoration: none;
+  transition: color .15s ease;
+}
+.breadcrumb a:hover { color: var(--brand); }
+.breadcrumb .sep { opacity: .4; }
+.breadcrumb .current { color: var(--text); font-weight: 500; }
+
+/* ============================== Category Card (homepage) ============================== */
+
+.cat-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: relative;
+  overflow: hidden;
+  padding: 28px;
+}
+.cat-card .cat-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.cat-card .cat-icon {
+  width: 52px; height: 52px;
+  border-radius: 14px;
+  display: grid; place-items: center;
+  font-size: 26px;
+  background: var(--gradient-soft);
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.cat-card h3 {
+  font-size: 20px;
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.cat-card .cat-sub {
+  color: var(--text-soft);
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+}
+.cat-card .cat-tools {
+  list-style: none;
+  padding: 0;
+  margin: 4px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.cat-card .cat-tools li {
+  font-size: 14px;
+  color: var(--text-soft);
+}
+.cat-card .cat-tools a {
+  color: var(--text);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+  border-bottom: 1px dashed var(--border);
+  transition: color .15s ease, border-color .15s ease;
+}
+.cat-card .cat-tools a:last-child { border-bottom: none; }
+.cat-card .cat-tools a:hover {
+  color: var(--brand);
+  border-color: var(--brand);
+}
+.cat-card .cat-tools .ic {
+  width: 22px; height: 22px;
+  display: grid; place-items: center;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+.cat-card .cat-foot {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--brand);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  transition: gap .2s ease;
+}
+.cat-card .cat-foot:hover { gap: 10px; }
+
+/* ============================== Category Page ============================== */
+
+.cat-hero {
+  padding: 56px 0 32px;
+  text-align: center;
+}
+.cat-hero h1 {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0 0 14px;
+  line-height: 1.15;
+}
+.cat-hero .grad {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.cat-hero p {
+  font-size: 17px;
+  color: var(--text-soft);
+  max-width: 640px;
+  margin: 0 auto 22px;
+  line-height: 1.6;
+}
+.cat-hero .cat-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-mute);
+  padding: 6px 14px;
+  background: var(--bg-soft);
+  border-radius: 999px;
+}
+
+.tool-grid-large {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+@media (max-width: 900px) {
+  .tool-grid-large { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .tool-grid-large { grid-template-columns: 1fr; }
+}
+
+/* ============================== Related tools (tool pages) ============================== */
+
+.related-tools {
+  margin-top: 60px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+}
+.related-tools h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 22px;
+  text-align: center;
+}
+.related-tools .grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+@media (max-width: 800px) {
+  .related-tools .grid { grid-template-columns: 1fr; }
+}
