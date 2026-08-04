@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /tools/*?*
 
-Sitemap: https://pdftoolkit.ai/sitemap.xml
+Sitemap: https://wezzik.com/sitemap.xml

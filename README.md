@@ -114,7 +114,7 @@ vercel --prod pdf-toolkit-ai
 
 ## 🌐 域名建议
 
-- pdftoolkit.ai
+- wezzik.com
 - pdf-toolkit.app
 - freepdftoolkit.com
 
