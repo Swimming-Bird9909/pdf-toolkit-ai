@@ -183,3 +183,50 @@
 
     <h2>Frequently asked questions</h2>
     <div class="faq">
+      <details><summary>Will my tables be perfectly preserved?</summary><p>Honest answer: no. PDF has no native table structure — tables are visual layouts of text. Our \</p></details>
+      <details><summary>CSV or TSV?</summary><p>CSV (comma-separated) is the universal default. Choose TSV (tab-separated) if your data contains many commas — TSV avoids the need to escape them.</p></details>
+      <details><summary>Can I convert directly to .xlsx?</summary><p>Currently we output CSV/TSV, which Excel opens natively. A native .xlsx export is on the roadmap — for now, just rename .csv to .xlsx or open in Excel and save as .xlsx.</p></details>
+    </div>
+  </section>
+</main>
+
+<section class="related-tools">
+  <div class="container">
+    <h3>Related tools</h3>
+    <div class="grid">
+      <a class="card tool-card" href="pdf-to-word.html">
+        <div class="icon">📝</div>
+        <h3>PDF to Word</h3>
+        <p>Convert PDF to editable .docx</p>
+        <span class="arrow">&#8599;</span>
+      </a>
+      <a class="card tool-card" href="pdf-to-image.html">
+        <div class="icon">🖼️</div>
+        <h3>PDF to JPG / PNG</h3>
+        <p>Render each page as an image</p>
+        <span class="arrow">&#8599;</span>
+      </a>
+      <a class="card tool-card" href="ocr.html">
+        <div class="icon">🔍</div>
+        <h3>PDF OCR</h3>
+        <p>Extract text from scanned PDFs</p>
+        <span class="arrow">&#8599;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>&copy; 2026 PDF Toolkit AI</span>
+      <span><a href="../privacy-policy.html">Privacy</a> &middot; <a href="../terms.html">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="../js/tools/pdf-to-excel.js"></script>
+<script src="/js/feedback.js"></script>
+</body>
+</html>

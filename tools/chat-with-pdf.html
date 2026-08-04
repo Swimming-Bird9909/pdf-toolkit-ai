@@ -185,3 +185,51 @@
 
     <h2>Frequently asked questions</h2>
     <div class="faq">
+      <details><summary>How accurate are the answers?</summary><p>The AI is constrained to answer only from your document. For most factual questions (what is X, when did Y happen, who is Z), answers are highly accurate. For subjective questions (is this contract fair?), the AI summarizes but flags it as opinion.</p></details>
+      <details><summary>Why is there a page limit?</summary><p>Each question is sent with relevant document chunks, and we cap chunks to keep responses fast and within model context limits. Free plan: 25 pages. Pro: 200 pages. For longer docs, use the AI Summary tool first to get a condensed version.</p></details>
+      <details><summary>Can I use my own API key?</summary><p>Yes. Go to settings (gear icon, top right) and paste your OpenAI or Anthropic API key. Your questions then go directly to that provider — our servers never see the document chunks or your questions.</p></details>
+      <details><summary>Does it work on scanned PDFs?</summary><p>Only if the PDF has been OCR'd first. Scanned PDFs without an embedded text layer are just images, with no text for the AI to read. Use our <a href=\</p></details>
+    </div>
+  </section>
+</main>
+
+<section class="related-tools">
+  <div class="container">
+    <h3>Related tools</h3>
+    <div class="grid">
+      <a class="card tool-card" href="ai-summary.html">
+        <div class="icon">📋</div>
+        <h3>AI PDF Summarizer</h3>
+        <p>Get a concise AI summary</p>
+        <span class="arrow">&#8599;</span>
+      </a>
+      <a class="card tool-card" href="pdf-to-word.html">
+        <div class="icon">📝</div>
+        <h3>PDF to Word</h3>
+        <p>Convert to editable .docx</p>
+        <span class="arrow">&#8599;</span>
+      </a>
+      <a class="card tool-card" href="ocr.html">
+        <div class="icon">🔍</div>
+        <h3>PDF OCR</h3>
+        <p>Extract text from scans</p>
+        <span class="arrow">&#8599;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>&copy; 2026 PDF Toolkit AI</span>
+      <span><a href="../privacy-policy.html">Privacy</a> &middot; <a href="../terms.html">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="../js/tools/chat-with-pdf.js"></script>
+<script src="/js/feedback.js"></script>
+</body>
+</html>
