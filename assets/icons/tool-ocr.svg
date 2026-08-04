@@ -1,0 +1,6 @@
+<!-- ocr: PDF with magnifier / scan lines -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M4 7V5a1 1 0 0 1 1-1h2M17 4h2a1 1 0 0 1 1 1v2M20 17v2a1 1 0 0 1-1 1h-2M7 20H5a1 1 0 0 1-1-1v-2"/>
+  <path d="M4 12h16"/>
+  <path d="M7 9h6M9 12h4M8 15h5"/>
+</svg>

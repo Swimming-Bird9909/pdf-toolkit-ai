@@ -1,0 +1,6 @@
+<!-- rotate: circular arrow + page -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M3 12a9 9 0 1 0 3-6.7"/>
+  <path d="M3 4v5h5"/>
+  <rect x="8" y="8" width="8" height="8" rx="1" transform="rotate(45 12 12)"/>
+</svg>
