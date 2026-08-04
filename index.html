@@ -97,87 +97,151 @@
 
     <div class="grid grid-3">
 
-      <a class="card cat-card" href="convert-pdf.html">
+      <article class="card cat-card">
         <div class="cat-head">
-          <div class="cat-icon">🔄</div>
-          <h3>Convert PDF</h3>
+          <a class="cat-icon" href="convert-pdf.html" aria-label="Convert PDF"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></a>
+          <h3><a href="convert-pdf.html">Convert PDF</a></h3>
         </div>
         <p class="cat-sub">Transform PDFs into editable Word documents, Excel spreadsheets, JPG images, and searchable text. All conversion happens locally — your files stay private.</p>
-        <ul class="cat-tools">
-          <li><a href="tools/pdf-to-word.html"><span class="ic">📝</span> PDF to Word</a></li>
-          <li><a href="tools/pdf-to-excel.html"><span class="ic">📊</span> PDF to Excel</a></li>
-          <li><a href="tools/pdf-to-image.html"><span class="ic">🖼️</span> PDF to JPG / PNG</a></li>
-          <li><a href="tools/ocr.html"><span class="ic">🔍</span> PDF OCR</a></li>
-        </ul>
-        <span class="cat-foot">Explore Convert PDF →</span>
-      </a>
+        <div class="cat-tools-grid">
+          <a class="mini-tool" href="tools/pdf-to-word.html">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M9 13l1.5 4 1.5-3 1.5 3 1.5-4"/></svg></span>
+            <span class="label">PDF to Word</span>
+            <span class="arrow">→</span>
+          </a>
+          <a class="mini-tool" href="tools/pdf-to-excel.html">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><rect x="8" y="13" width="8" height="6" rx="0.5"/><path d="M8 16h8M11 13v6"/></svg></span>
+            <span class="label">PDF to Excel</span>
+            <span class="arrow">→</span>
+          </a>
+          <a class="mini-tool" href="tools/pdf-to-image.html">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><circle cx="9.5" cy="14.5" r="1.2"/><path d="M8 18l3-3 2 2 2-2 1 1"/></svg></span>
+            <span class="label">PDF to JPG/PNG</span>
+            <span class="arrow">→</span>
+          </a>
+          <a class="mini-tool" href="tools/ocr.html">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V5a1 1 0 0 1 1-1h2M17 4h2a1 1 0 0 1 1 1v2M20 17v2a1 1 0 0 1-1 1h-2M7 20H5a1 1 0 0 1-1-1v-2"/><path d="M4 12h16"/><path d="M7 9h6M9 12h4M8 15h5"/></svg></span>
+            <span class="label">PDF OCR</span>
+            <span class="arrow">→</span>
+          </a>
+        </div>
+        <a class="cat-foot" href="convert-pdf.html">Explore Convert PDF →</a>
+      </article>
 
-      <a class="card cat-card" href="edit-pdf.html">
+      <article class="card cat-card">
         <div class="cat-head">
-          <div class="cat-icon">✏️</div>
-          <h3>Edit PDF</h3>
+          <a class="cat-icon" href="edit-pdf.html" aria-label="Edit PDF"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></a>
+          <h3><a href="edit-pdf.html">Edit PDF</a></h3>
         </div>
         <p class="cat-sub">The PDF editor you wish Acrobat was. Merge multiple files, split by page ranges, rotate, and remove pages — all in your browser, no upload required.</p>
-        <ul class="cat-tools">
-          <li><a href="tools/merge.html"><span class="ic">🧩</span> Merge PDF</a></li>
-          <li><a href="tools/split.html"><span class="ic">✂️</span> Split PDF</a></li>
-          <li><a href="tools/rotate-pdf.html"><span class="ic">🔄</span> Rotate PDF</a></li>
-          <li><a href="tools/remove-pages.html"><span class="ic">🗑️</span> Remove Pages</a></li>
-        </ul>
-        <span class="cat-foot">Explore Edit PDF →</span>
-      </a>
+        <div class="cat-tools-grid">
+          <a class="mini-tool" href="tools/merge.html">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4H5a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h3"/><path d="M16 4h3a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-3"/><path d="M12 7v10M9 14l3 3 3-3"/></svg></span>
+            <span class="label">Merge PDF</span>
+            <span class="arrow">→</span>
+          </a>
+          <a class="mini-tool" href="tools/split.html">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7V4M12 20v-3"/><path d="M9 10l3-3 3 3"/><rect x="3" y="11" width="7" height="9" rx="1"/><rect x="14" y="11" width="7" height="9" rx="1"/><path d="M10.5 14v3M13.5 14v3"/></svg></span>
+            <span class="label">Split PDF</span>
+            <span class="arrow">→</span>
+          </a>
+          <a class="mini-tool" href="tools/rotate-pdf.html">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/><rect x="8" y="8" width="8" height="8" rx="1" transform="rotate(45 12 12)"/></svg></span>
+            <span class="label">Rotate PDF</span>
+            <span class="arrow">→</span>
+          </a>
+          <a class="mini-tool" href="tools/remove-pages.html">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M9 14h6"/></svg></span>
+            <span class="label">Remove Pages</span>
+            <span class="arrow">→</span>
+          </a>
+        </div>
+        <a class="cat-foot" href="edit-pdf.html">Explore Edit PDF →</a>
+      </article>
 
-      <a class="card cat-card" href="ai-pdf-tools.html">
+      <article class="card cat-card">
         <div class="cat-head">
-          <div class="cat-icon">🤖</div>
-          <h3>AI PDF Tools</h3>
+          <a class="cat-icon" href="ai-pdf-tools.html" aria-label="AI PDF Tools"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="6" width="16" height="12" rx="2"/><path d="M9 10v4M12 9v6M15 10v4"/><path d="M3 12h1M20 12h1"/><circle cx="12" cy="3" r="1.5"/><path d="M12 5v1"/></svg></a>
+          <h3><a href="ai-pdf-tools.html">AI PDF Tools</a></h3>
         </div>
         <p class="cat-sub">Let AI do the reading. Summarize 200-page reports in seconds, ask questions about your PDF in natural language, extract key points without reading every word.</p>
-        <ul class="cat-tools">
-          <li><a href="tools/ai-summary.html"><span class="ic">📋</span> AI PDF Summarizer</a></li>
-          <li><a href="tools/chat-with-pdf.html"><span class="ic">💬</span> Chat With PDF</a></li>
-        </ul>
-        <span class="cat-foot">Explore AI Tools →</span>
-      </a>
-
-      <a class="card cat-card" href="tools/compress.html">
-        <div class="cat-head">
-          <div class="cat-icon">🗜️</div>
-          <h3>Compress PDF</h3>
+        <div class="cat-tools-grid is-wide">
+          <a class="mini-tool" href="tools/ai-summary.html">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h11M5 9h9M5 13h11M5 17h7"/><path d="M16 4l1 2 2 1-2 1-1 2-1-2-2-1 2-1z"/><path d="M19 13l.7 1.3 1.3.7-1.3.7-.7 1.3-.7-1.3-1.3-.7 1.3-.7z"/></svg></span>
+            <span class="label">AI PDF Summarizer</span>
+            <span class="arrow">→</span>
+          </a>
+          <a class="mini-tool" href="tools/chat-with-pdf.html">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.7 7.1L4 21l1.9-5.3A8 8 0 1 1 21 12z"/><path d="M9.5 9a2.5 2.5 0 0 1 5 0c0 1.5-2.5 2-2.5 4"/><path d="M12 17h.01"/></svg></span>
+            <span class="label">Chat With PDF</span>
+            <span class="arrow">→</span>
+          </a>
         </div>
-        <p class="cat-sub">Shrink a PDF to exactly 100KB, 200KB, 500KB, or any size you need. Lossless option preserves vector text and fonts. Lossy option hits aggressive size targets.</p>
-        <ul class="cat-tools">
-          <li><a href="tools/compress.html"><span class="ic">🗜️</span> Compress PDF</a></li>
-        </ul>
-        <span class="cat-foot">Compress now →</span>
-      </a>
+        <a class="cat-foot" href="ai-pdf-tools.html">Explore AI Tools →</a>
+      </article>
 
-      <a class="card cat-card" href="business-pdf-tools.html">
+      <article class="card cat-card">
         <div class="cat-head">
-          <div class="cat-icon">💼</div>
-          <h3>Business PDF Tools</h3>
+          <a class="cat-icon" href="tools/compress.html" aria-label="Compress PDF"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V5a1 1 0 0 1 1-1h4"/><path d="M20 9V5a1 1 0 0 0-1-1h-4"/><path d="M4 15v4a1 1 0 0 0 1 1h4"/><path d="M20 15v4a1 1 0 0 1-1 1h-4"/><path d="M12 7v10M9 14l3 3 3-3"/></svg></a>
+          <h3><a href="tools/compress.html">Compress PDF</a></h3>
+        </div>
+        <p class="cat-sub">Shrink a PDF to exactly 100KB, 200KB, 500KB, or any size you need. Lossless option preserves vector text. Lossy option hits aggressive size targets.</p>
+        <div class="cat-tools-grid is-wide">
+          <a class="mini-tool" href="tools/compress.html">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V5a1 1 0 0 1 1-1h4"/><path d="M20 9V5a1 1 0 0 0-1-1h-4"/><path d="M4 15v4a1 1 0 0 0 1 1h4"/><path d="M20 15v4a1 1 0 0 1-1 1h-4"/><path d="M12 7v10M9 14l3 3 3-3"/></svg></span>
+            <span class="label">Compress to 100KB / 500KB / any size</span>
+            <span class="arrow">→</span>
+          </a>
+        </div>
+        <a class="cat-foot" href="tools/compress.html">Compress now →</a>
+      </article>
+
+      <article class="card cat-card">
+        <div class="cat-head">
+          <a class="cat-icon" href="business-pdf-tools.html" aria-label="Business PDF Tools"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M8 9V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4"/><path d="M3 13h18"/></svg></a>
+          <h3><a href="business-pdf-tools.html">Business PDF Tools</a></h3>
         </div>
         <p class="cat-sub">Generate professional business PDFs without paying for Acrobat or signing up for SaaS. Invoices, resumes, and contract templates — fill in, download, done.</p>
-        <ul class="cat-tools">
-          <li><a href="tools/invoice-pdf.html"><span class="ic">🧾</span> Invoice Generator</a></li>
-          <li><a href="tools/resume-pdf.html"><span class="ic">📄</span> Resume Builder</a></li>
-        </ul>
-        <span class="cat-foot">Explore Business Tools →</span>
-      </a>
+        <div class="cat-tools-grid is-wide">
+          <a class="mini-tool" href="tools/invoice-pdf.html">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14a1 1 0 0 1 1 1v17l-3-2-3 2-3-2-3 2-3-2-3 2V4a1 1 0 0 1 1-1z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span>
+            <span class="label">Invoice Generator</span>
+            <span class="arrow">→</span>
+          </a>
+          <a class="mini-tool" href="tools/resume-pdf.html">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><circle cx="12" cy="13" r="2.5"/><path d="M8 19c.7-2 2.3-3 4-3s3.3 1 4 3"/></svg></span>
+            <span class="label">Resume Builder</span>
+            <span class="arrow">→</span>
+          </a>
+        </div>
+        <a class="cat-foot" href="business-pdf-tools.html">Explore Business Tools →</a>
+      </article>
 
-      <a class="card cat-card" href="blog.html">
+      <article class="card cat-card">
         <div class="cat-head">
-          <div class="cat-icon">📚</div>
-          <h3>PDF Guides</h3>
+          <a class="cat-icon" href="blog.html" aria-label="PDF Guides"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></a>
+          <h3><a href="blog.html">PDF Guides</a></h3>
         </div>
         <p class="cat-sub">Practical, no-fluff guides for the PDF tasks you actually do. Each guide ships with a working tool so you can apply what you learn immediately.</p>
-        <ul class="cat-tools">
-          <li><a href="blog/compress-pdf-for-email.html"><span class="ic">📧</span> Compress PDF for email</a></li>
-          <li><a href="blog/merge-pdf-without-watermark.html"><span class="ic">🧩</span> Merge without watermark</a></li>
-          <li><a href="blog/extract-images-from-pdf.html"><span class="ic">📦</span> Extract images (3 ways)</a></li>
-        </ul>
-        <span class="cat-foot">Read the guides →</span>
-      </a>
+        <div class="cat-tools-grid is-wide">
+          <a class="mini-tool" href="blog/compress-pdf-for-email.html">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg></span>
+            <span class="label">Compress PDF for email</span>
+            <span class="arrow">→</span>
+          </a>
+          <a class="mini-tool" href="blog/merge-pdf-without-watermark.html">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4H5a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h3"/><path d="M16 4h3a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-3"/><path d="M12 7v10M9 14l3 3 3-3"/></svg></span>
+            <span class="label">Merge without watermark</span>
+            <span class="arrow">→</span>
+          </a>
+          <a class="mini-tool" href="blog/extract-images-from-pdf.html">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="14" height="14" rx="2"/><circle cx="8" cy="8" r="1.5"/><path d="M3 14l3-3 3 3 3-3 5 5"/><path d="M14 14v6M11 17l3 3 3-3"/></svg></span>
+            <span class="label">Extract images (3 ways)</span>
+            <span class="arrow">→</span>
+          </a>
+        </div>
+        <a class="cat-foot" href="blog.html">Read the guides →</a>
+      </article>
 
     </div>
   </div>
@@ -191,21 +255,21 @@
 
     <div class="grid grid-4">
       <a class="card tool-card" href="tools/extract-images.html">
-        <div class="icon">📦</div>
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:22px;height:22px;display:block;"><rect x="3" y="3" width="14" height="14" rx="2"/><circle cx="8" cy="8" r="1.5"/><path d="M3 14l3-3 3 3 3-3 5 5"/><path d="M14 14v6M11 17l3 3 3-3"/></svg></div>
         <h3>Extract Images</h3>
         <p>Pull every image embedded in a PDF. Download originals or converted format.</p>
         <span class="tag">extract images from pdf</span>
         <span class="arrow">↗</span>
       </a>
       <a class="card tool-card" href="tools/remove-metadata.html">
-        <div class="icon">🧹</div>
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:22px;height:22px;display:block;"><path d="M20.6 13.4l-7.2 7.2a2 2 0 0 1-2.8 0L2 12V2h10l8.6 8.6a2 2 0 0 1 0 2.8z"/><path d="M8 8l6 6M14 8l-6 6"/></svg></div>
         <h3>Remove Metadata</h3>
         <p>Strip author, title, creation date and all hidden info from your PDF.</p>
         <span class="tag">pdf metadata remover</span>
         <span class="arrow">↗</span>
       </a>
       <a class="card tool-card" href="tools/remove-watermark.html">
-        <div class="icon">💧</div>
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:22px;height:22px;display:block;"><path d="M12 2.7c0 0-7 7.3-7 12a7 7 0 0 0 14 0c0-4.7-7-12-7-12z"/><path d="M3 3l18 18"/></svg></div>
         <h3>Remove Watermark</h3>
         <p>Remove text and image watermarks from PDFs. Best-effort AI detection.</p>
         <span class="tag">pdf watermark remover free</span>
@@ -223,32 +287,32 @@
 
     <div class="grid grid-3">
       <div class="card">
-        <div class="icon" style="margin-bottom:14px;">🛡️</div>
+        <div class="icon" style="margin-bottom:14px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:22px;height:22px;display:block;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
         <h3>Privacy by design</h3>
         <p>Every tool runs entirely in your browser using WebAssembly. Your PDFs are never uploaded, never stored, never seen by us.</p>
       </div>
       <div class="card">
-        <div class="icon" style="margin-bottom:14px;">⚡</div>
+        <div class="icon" style="margin-bottom:14px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:22px;height:22px;display:block;"><path d="M13 2L3 14h7l-1 8 10-12h-7z"/></svg></div>
         <h3>Blazing fast</h3>
         <p>No upload, no queue. Processing starts the millisecond you drop a file. Even big 200-page PDFs finish in seconds.</p>
       </div>
       <div class="card">
-        <div class="icon" style="margin-bottom:14px;">🎯</div>
+        <div class="icon" style="margin-bottom:14px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:22px;height:22px;display:block;"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></div>
         <h3>Target sizes</h3>
         <p>Need exactly 100KB for a form upload? Specify a target size and we'll compress to match, no manual tweaking.</p>
       </div>
       <div class="card">
-        <div class="icon" style="margin-bottom:14px;">📱</div>
+        <div class="icon" style="margin-bottom:14px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:22px;height:22px;display:block;"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div>
         <h3>Works anywhere</h3>
         <p>iPhone, Android, Windows, Mac, Linux, Chromebook — anything with a modern browser. Install as a PWA for offline use.</p>
       </div>
       <div class="card">
-        <div class="icon" style="margin-bottom:14px;">🌍</div>
+        <div class="icon" style="margin-bottom:14px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:22px;height:22px;display:block;"><path d="M2 5h7M5.5 3v2M4 9c2 4 6 4 8 0M9 5l-2 7"/><path d="M13 21l4-10 4 10M14.5 17h5"/></svg></div>
         <h3>Multi-language OCR</h3>
         <p>Read scanned documents in 100+ languages — including English, Chinese, Spanish, Japanese, Arabic, Hindi.</p>
       </div>
       <div class="card">
-        <div class="icon" style="margin-bottom:14px;">📦</div>
+        <div class="icon" style="margin-bottom:14px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:22px;height:22px;display:block;"><path d="M16 3l5 3v12l-9 5-9-5V6l5-3 4 2z"/><path d="M3 7l9 5 9-5M12 22V12"/></svg></div>
         <h3>Batch download</h3>
         <p>Process 20 files? Get a single ZIP. No clicking through 20 download dialogs.</p>
       </div>
