@@ -1,5 +1,45 @@
+# PDF Toolkit AI - robots.txt
+# Pure static site hosted on Vercel + Cloudflare edge.
+# Goal: index every public tool/content page, block zero-value paths, prevent duplicate-content dilution.
+
+# === Global rules (apply to all well-behaved crawlers) =============================
 User-agent: *
 Allow: /
-Disallow: /tools/*?*
+Allow: /tools/
+Allow: /blog/
 
+# Block query-string URLs to prevent duplicate-content indexing (canonical already points to clean URLs)
+Disallow: /*?*
+Disallow: /*&*
+
+# Block development / build artifacts that should never be indexed
+Disallow: /.git/
+Disallow: /.vercel/
+Disallow: /node_modules/
+Disallow: /_redirects
+Disallow: /_headers
+Disallow: /README.md
+Disallow: /CLOUDFLARE_GUIDE.md
+Disallow: /reddit_*.png
+Disallow: /reddit_*.md
+Disallow: /*.json$      # except sitemap.xml handled below
+
+# Block tiny / accidental dev files
+Disallow: /test_*
+Disallow: /playwright-cli.json
+
+# Soft hint: modern crawlers ignore Crawl-delay, but listed for politeness
+Crawl-delay: 0
+
+# === AI bots (explicit allow to encourage indexing for AI search) ==================
+User-agent: GPTBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+
+# === Sitemaps =======================================================================
 Sitemap: https://wezzik.com/sitemap.xml

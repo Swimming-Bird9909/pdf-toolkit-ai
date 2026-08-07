@@ -8,6 +8,8 @@
         { "key": "X-Frame-Options",        "value": "SAMEORIGIN" },
         { "key": "Referrer-Policy",        "value": "strict-origin-when-cross-origin" },
         { "key": "Permissions-Policy",     "value": "geolocation=(), microphone=(), camera=()" },
+        { "key": "X-XSS-Protection",       "value": "1; mode=block" },
+        { "key": "Vary",                   "value": "Accept-Encoding" },
         {
           "key": "Strict-Transport-Security",
           "value": "max-age=63072000; includeSubDomains; preload"
@@ -41,7 +43,20 @@
     {
       "source": "/(.*\\.html)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+        { "key": "Cache-Control", "value": "public, max-age=600, must-revalidate" },
+        { "key": "Vary",            "value": "Accept-Encoding" }
+      ]
+    },
+    {
+      "source": "/sitemap(.*)\\.xml",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/robots.txt",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=86400, must-revalidate" }
       ]
     }
   ],
@@ -53,6 +68,13 @@
       ],
       "destination": "https://wezzik.com/$1",
       "statusCode": 301
-    }
+    },
+    { "source": "/tools/compress",   "destination": "/tools/compress.html",   "statusCode": 301 },
+    { "source": "/tools/split",      "destination": "/tools/split.html",      "statusCode": 301 },
+    { "source": "/tools/merge",      "destination": "/tools/merge.html",      "statusCode": 301 },
+    { "source": "/tools/ocr",        "destination": "/tools/ocr.html",        "statusCode": 301 },
+    { "source": "/tools/summary",    "destination": "/tools/ai-summary.html", "statusCode": 301 },
+    { "source": "/blog",             "destination": "/blog/index.html",       "statusCode": 301 },
+    { "source": "/blog/",            "destination": "/blog/index.html",       "statusCode": 301 }
   ]
 }
