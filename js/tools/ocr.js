@@ -28,6 +28,15 @@
   }
 
   document.getElementById('options').innerHTML = `
+    <div class="ocr-hint" id="ocrHint">
+      <span class="ocr-hint-icon">💡</span>
+      <div>
+        <strong>OCR is best for scanned PDFs (images).</strong>
+        If your PDF already has a text layer (you can select &amp; copy text in it),
+        use the <a href="pdf-to-word.html">PDF to Word</a> or
+        <a href="pdf-to-excel.html">PDF to Excel</a> tools for a much faster and more accurate result.
+      </div>
+    </div>
     <div class="grid grid-2">
       <div class="field">
         <label>Language</label>
@@ -49,10 +58,15 @@
       <div class="field">
         <label>Output format</label>
         <select id="out">
-          <option value="txt">Plain text (.txt)</option>
-          <option value="searchable" selected>Searchable PDF (.pdf) — image + text layer</option>
+          <option value="txt" selected>Plain text (.txt) — most common</option>
+          <option value="searchable">Searchable PDF (.pdf) — image + invisible text layer</option>
+          <option value="docx">Word document (.docx) — keeps basic structure</option>
         </select>
-        <p class="soft" style="margin-top:6px;font-size:12px;line-height:1.5;">Searchable PDF includes the original page as an image with an invisible text overlay — selectable &amp; searchable in any PDF reader. First run downloads a CJK font (~18 MB, cached).</p>
+        <p class="soft" style="margin-top:6px;font-size:12px;line-height:1.5;">
+          <strong>Plain text</strong> gives you a clean .txt file with the recognized text — the most common use case.
+          <strong>Searchable PDF</strong> keeps the original page image with a transparent text overlay (selectable in PDF readers, but visually identical to the original scan).
+          <strong>Word document</strong> creates a .docx with the recognized text on each page.
+        </p>
       </div>
       <div class="field" style="grid-column:1/-1;">
         <label>Page range (optional)</label>
@@ -179,8 +193,10 @@
 
       const outMode = document.getElementById('out').value;
       const isSearchable = outMode === 'searchable';
+      const isDocx = outMode === 'docx';
 
       // Pre-load Unicode font in parallel with worker init (first-time only).
+      // Only needed for searchable PDF (which embeds the font in the output).
       const fontPromise = isSearchable ? loadUnicodeFont() : Promise.resolve(null);
 
       const worker = await Tesseract.createWorker(lang, 1, {
@@ -192,6 +208,8 @@
       });
 
       let combinedText = '';
+      // Per-page text list for .docx output (preserves page boundaries).
+      const pageTexts = [];
       const outPdf = isSearchable ? await PDFDocument.create() : null;
       const pdfFont = outPdf ? await (async () => {
         // Register fontkit BEFORE embedFont or it will throw.
@@ -221,7 +239,9 @@
         await page.render({ canvasContext: ctx, viewport: vp }).promise;
         const { data } = await worker.recognize(canvas);
         etaCtrl.recordPage();
+        // Page separator with page label — useful for multi-page documents.
         combinedText += `\n----- Page ${pn} -----\n${data.text}\n`;
+        pageTexts.push({ page: pn, text: data.text });
         if (outPdf) {
           const pageW = vp.width / 2;
           const pageH = vp.height / 2;
@@ -286,13 +306,25 @@
         const blob = new Blob([combinedText], { type: 'text/plain' });
         window.showResult('#result', `
           <h4>✅ OCR complete</h4>
-          <div class="result-meta">${allPages.length} page(s) · ${window.fmtSize(blob.size)}</div>
+          <div class="result-meta">${allPages.length} page(s) · ${window.fmtSize(blob.size)} · ${combinedText.length} characters</div>
           <button class="btn btn-primary" id="dlBtn">⬇ Download .txt</button>
-          <details style="margin-top:14px;"><summary style="cursor:pointer;font-weight:600;">Preview extracted text</summary>
-          <pre style="margin-top:10px;padding:14px;background:var(--bg-soft);border-radius:8px;max-height:300px;overflow:auto;font-size:12px;white-space:pre-wrap;">${escapeHtml(combinedText.slice(0, 2000))}${combinedText.length > 2000 ? '…' : ''}</pre></details>
+          <details style="margin-top:14px;" open><summary style="cursor:pointer;font-weight:600;">Preview extracted text</summary>
+          <pre style="margin-top:10px;padding:14px;background:var(--bg-soft);border-radius:8px;max-height:400px;overflow:auto;font-size:13px;white-space:pre-wrap;line-height:1.6;">${escapeHtml(combinedText)}${combinedText.length > 5000 ? '\n\n… (truncated for preview)' : ''}</pre></details>
         `);
         document.getElementById('dlBtn').addEventListener('click', () => {
           window.downloadBlob(blob, currentFile.name.replace(/\.pdf$/i, '') + '_ocr.txt', 'text/plain');
+        });
+      } else if (outMode === 'docx') {
+        window.setProgress('#progress', 95, 'Building .docx…');
+        const JSZip = await window.loadJSZip();
+        const blob = await buildDocxFromPages(pageTexts);
+        window.showResult('#result', `
+          <h4>✅ Word document created</h4>
+          <div class="result-meta">${allPages.length} page(s) · ${window.fmtSize(blob.size)}</div>
+          <button class="btn btn-primary" id="dlBtn">⬇ Download .docx</button>
+        `);
+        document.getElementById('dlBtn').addEventListener('click', () => {
+          window.downloadBlob(blob, currentFile.name.replace(/\.pdf$/i, '') + '_ocr.docx', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
         });
       } else {
         const bytes = await outPdf.save();
@@ -328,6 +360,76 @@
     return out.length ? out : Array.from({ length: max }, (_, i) => i + 1);
   }
   function escapeHtml(s) { return s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+  function escapeXml(s) { return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&apos;'}[c])); }
+
+  /* ---------- DOCX builder (simple, OCR-friendly) ----------
+   * Each page becomes one block. Inside a page, Tesseract's plain text uses
+   * blank lines as paragraph breaks; single newlines are wrapped within a
+   * paragraph. We strip very short "lines" (likely noise / page numbers).
+   */
+  async function buildDocxFromPages(pageTexts) {
+    const JSZip = await window.loadJSZip();
+    const zip = new JSZip();
+
+    // Common DOCX file structure
+    zip.file('[Content_Types].xml', `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">
+  <Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>
+  <Default Extension="xml" ContentType="application/xml"/>
+  <Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/>
+  <Override PartName="/word/settings.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.settings+xml"/>
+</Types>`);
+    zip.folder('_rels').file('.rels', `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
+  <Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/>
+</Relationships>`);
+    zip.folder('word').folder('_rels').file('document.xml.rels', `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
+  <Relationship Id="rIdSettings" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/settings" Target="settings.xml"/>
+</Relationships>`);
+    zip.folder('word').file('settings.xml', `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<w:settings xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+  <w:defaultTabStop w:val="420"/>
+  <w:themeFontLang w:val="en-US" w:eastAsia="zh-CN"/>
+  <w:compat><w:compatSetting w:name="compatibilityMode" w:uri="http://schemas.microsoft.com/office/word" w:val="15"/></w:compat>
+</w:settings>`);
+
+    // Build document.xml: each page is a heading + body paragraphs
+    const fontDecl = '<w:rPr><w:rFonts w:ascii="Calibri" w:eastAsia="SimSun" w:hAnsi="Calibri" w:cs="Calibri"/><w:sz w:val="22"/><w:szCs w:val="22"/></w:rPr>';
+    let body = '';
+    pageTexts.forEach((p, idx) => {
+      // Page header
+      body += `<w:p><w:pPr><w:pStyle w:val="Heading2"/></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Calibri" w:eastAsia="SimSun" w:hAnsi="Calibri"/><w:b/><w:sz w:val="24"/></w:rPr><w:t xml:space="preserve">Page ${p.page}</w:t></w:r></w:p>`;
+      // Body: split into paragraphs by blank line
+      const paragraphs = p.text.split(/\n\s*\n/).map(par => par.trim()).filter(Boolean);
+      for (const par of paragraphs) {
+        const lines = par.split('\n').map(l => l.trim()).filter(Boolean);
+        const cleanLines = lines.filter(l => l.length > 1 || /[\u4e00-\u9fff]/.test(l));
+        if (!cleanLines.length) continue;
+        const text = cleanLines.join(' ').replace(/\s+/g, ' ');
+        body += `<w:p><w:r>${fontDecl}<w:t xml:space="preserve">${escapeXml(text)}</w:t></w:r></w:p>`;
+      }
+      // Page break between pages
+      if (idx < pageTexts.length - 1) {
+        body += '<w:p><w:r><w:br w:type="page"/></w:r></w:p>';
+      }
+    });
+    if (!body) body = '<w:p><w:r><w:t xml:space="preserve">(no text detected)</w:t></w:r></w:p>';
+
+    zip.folder('word').file('document.xml', `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+  <w:body>${body}
+    <w:sectPr>
+      <w:pgSz w:w="12240" w:h="15840"/>
+      <w:pgMar w:top="1440" w:right="1440" w:bottom="1440" w:left="1440" w:header="720" w:footer="720" w:gutter="0"/>
+      <w:cols w:space="425"/>
+      <w:docGrid w:type="lines" w:linePitch="312"/>
+    </w:sectPr>
+  </w:body>
+</w:document>`);
+
+    return await zip.generateAsync({ type: 'blob', mimeType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' });
+  }
 
   /* ---------- Unicode font loader (for Searchable PDF on CJK content) ---------- */
   // pdf-lib's StandardFonts only cover WinAnsi (ASCII + Latin-1), which fails
