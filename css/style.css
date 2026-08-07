@@ -1215,3 +1215,60 @@ img { max-width: 100%; display: block; }
   margin: 0;
   line-height: 1.5;
 }
+
+/* ============================== Visitor Stats ============================== */
+.visitor-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  padding: 18px 0;
+  margin-top: 20px;
+  border-top: 1px solid var(--border);
+}
+.visitor-stats .stat-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.visitor-stats .stat-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--brand);
+  flex-shrink: 0;
+}
+.visitor-stats .stat-label {
+  font-size: 13px;
+  color: var(--text-soft);
+  font-weight: 500;
+  white-space: nowrap;
+}
+.visitor-stats .stat-value {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--brand);
+  font-variant-numeric: tabular-nums;
+  min-width: 28px;
+}
+.visitor-stats .stat-divider {
+  width: 1px;
+  height: 22px;
+  background: var(--border);
+  flex-shrink: 0;
+}
+@media (max-width: 640px) {
+  .visitor-stats {
+    gap: 18px;
+    padding: 14px 0;
+  }
+  .visitor-stats .stat-label {
+    font-size: 12px;
+  }
+  .visitor-stats .stat-value {
+    font-size: 15px;
+  }
+}
+[data-theme="dark"] .visitor-stats .stat-icon,
+[data-theme="dark"] .visitor-stats .stat-value {
+  color: var(--brand-light, #a78bfa);
+}
