@@ -954,6 +954,24 @@ img { max-width: 100%; display: block; }
 
 /* ============================== Related tools (tool pages) ============================== */
 
+/* OCR hint banner — explains when OCR is the right tool vs PDF→Word */
+.ocr-hint {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 14px 18px;
+  margin-bottom: 18px;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.06), rgba(124, 58, 237, 0.02));
+  border: 1px solid rgba(124, 58, 237, 0.18);
+  border-radius: var(--radius);
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--text);
+}
+.ocr-hint-icon { font-size: 20px; line-height: 1.4; }
+.ocr-hint strong { color: var(--brand); }
+.ocr-hint a { color: var(--brand); text-decoration: underline; font-weight: 600; }
+
 .related-tools {
   margin-top: 60px;
   padding-top: 40px;
