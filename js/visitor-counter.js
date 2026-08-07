@@ -91,17 +91,38 @@
   /* ---------- 计数逻辑 ---------- */
 
   function fetchCount(key, shouldIncrement) {
+    // /up 自增并返回新值（无尾斜杠即可）；纯读必须带尾斜杠，否则会 301 重定向。
     var url = shouldIncrement
       ? API_BASE + '/' + key + '/up'
-      : API_BASE + '/' + key;
+      : API_BASE + '/' + key + '/';
 
-    return fetch(url, { method: 'GET' })
+    var TIMEOUT_MS = 10000;
+    var controller = (typeof AbortController !== 'undefined') ? new AbortController() : null;
+    var timer = null;
+
+    if (controller) {
+      timer = setTimeout(function () {
+        try { controller.abort(); } catch (e) {}
+      }, TIMEOUT_MS);
+    }
+
+    var opts = { method: 'GET' };
+    if (controller) opts.signal = controller.signal;
+
+    return fetch(url, opts)
       .then(function (r) {
+        if (timer) { clearTimeout(timer); timer = null; }
         if (!r.ok) throw new Error('HTTP ' + r.status);
         return r.json();
       })
-      .then(function (data) { return data.count || 0; })
-      .catch(function () { return null; });
+      .then(function (data) {
+        // 严格校验，避免把空对象/字符串当成 0 显示
+        return (data && typeof data.count === 'number') ? data.count : null;
+      })
+      .catch(function () {
+        if (timer) { clearTimeout(timer); timer = null; }
+        return null;
+      });
   }
 
   /* ---------- 初始化 ---------- */
@@ -114,22 +135,24 @@
       alreadyCounted = sessionStorage.getItem(SESSION_KEY) === '1';
     } catch (e) { /* sessionStorage 不可用时也正常工作 */ }
 
+    var inc = !alreadyCounted;
     var todayKey = getTodayKey();
 
-    Promise.all([
-      fetchCount('total', !alreadyCounted),
-      fetchCount(todayKey, !alreadyCounted)
-    ]).then(function (results) {
-      var totalEl = document.getElementById('vcTotal');
-      var todayEl = document.getElementById('vcToday');
-      if (totalEl) animateValue(totalEl, results[0]);
-      if (todayEl) animateValue(todayEl, results[1]);
-
-      // 标记已计数
-      if (!alreadyCounted) {
-        try { sessionStorage.setItem(SESSION_KEY, '1'); } catch (e) {}
-      }
+    // 独立渲染：任一接口慢或挂掉，绝不阻塞另一个的显示。
+    // （原 Promise.all 会让"今日"的首日自动创建延迟把"总访问量"也拖到 —。）
+    fetchCount('total', inc).then(function (count) {
+      var el = document.getElementById('vcTotal');
+      if (el) animateValue(el, count);
     });
+    fetchCount(todayKey, inc).then(function (count) {
+      var el = document.getElementById('vcToday');
+      if (el) animateValue(el, count);
+    });
+
+    // 标记已计数（首次访问后，同会话不再递增）
+    if (inc) {
+      try { sessionStorage.setItem(SESSION_KEY, '1'); } catch (e) {}
+    }
   }
 
   if (document.readyState === 'loading') {
