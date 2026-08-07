@@ -92,36 +92,49 @@
 
   /**
    * 只读获取计数（带尾斜杠避免 301）。
-   * counterapi.dev 只读接口 ~8s 返回，设 15s 超时兜底。
+   * counterapi.dev 服务波动大，单次请求可能在 4s~30s+ 之间。
+   * 策略：12s 超时后自动重试一次（间隔 2s），覆盖瞬时抖动。
    */
   function fetchReadOnly(key) {
     var url = API_BASE + '/' + key + '/';
-    var TIMEOUT_MS = 15000;
-    var controller = (typeof AbortController !== 'undefined') ? new AbortController() : null;
-    var timer = null;
+    var TIMEOUT_MS = 12000;
+    var RETRY_DELAY_MS = 2000;
 
-    if (controller) {
-      timer = setTimeout(function () {
-        try { controller.abort(); } catch (e) {}
-      }, TIMEOUT_MS);
+    function attempt() {
+      var controller = (typeof AbortController !== 'undefined') ? new AbortController() : null;
+      var timer = null;
+
+      if (controller) {
+        timer = setTimeout(function () {
+          try { controller.abort(); } catch (e) {}
+        }, TIMEOUT_MS);
+      }
+
+      var opts = { method: 'GET' };
+      if (controller) opts.signal = controller.signal;
+
+      return fetch(url, opts)
+        .then(function (r) {
+          if (timer) { clearTimeout(timer); timer = null; }
+          if (!r.ok) throw new Error('HTTP ' + r.status);
+          return r.json();
+        })
+        .then(function (data) {
+          return (data && typeof data.count === 'number') ? data.count : null;
+        })
+        .catch(function () {
+          if (timer) { clearTimeout(timer); timer = null; }
+          return null;
+        });
     }
 
-    var opts = { method: 'GET' };
-    if (controller) opts.signal = controller.signal;
-
-    return fetch(url, opts)
-      .then(function (r) {
-        if (timer) { clearTimeout(timer); timer = null; }
-        if (!r.ok) throw new Error('HTTP ' + r.status);
-        return r.json();
-      })
-      .then(function (data) {
-        return (data && typeof data.count === 'number') ? data.count : null;
-      })
-      .catch(function () {
-        if (timer) { clearTimeout(timer); timer = null; }
-        return null;
+    // 首次失败 → 等 2s → 重试一次。再失败就返回 null（显示 —）
+    return attempt().then(function (count) {
+      if (count !== null) return count;
+      return new Promise(function (resolve) {
+        setTimeout(function () { attempt().then(resolve); }, RETRY_DELAY_MS);
       });
+    });
   }
 
   /**
