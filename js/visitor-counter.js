@@ -90,18 +90,63 @@
 
   /* ---------- 计数逻辑 ---------- */
 
-  function fetchCount(key, shouldIncrement) {
-    var url = shouldIncrement
-      ? API_BASE + '/' + key + '/up'
-      : API_BASE + '/' + key;
+  /**
+   * 只读获取计数（带尾斜杠避免 301）。
+   * counterapi.dev 服务波动大，单次请求可能在 4s~30s+ 之间。
+   * 策略：12s 超时后自动重试一次（间隔 2s），覆盖瞬时抖动。
+   */
+  function fetchReadOnly(key) {
+    var url = API_BASE + '/' + key + '/';
+    var TIMEOUT_MS = 12000;
+    var RETRY_DELAY_MS = 2000;
 
-    return fetch(url, { method: 'GET' })
-      .then(function (r) {
-        if (!r.ok) throw new Error('HTTP ' + r.status);
-        return r.json();
-      })
-      .then(function (data) { return data.count || 0; })
-      .catch(function () { return null; });
+    function attempt() {
+      var controller = (typeof AbortController !== 'undefined') ? new AbortController() : null;
+      var timer = null;
+
+      if (controller) {
+        timer = setTimeout(function () {
+          try { controller.abort(); } catch (e) {}
+        }, TIMEOUT_MS);
+      }
+
+      var opts = { method: 'GET' };
+      if (controller) opts.signal = controller.signal;
+
+      return fetch(url, opts)
+        .then(function (r) {
+          if (timer) { clearTimeout(timer); timer = null; }
+          if (!r.ok) throw new Error('HTTP ' + r.status);
+          return r.json();
+        })
+        .then(function (data) {
+          return (data && typeof data.count === 'number') ? data.count : null;
+        })
+        .catch(function () {
+          if (timer) { clearTimeout(timer); timer = null; }
+          return null;
+        });
+    }
+
+    // 首次失败 → 等 2s → 重试一次。再失败就返回 null（显示 —）
+    return attempt().then(function (count) {
+      if (count !== null) return count;
+      return new Promise(function (resolve) {
+        setTimeout(function () { attempt().then(resolve); }, RETRY_DELAY_MS);
+      });
+    });
+  }
+
+  /**
+   * fire-and-forget 递增计数。
+   * counterapi.dev 的 /up 端点极慢（30s+），不能等它返回再渲染。
+   * 用 no-cors + keepalive 发出请求即可，服务器会处理递增，浏览器不等响应。
+   */
+  function incrementBackground(key) {
+    var url = API_BASE + '/' + key + '/up';
+    try {
+      fetch(url, { mode: 'no-cors', keepalive: true }).catch(function () {});
+    } catch (e) { /* 静默失败 */ }
   }
 
   /* ---------- 初始化 ---------- */
@@ -116,19 +161,21 @@
 
     var todayKey = getTodayKey();
 
-    Promise.all([
-      fetchCount('total', !alreadyCounted),
-      fetchCount(todayKey, !alreadyCounted)
-    ]).then(function (results) {
-      var totalEl = document.getElementById('vcTotal');
-      var todayEl = document.getElementById('vcToday');
-      if (totalEl) animateValue(totalEl, results[0]);
-      if (todayEl) animateValue(todayEl, results[1]);
+    // 新会话：fire-and-forget 递增（不等返回，不阻塞渲染）
+    if (!alreadyCounted) {
+      incrementBackground('total');
+      incrementBackground(todayKey);
+      try { sessionStorage.setItem(SESSION_KEY, '1'); } catch (e) {}
+    }
 
-      // 标记已计数
-      if (!alreadyCounted) {
-        try { sessionStorage.setItem(SESSION_KEY, '1'); } catch (e) {}
-      }
+    // 独立渲染：用只读接口获取计数（~8s），两个互不阻塞
+    fetchReadOnly('total').then(function (count) {
+      var el = document.getElementById('vcTotal');
+      if (el) animateValue(el, count);
+    });
+    fetchReadOnly(todayKey).then(function (count) {
+      var el = document.getElementById('vcToday');
+      if (el) animateValue(el, count);
     });
   }
 
