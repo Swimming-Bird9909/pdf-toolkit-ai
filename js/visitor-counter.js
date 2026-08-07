@@ -90,13 +90,13 @@
 
   /* ---------- 计数逻辑 ---------- */
 
-  function fetchCount(key, shouldIncrement) {
-    // /up 自增并返回新值（无尾斜杠即可）；纯读必须带尾斜杠，否则会 301 重定向。
-    var url = shouldIncrement
-      ? API_BASE + '/' + key + '/up'
-      : API_BASE + '/' + key + '/';
-
-    var TIMEOUT_MS = 10000;
+  /**
+   * 只读获取计数（带尾斜杠避免 301）。
+   * counterapi.dev 只读接口 ~8s 返回，设 15s 超时兜底。
+   */
+  function fetchReadOnly(key) {
+    var url = API_BASE + '/' + key + '/';
+    var TIMEOUT_MS = 15000;
     var controller = (typeof AbortController !== 'undefined') ? new AbortController() : null;
     var timer = null;
 
@@ -116,13 +116,24 @@
         return r.json();
       })
       .then(function (data) {
-        // 严格校验，避免把空对象/字符串当成 0 显示
         return (data && typeof data.count === 'number') ? data.count : null;
       })
       .catch(function () {
         if (timer) { clearTimeout(timer); timer = null; }
         return null;
       });
+  }
+
+  /**
+   * fire-and-forget 递增计数。
+   * counterapi.dev 的 /up 端点极慢（30s+），不能等它返回再渲染。
+   * 用 no-cors + keepalive 发出请求即可，服务器会处理递增，浏览器不等响应。
+   */
+  function incrementBackground(key) {
+    var url = API_BASE + '/' + key + '/up';
+    try {
+      fetch(url, { mode: 'no-cors', keepalive: true }).catch(function () {});
+    } catch (e) { /* 静默失败 */ }
   }
 
   /* ---------- 初始化 ---------- */
@@ -135,24 +146,24 @@
       alreadyCounted = sessionStorage.getItem(SESSION_KEY) === '1';
     } catch (e) { /* sessionStorage 不可用时也正常工作 */ }
 
-    var inc = !alreadyCounted;
     var todayKey = getTodayKey();
 
-    // 独立渲染：任一接口慢或挂掉，绝不阻塞另一个的显示。
-    // （原 Promise.all 会让"今日"的首日自动创建延迟把"总访问量"也拖到 —。）
-    fetchCount('total', inc).then(function (count) {
+    // 新会话：fire-and-forget 递增（不等返回，不阻塞渲染）
+    if (!alreadyCounted) {
+      incrementBackground('total');
+      incrementBackground(todayKey);
+      try { sessionStorage.setItem(SESSION_KEY, '1'); } catch (e) {}
+    }
+
+    // 独立渲染：用只读接口获取计数（~8s），两个互不阻塞
+    fetchReadOnly('total').then(function (count) {
       var el = document.getElementById('vcTotal');
       if (el) animateValue(el, count);
     });
-    fetchCount(todayKey, inc).then(function (count) {
+    fetchReadOnly(todayKey).then(function (count) {
       var el = document.getElementById('vcToday');
       if (el) animateValue(el, count);
     });
-
-    // 标记已计数（首次访问后，同会话不再递增）
-    if (inc) {
-      try { sessionStorage.setItem(SESSION_KEY, '1'); } catch (e) {}
-    }
   }
 
   if (document.readyState === 'loading') {
