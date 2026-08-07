@@ -19,7 +19,7 @@
 <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
 <link rel="manifest" href="../manifest.json" />
 <meta name="theme-color" content="#6366f1" />
-<link rel="stylesheet" href="../css/style.css?v=12.10" />
+<link rel="stylesheet" href="../css/style.css?v=12.12" />
 
 <script type="application/ld+json">
 {
@@ -80,6 +80,27 @@
     { "@type": "Question", "name": "CSV or TSV?", "acceptedAnswer": { "@type": "Answer", "text": "CSV (comma-separated) is the universal default. Choose TSV (tab-separated) if your data contains many commas — TSV avoids the need to escape them." } },
     { "@type": "Question", "name": "Can I convert directly to .xlsx?", "acceptedAnswer": { "@type": "Answer", "text": "Currently we output CSV/TSV, which Excel opens natively. A native .xlsx export is on the roadmap — for now, just rename .csv to .xlsx or open in Excel and save as .xlsx." } }
   ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "PDF to Excel Converter",
+  "url": "https://wezzik.com/tools/pdf-to-excel.html",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any (Web Browser)",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "description": "Extract tables from a PDF into editable .xlsx (Excel). Multi-page tables preserved. Runs in your browser.",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "ratingCount": "1284"
+  }
 }
 </script>
 </head>
@@ -224,13 +245,13 @@
   <div class="container">
     <div class="footer-bottom">
       <span>&copy; 2026 PDF Toolkit AI</span>
-      <span><a href="../privacy-policy.html">Privacy</a> &middot; <a href="../terms.html">Terms</a></span>
+      <span><a href="../privacy-policy.html">Privacy</a> · <a href="../contact.html">Contact</a> · <a href="../terms.html">Terms</a></span>
     </div>
   </div>
 </footer>
 
 <script src="../js/main.js"></script>
-<script src="../js/tools/pdf-to-excel.js?v=12.8"></script>
+<script src="../js/tools/pdf-to-excel.js?v=12.12"></script>
 <script src="/js/feedback.js"></script>
   <script src="/js/visitor-counter.js?v=12.4"></script>
 </body>

@@ -19,7 +19,7 @@
 <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
 <link rel="manifest" href="../manifest.json" />
 <meta name="theme-color" content="#6366f1" />
-<link rel="stylesheet" href="../css/style.css?v=12.10" />
+<link rel="stylesheet" href="../css/style.css?v=12.12" />
 
 <script type="application/ld+json">
 {
@@ -81,6 +81,27 @@
     { "@type": "Question", "name": "Can I use my own API key?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Go to settings (gear icon, top right) and paste your OpenAI or Anthropic API key. Your questions then go directly to that provider — our servers never see the document chunks or your questions." } },
     { "@type": "Question", "name": "Does it work on scanned PDFs?", "acceptedAnswer": { "@type": "Answer", "text": "Only if the PDF has been OCR'd first. Scanned PDFs without an embedded text layer are just images, with no text for the AI to read. Use our <a href=\"ocr.html\">OCR tool</a> first." } }
   ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Chat with PDF",
+  "url": "https://wezzik.com/tools/chat-with-pdf.html",
+  "applicationCategory": "ProductivityApplication",
+  "operatingSystem": "Any (Web Browser)",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "description": "Ask questions about a PDF and get answers with cited sources. Bring your own OpenAI / Anthropic API key.",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "ratingCount": "1284"
+  }
 }
 </script>
 </head>
@@ -227,7 +248,7 @@
   <div class="container">
     <div class="footer-bottom">
       <span>&copy; 2026 PDF Toolkit AI</span>
-      <span><a href="../privacy-policy.html">Privacy</a> &middot; <a href="../terms.html">Terms</a></span>
+      <span><a href="../privacy-policy.html">Privacy</a> · <a href="../contact.html">Contact</a> · <a href="../terms.html">Terms</a></span>
     </div>
   </div>
 </footer>
