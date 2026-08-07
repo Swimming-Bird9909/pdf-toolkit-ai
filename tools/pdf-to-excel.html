@@ -140,11 +140,11 @@
       <h3>Extraction mode</h3>
       <label class="opt-row">
         <input type="radio" name="mode" value="lines" checked />
-        <span><strong>Line-by-line</strong> — each line of text becomes a row. Best for simple data lists.</span>
+        <span><strong>Plain text</strong> — each PDF line becomes one row, with the full line in a single cell. Best for reading text content.</span>
       </label>
       <label class="opt-row">
         <input type="radio" name="mode" value="blocks" />
-        <span><strong>Block grouping</strong> — groups lines by spatial proximity to approximate table rows.</span>
+        <span><strong>Block grouping</strong> — detects columns from spatial proximity. Best for actual tables. Each cell may contain multiple words from the same column.</span>
       </label>
     </div>
 
@@ -165,12 +165,12 @@
 
   <section class="prose">
     <h2>About this tool</h2>
-  <p>This tool extracts text from your PDF and structures it for spreadsheet import. Two extraction modes: <strong>line-by-line</strong> (each line is a row) for simple lists, and <strong>block grouping</strong> (groups spatially-close lines) for approximating table rows.</p>
+  <p>This tool extracts text from your PDF and structures it for spreadsheet import. Two extraction modes: <strong>plain text</strong> (each PDF line becomes one row with the full text in a single cell — best for text content, including CJK/Chinese) and <strong>block grouping</strong> (detects column structure from spatial proximity — best for actual tables).</p>
   <h3>How it works</h3>
   <ul>
     <li>Upload a PDF — everything happens in your browser, no upload.</li>
-    <li>We extract text with positional information using pdf.js.</li>
-    <li>In line mode, each line is one CSV row with columns derived from x-coordinate grouping.</li>
+    <li>We extract text with positional information (x, y, width) using pdf.js.</li>
+    <li>In plain text mode, each PDF line is one CSV row with all characters concatenated into one cell. Smart spacing: a real gap (e.g. between English words) becomes a space; CJK characters (no gap) stay joined.</li>
     <li>In block mode, we group nearby lines vertically and align them by x-position to approximate table structure.</li>
     <li>Output opens in Excel, Google Sheets, Numbers, and any spreadsheet app.</li>
   </ul>
@@ -226,7 +226,7 @@
 </footer>
 
 <script src="../js/main.js"></script>
-<script src="../js/tools/pdf-to-excel.js"></script>
+<script src="../js/tools/pdf-to-excel.js?v=12.8"></script>
 <script src="/js/feedback.js"></script>
   <script src="/js/visitor-counter.js?v=12.4"></script>
 </body>
