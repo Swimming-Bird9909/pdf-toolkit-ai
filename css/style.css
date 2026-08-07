@@ -254,6 +254,7 @@ img { max-width: 100%; display: block; }
   padding: 22px;
   box-shadow: var(--shadow-sm);
   transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  min-width: 0;  /* 允许 grid 容器中按 1fr 收缩到内容以下 */
 }
 .card:hover {
   transform: translateY(-3px);
@@ -965,12 +966,16 @@ img { max-width: 100%; display: block; }
   text-align: center;
 }
 .related-tools .grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  display: flex;
   gap: 18px;
+  width: 100%;
+}
+.related-tools .card {
+  flex: 1 1 0;
+  min-width: 0;
 }
 @media (max-width: 800px) {
-  .related-tools .grid { grid-template-columns: 1fr; }
+  .related-tools .grid { flex-direction: column; }
 }
 
 /* ============================== Feedback Module ============================== */
