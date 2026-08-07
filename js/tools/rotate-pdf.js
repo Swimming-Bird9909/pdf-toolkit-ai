@@ -49,11 +49,13 @@
     btn.innerHTML = '<span class="loader"></span> Rotating…';
     document.getElementById('result').classList.remove('active');
     try {
-      const { PDFDocument } = await window.loadPdfLib();
+      const { PDFDocument, degrees, reduceRotation } = await window.loadPdfLib();
       const buf = await window.readFileBuffer(currentFile);
       const src = await PDFDocument.load(buf);
       const total = src.getPageCount();
 
+      // User-selected angle is in clockwise degrees. pdf-lib / the PDF spec
+      // measure page rotation counter-clockwise, so flip the sign.
       const angle = parseInt(document.querySelector('input[name="angle"]:checked').value, 10);
       const scope = document.querySelector('input[name="scope"]:checked').value;
 
@@ -78,15 +80,19 @@
       }
 
       window.setProgress('#progress', 50, 'Rotating pages…');
-      // pdf-lib rotations: 0, 90, 180, 270
-      // The angle we collect is "clockwise" — pdf-lib uses counter-clockwise internally
-      // Map: 90 cw = 270 in pdf-lib, 180 cw = 180, 270 cw = 90
-      const pdfLibAngle = angle === 90 ? 270 : angle === 270 ? 90 : 180;
-
+      // Per PDF spec (ISO 32000-2 §7.7.3.3), /Rotate is a *clockwise* integer
+      // in {0, 90, 180, 270}. Same direction as the user's "clockwise" choice,
+      // so we pass the angle through unchanged — but wrap it in degrees(n) so
+      // pdf-lib accepts the value (raw numbers throw "Invalid rotation: 90").
+      // We add to the existing rotation (not replace it) so a page that was
+      // already 180° and gets "90° cw" becomes 270°, not 90°. reduceRotation()
+      // then normalizes the sum back to a valid multiple-of-90.
+      const pdfDelta = angle; // 0, 90, 180, or 270
       for (const pageNum of pagesToRotate) {
         const page = src.getPage(pageNum - 1);
-        const current = page.getRotation().angle;
-        page.setRotation((current + pdfLibAngle) % 360);
+        const current = page.getRotation().angle || 0;   // 0/90/180/270
+        const next = reduceRotation((current + pdfDelta) % 360);
+        page.setRotation(degrees(next));
       }
 
       window.setProgress('#progress', 85, 'Saving…');
