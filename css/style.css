@@ -715,6 +715,16 @@ img { max-width: 100%; display: block; }
 .prose ul, .prose ol { padding-left: 22px; }
 .prose a { color: var(--brand); }
 
+/* Force white text on buttons inside prose (override .prose a color) */
+.prose .btn,
+.prose .btn-primary,
+.prose .btn-ghost {
+  color: #fff;
+}
+.prose .btn-ghost {
+  color: var(--text-soft);
+}
+
 /* ============================== Breadcrumb ============================== */
 
 .breadcrumb {

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<title>AI PDF Summary: digest a 100-page report in 30 seconds — PDF Toolkit AI</title>
+<meta name="description" content="How to use AI PDF Summary to extract TL;DR, key points, and section breakdowns from any PDF. Runs locally, no API, files never leave your browser." />
+<link rel="canonical" href="https://wezzik.com/blog/ai-summary-guide.html" />
+  <link rel="alternate" hreflang="en" href="https://wezzik.com/blog/ai-summary-guide.html" />
+  <link rel="alternate" hreflang="x-default" href="https://wezzik.com/blog/ai-summary-guide.html" />
+<meta property="og:title" content="AI PDF Summary: digest a 100-page report in 30 seconds" />
+<meta property="og:description" content="Extract TL;DR, key points, and section breakdowns from any PDF — locally, no API." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wezzik.com/blog/ai-summary-guide.html" />
+<meta name="robots" content="index, follow" />
+<link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
+<meta name="theme-color" content="#6366f1" />
+<link rel="stylesheet" href="../css/style.css?v=12.13" />
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"AI PDF Summary: digest a 100-page report in 30 seconds",
+  "description":"How to use AI PDF Summary to extract TL;DR, key points, and section breakdowns from any PDF.",
+  "author":{"@type":"Organization","name":"PDF Toolkit AI"},
+  "publisher":{"@type":"Organization","name":"PDF Toolkit AI","url":"https://wezzik.com/"},
+  "datePublished":"2026-08-07",
+  "dateModified":"2026-08-07"
+}
+</script>
+</head>
+<body>
+
+<!-- ============================ Navbar ============================ -->
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="../" class="brand">
+      <div class="brand-logo">📄</div>
+      <span>PDF Toolkit AI</span>
+    </a>
+    <div class="nav-links">
+      <a href="../#tools">Tools</a>
+      <a href="../#features">Why us</a>
+      <a href="../blog.html" aria-current="page" style="color:var(--brand);">Blog</a>
+      <a href="../#faq">FAQ</a>
+    </div>
+    <div class="nav-cta">
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+      <a href="../tools/ai-summary.html" class="btn btn-primary btn-sm">Get started</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================ Article Hero ============================ -->
+<header class="hero">
+  <div class="container" style="max-width:780px;">
+    <div class="hero-badges">
+      <span class="dot"></span>
+      <span>🤖 AI tools</span>
+    </div>
+    <h1>AI PDF Summary: digest a 100-page report<br/><span class="grad">in 30 seconds</span></h1>
+    <p>You just received a 120-page market research report. The meeting is in 20 minutes. You need the key findings, the methodology, and the recommendations — fast. Here's how to extract all of that without reading every page.</p>
+    <div class="hero-cta" style="justify-content:center;">
+      <a href="../tools/ai-summary.html" class="btn btn-primary btn-lg">Try AI Summary →</a>
+      <a href="../blog.html" class="btn btn-ghost btn-lg">← All articles</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============================ Article ============================ -->
+<main class="container section" style="max-width:780px;">
+  <article class="prose">
+    <p class="soft">📅 August 7, 2026 · 5 min read · <a href="../tools/ai-summary.html">AI Summary</a> tool</p>
+
+    <h2>What AI PDF Summary does</h2>
+    <p>Drop a PDF, and in about 5 seconds you get a structured summary with five sections:</p>
+    <ul>
+      <li><strong>TL;DR</strong> — a 2-3 sentence overview of the entire document</li>
+      <li><strong>Key Points</strong> — the 5-8 most important takeaways, numbered</li>
+      <li><strong>Section Summaries</strong> — a breakdown of each major section</li>
+      <li><strong>Tags</strong> — auto-generated keywords for quick categorization</li>
+      <li><strong>Stats</strong> — page count, word count, estimated reading time</li>
+    </ul>
+    <p>No external API calls. No OpenAI. No Google. The entire algorithm runs in your browser.</p>
+
+    <h2>How it works (under the hood)</h2>
+    <p>The summary engine uses a combination of two well-established NLP techniques:</p>
+
+    <h3>1. TF-IDF sentence scoring</h3>
+    <p>Every sentence in the PDF is scored by how much unique information it carries. Sentences containing rare, document-specific terms score higher than sentences with generic language ("the report shows that..." scores lower than "revenue grew 23% in Q3").</p>
+
+    <h3>2. MMR (Maximal Marginal Relevance)</h3>
+    <p>If we only picked the highest-scoring sentences, the summary would be repetitive — the top 5 sentences might all say the same thing in different ways. MMR solves this by selecting sentences that are both <em>relevant</em> (high TF-IDF score) and <em>diverse</em> (different from already-selected sentences). The result: a summary that covers multiple aspects of the document instead of repeating one point.</p>
+
+    <h2>Step-by-step walkthrough</h2>
+    <ol>
+      <li>Open the <a href="../tools/ai-summary.html">AI Summary tool</a>.</li>
+      <li>Drop your PDF (or click to browse).</li>
+      <li>Wait ~5 seconds. The tool extracts text with pdf.js, runs TF-IDF + MMR, and renders the structured summary.</li>
+      <li>Read the TL;DR for the big picture. Scan the Key Points for specifics. Dive into Section Summaries for detail.</li>
+      <li>Copy any section to clipboard, or download the full summary as text.</li>
+    </ol>
+
+    <h2>What the output looks like</h2>
+    <p>The summary is presented as a clean, card-based layout:</p>
+    <ul>
+      <li><strong>TL;DR card</strong> — highlighted hero block at the top</li>
+      <li><strong>Key Points</strong> — numbered list with bold lead-ins</li>
+      <li><strong>Section cards</strong> — each section gets its own card with a heading and 2-3 sentence summary</li>
+      <li><strong>Tag chips</strong> — clickable keyword pills</li>
+      <li><strong>Stats grid</strong> — pages, words, reading time at a glance</li>
+    </ul>
+
+    <h2>When to use Summary vs. Chat with PDF</h2>
+    <p>We offer two AI tools. They serve different purposes:</p>
+    <table style="width:100%; border-collapse:collapse; margin:16px 0;">
+      <thead>
+        <tr style="border-bottom:2px solid var(--border);">
+          <th style="text-align:left; padding:8px;">Feature</th>
+          <th style="text-align:left; padding:8px;">AI Summary</th>
+          <th style="text-align:left; padding:8px;">Chat with PDF</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:8px;">Best for</td>
+          <td style="padding:8px;">Quick overview before reading</td>
+          <td style="padding:8px;">Specific questions about content</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:8px;">Input</td>
+          <td style="padding:8px;">Just drop the PDF</td>
+          <td style="padding:8px;">Drop PDF + type questions</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:8px;">Output</td>
+          <td style="padding:8px;">Structured summary (TL;DR, points, sections)</td>
+          <td style="padding:8px;">Answers with page references</td>
+        </tr>
+        <tr>
+          <td style="padding:8px;">Use together</td>
+          <td colspan="2" style="padding:8px;">Summarize first to understand the document, then chat to drill into specific details.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Privacy: 100% local processing</h2>
+    <p>This is the part most AI summary tools can't claim. Our AI Summary runs <strong>entirely in your browser</strong>. The text extraction (pdf.js), the scoring algorithm (TF-IDF + MMR), and the rendering all happen client-side. There are zero API calls to OpenAI, Google, or any third party.</p>
+    <p>Why does this matter? Because the PDFs people summarize are often confidential — market research, legal briefs, internal strategy docs, academic papers under embargo. With a cloud-based AI tool, you'd be uploading the full text to someone else's server. With our tool, the text never leaves your device.</p>
+
+    <h2>FAQ</h2>
+    <p><strong>Does it work with scanned PDFs?</strong><br/>Not directly — scanned PDFs are images without a text layer. Run them through our <a href="../tools/ocr.html">OCR tool</a> first, then summarize the result.</p>
+    <p><strong>What languages are supported?</strong><br/>Any language that uses spaces or punctuation for sentence boundaries. This includes English, Spanish, French, German, and most European languages. CJK languages (Chinese, Japanese, Korean) are supported with special handling for sentence segmentation.</p>
+    <p><strong>How accurate is the summary?</strong><br/>It's extractive (selects actual sentences from the document) rather than abstractive (generates new text). This means it can't paraphrase or synthesize across sections, but it also means it can't hallucinate — every sentence in the summary is verbatim from the source.</p>
+    <p><strong>What's the maximum file size?</strong><br/>~200 MB or ~1,000 pages, whichever comes first. Processing time scales with document length: a 10-page PDF takes ~2 seconds; a 500-page PDF takes ~15 seconds.</p>
+    <p><strong>Can I summarize multiple PDFs at once?</strong><br/>Not yet — one at a time. For batch processing, merge the PDFs first with our <a href="../tools/merge.html">merger</a>, then summarize the combined file.</p>
+
+    <p style="margin-top:40px; text-align:center;">
+      <a class="btn btn-primary btn-lg" href="../tools/ai-summary.html">Try AI Summary →</a>
+    </p>
+  </article>
+</main>
+
+<!-- ============================ Footer ============================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="../" class="brand">
+          <div class="brand-logo">📄</div>
+          <span>PDF Toolkit AI</span>
+        </a>
+        <p class="soft" style="margin-top:12px; max-width:300px;">10 free, private, browser-based PDF tools. Your files never leave your device.</p>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="../tools/compress.html">Compress PDF</a></li>
+          <li><a href="../tools/merge.html">Merge PDF</a></li>
+          <li><a href="../tools/split.html">Split PDF</a></li>
+          <li><a href="../tools/ocr.html">PDF OCR</a></li>
+          <li><a href="../tools/ai-summary.html">AI Summary</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>More</h4>
+        <ul>
+          <li><a href="../blog.html">Blog</a></li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../terms.html">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 PDF Toolkit AI</span>
+      <span>Made with care · Files never leave your browser</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js?v=12.13"></script>
+  <script src="/js/feedback.js"></script>
+  <script src="/js/visitor-counter.js?v=12.4"></script>
+</body>
+</html>
