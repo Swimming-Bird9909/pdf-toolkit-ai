@@ -78,9 +78,10 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    { "@type": "Question", "name": "Will my tables be perfectly preserved?", "acceptedAnswer": { "@type": "Answer", "text": "Honest answer: no. PDF has no native table structure — tables are visual layouts of text. Our \"block grouping\" mode approximates table rows by spatial proximity, but complex tables with merged cells, multi-line cells, or unusual layouts will need cleanup in Excel. We optimize for common cases (financial tables, data lists, simple grids)." } },
+    { "@type": "Question", "name": "Which extraction mode should I pick?", "acceptedAnswer": { "@type": "Answer", "text": "Use Auto (the default) for most cases. It picks plain text for articles / CJK content and column grouping for real tables. If Auto picks wrong, switch manually." } },
+    { "@type": "Question", "name": "My Chinese / Japanese / Korean PDF came out with phantom columns — how do I fix it?", "acceptedAnswer": { "@type": "Answer", "text": "Switch to plain text mode. Column grouping assumes the PDF has aligned vertical columns; an article-style PDF will produce many phantom columns even when there's only one logical text flow. The new column-detection algorithm only treats x-positions as real columns if they appear as item-starts in at least 30% of lines, which prevents most phantom-column cases — but plain text is still the safest bet for CJK articles." } },
     { "@type": "Question", "name": "CSV or TSV?", "acceptedAnswer": { "@type": "Answer", "text": "CSV (comma-separated) is the universal default. Choose TSV (tab-separated) if your data contains many commas — TSV avoids the need to escape them." } },
-    { "@type": "Question", "name": "Can I convert directly to .xlsx?", "acceptedAnswer": { "@type": "Answer", "text": "Currently we output CSV/TSV, which Excel opens natively. A native .xlsx export is on the roadmap — for now, just rename .csv to .xlsx or open in Excel and save as .xlsx." } }
+    { "@type": "Question", "name": "Can I convert directly to .xlsx?", "acceptedAnswer": { "@type": "Answer", "text": "Currently we output CSV/TSV, which Excel opens natively. A native .xlsx export is on the roadmap — for now, just rename .csv to .xlsx or open in Excel and save as .xlsx. Output is UTF-8 with BOM so Excel auto-detects encoding for CJK / emoji." } }
   ]
 }
 </script>
@@ -167,12 +168,16 @@
       </label>
       <h3>Extraction mode</h3>
       <label class="opt-row">
-        <input type="radio" name="mode" value="lines" checked />
-        <span><strong>Plain text</strong> — each PDF line becomes one row, with the full line in a single cell. Best for reading text content.</span>
+        <input type="radio" name="mode" value="auto" checked />
+        <span><strong>Auto (recommended)</strong> — automatically picks the best strategy: <em>plain text</em> for articles, letters, and other flowing content; <em>column grouping</em> for real tables. Detected mode is shown in the result.</span>
+      </label>
+      <label class="opt-row">
+        <input type="radio" name="mode" value="lines" />
+        <span><strong>Plain text</strong> — each PDF line becomes one row with the full text in a single cell. Best for articles, CJK content, and reading-oriented PDFs.</span>
       </label>
       <label class="opt-row">
         <input type="radio" name="mode" value="blocks" />
-        <span><strong>Block grouping</strong> — detects columns from spatial proximity. Best for actual tables. Each cell may contain multiple words from the same column.</span>
+        <span><strong>Column grouping (table mode)</strong> — detects table columns from x-position alignment and puts each column's text into its own cell. Best for actual data tables (financial reports, schedules, lists with multiple columns). Uses frequency-based column detection so it doesn't fragment a single phrase into many phantom columns.</span>
       </label>
     </div>
 
@@ -193,14 +198,15 @@
 
   <section class="prose">
     <h2>About this tool</h2>
-  <p>This tool extracts text from your PDF and structures it for spreadsheet import. Two extraction modes: <strong>plain text</strong> (each PDF line becomes one row with the full text in a single cell — best for text content, including CJK/Chinese) and <strong>block grouping</strong> (detects column structure from spatial proximity — best for actual tables).</p>
+  <p>This tool extracts text from your PDF and structures it for spreadsheet import. Three modes: <strong>Auto</strong> (recommended — picks the right strategy per document), <strong>plain text</strong> (each PDF line becomes one row with the full text in a single cell — best for articles, CJK content, letters, and any reading-oriented PDF), and <strong>column grouping</strong> (detects table columns from x-position alignment — best for actual data tables).</p>
   <h3>How it works</h3>
   <ul>
     <li>Upload a PDF — everything happens in your browser, no upload.</li>
     <li>We extract text with positional information (x, y, width) using pdf.js.</li>
-    <li>In plain text mode, each PDF line is one CSV row with all characters concatenated into one cell. Smart spacing: a real gap (e.g. between English words) becomes a space; CJK characters (no gap) stay joined.</li>
-    <li>In block mode, we group nearby lines vertically and align them by x-position to approximate table structure.</li>
-    <li>Output opens in Excel, Google Sheets, Numbers, and any spreadsheet app.</li>
+    <li>In Auto mode we analyze the first page's x-position distribution: if the same x-positions appear as item-starts in ≥ 30 % of lines, we treat it as a table and use column grouping; otherwise we fall back to plain text. The chosen mode is shown in the result panel.</li>
+    <li>In plain text mode, each PDF line is one CSV row with all characters concatenated into one cell. Smart spacing: a real gap (e.g. between English words) becomes a space; CJK characters (no gap) stay joined. Blank rows are inserted at paragraph breaks.</li>
+    <li>In column-grouping mode, we only treat x-positions as columns if they appear as item-starts in ≥ 30 % of lines within a block. This filters out character-level jitter so a single phrase doesn't get split into phantom columns.</li>
+    <li>Output is UTF-8 with BOM so Excel detects CJK / emoji correctly when you double-click the .csv.</li>
   </ul>
   <h3>Limitations</h3>
   <ul>
@@ -211,9 +217,10 @@
 
     <h2>Frequently asked questions</h2>
     <div class="faq">
-      <details><summary>Will my tables be perfectly preserved?</summary><p>Honest answer: no. PDF has no native table structure — tables are visual layouts of text. Our \</p></details>
+      <details><summary>Which extraction mode should I pick?</summary><p>Use <strong>Auto</strong> (the default) for most cases. It picks <em>plain text</em> for articles / CJK content and <em>column grouping</em> for real tables. If Auto picks wrong, switch to the other mode manually.</p></details>
+      <details><summary>My Chinese / Japanese / Korean PDF came out with phantom columns — how do I fix it?</summary><p>Switch to <strong>plain text</strong> mode. Column grouping assumes the PDF has aligned vertical columns; an article-style PDF will produce many phantom columns even when there's only one logical text flow. The new column-detection algorithm only treats x-positions as real columns if they appear as item-starts in ≥ 30 % of lines, which prevents most phantom-column cases — but plain text is still the safest bet for CJK articles.</p></details>
       <details><summary>CSV or TSV?</summary><p>CSV (comma-separated) is the universal default. Choose TSV (tab-separated) if your data contains many commas — TSV avoids the need to escape them.</p></details>
-      <details><summary>Can I convert directly to .xlsx?</summary><p>Currently we output CSV/TSV, which Excel opens natively. A native .xlsx export is on the roadmap — for now, just rename .csv to .xlsx or open in Excel and save as .xlsx.</p></details>
+      <details><summary>Can I convert directly to .xlsx?</summary><p>Currently we output CSV/TSV, which Excel opens natively. A native .xlsx export is on the roadmap — for now, just rename .csv to .xlsx or open in Excel and save as .xlsx. Output is UTF-8 with BOM so Excel auto-detects encoding for CJK / emoji.</p></details>
     </div>
   </section>
 </main>
@@ -267,7 +274,7 @@
 </footer>
 
 <script defer src="../js/main.js?v=12.19"></script>
-<script defer src="../js/tools/pdf-to-excel.js?v=12.13"></script>
+<script defer src="../js/tools/pdf-to-excel.js?v=12.20"></script>
 <script defer src="/js/feedback.js"></script>
   <script defer src="/js/visitor-counter.js?v=12.14"></script>
 </body>

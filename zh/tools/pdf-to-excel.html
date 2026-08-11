@@ -167,12 +167,16 @@
       </label>
       <h3>提取模式</h3>
       <label class="opt-row">
-        <input type="radio" name="mode" value="lines" checked />
-        <span><strong>纯文本</strong> — 每个 PDF 行成为一行，整行内容放在一个单元格中。最适合阅读文本内容。</span>
+        <input type="radio" name="mode" value="auto" checked />
+        <span><strong>自动（推荐）</strong> — 自动选择最佳策略：文章、书信等连续内容用<em>纯文本</em>；真正的表格用<em>列分组</em>。检测到的模式会显示在结果中。</span>
+      </label>
+      <label class="opt-row">
+        <input type="radio" name="mode" value="lines" />
+        <span><strong>纯文本</strong> — 每个 PDF 行成为一行，整行内容放在一个单元格中。最适合文章、CJK 内容、阅读型 PDF。</span>
       </label>
       <label class="opt-row">
         <input type="radio" name="mode" value="blocks" />
-        <span><strong>区块分组</strong> — 根据空间邻近度检测列。最适合真正的表格。每个单元格可能包含同一列的多个词。</span>
+        <span><strong>列分组（表格模式）</strong> — 通过 x 坐标对齐检测表格列，每列文本放入独立单元格。最适合真正的数据表（财务报表、时刻表、多列列表）。使用基于频次的列检测，不会把一段话拆成多个幻影列。</span>
       </label>
     </div>
 
@@ -267,7 +271,7 @@
 </footer>
 
 <script defer src="/js/main.js?v=12.19"></script>
-<script defer src="/js/tools/pdf-to-excel.js?v=12.13"></script>
+<script defer src="/js/tools/pdf-to-excel.js?v=12.20"></script>
 <script defer src="/js/feedback.js"></script>
   <script defer src="/js/visitor-counter.js?v=12.14"></script>
 </body>
