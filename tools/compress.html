@@ -4,6 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="preconnect" href="https://vc.wezzik.com" crossorigin>
   <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
 <title>Compress PDF to 100KB Online Free — No Quality Loss | PDF Toolkit AI</title>
 <meta name="description" content="Compress PDF to 100KB or any target size. Perfect for email attachments, job applications, and form uploads. 100% free, no signup, files stay in your browser." />
@@ -15,7 +16,8 @@
 <meta property="og:description" content="Shrink any PDF to a target size — 100KB, 200KB, or email-ready — without losing quality." />
 <meta name="robots" content="index, follow" />
 <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
-<link rel="stylesheet" href="../css/style.css?v=12.12" />
+<link rel="preload" as="style" href="../css/style.css?v=12.19">
+<link rel="stylesheet" href="../css/style.css?v=12.19" />
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -70,6 +72,48 @@
   }
 }
 </script>
+  <script async src="/js/analytics.js?v=12.19"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How small can I make a PDF?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Specify any target — 100KB, 200KB, 500KB, or custom. Lossless mode keeps text crisp; lossy mode hits aggressive targets by recompressing images."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does compression reduce quality?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Lossless mode preserves quality exactly. Lossy mode trades some image sharpness for size — preview before downloading."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my file uploaded to compress it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Compression runs in your browser with pdf-lib. Files never touch a server."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is my PDF still large after compressing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If the file is mostly text, there is little to shrink. Scanned or image-heavy PDFs see the biggest reductions."
+      }
+    }
+  ]
+}
+</script>
+
 </head>
 <body>
 
@@ -177,6 +221,43 @@
   </section>
 </main>
 
+<section class="next-step">
+  <div class="container">
+    <div class="next-step-inner">
+      <div>
+        <span class="eyebrow">Next step</span>
+        <h3>Combine several files?</h3>
+        <p>Compress first, then merge — or merge then compress, both work.</p>
+      </div>
+      <a class="btn btn-primary" href="../tools/merge.html">Merge PDF →</a>
+    </div>
+  </div>
+</section>
+
+  <section class="section" id="tool-faq">
+    <div class="container">
+      <h2 class="section-title">Frequently asked questions</h2>
+      <div class="faq">
+        <details>
+          <summary>How small can I make a PDF?</summary>
+          <p>Specify any target — 100KB, 200KB, 500KB, or custom. Lossless mode keeps text crisp; lossy mode hits aggressive targets by recompressing images.</p>
+        </details>
+        <details>
+          <summary>Does compression reduce quality?</summary>
+          <p>Lossless mode preserves quality exactly. Lossy mode trades some image sharpness for size — preview before downloading.</p>
+        </details>
+        <details>
+          <summary>Is my file uploaded to compress it?</summary>
+          <p>No. Compression runs in your browser with pdf-lib. Files never touch a server.</p>
+        </details>
+        <details>
+          <summary>Why is my PDF still large after compressing?</summary>
+          <p>If the file is mostly text, there is little to shrink. Scanned or image-heavy PDFs see the biggest reductions.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
 <section class="related-tools">
   <div class="container">
     <h3>Related tools</h3>
@@ -212,9 +293,9 @@
   </div>
 </footer>
 
-<script src="../js/main.js"></script>
-<script src="../js/tools/compress.js"></script>
-  <script src="/js/feedback.js"></script>
-  <script src="/js/visitor-counter.js?v=12.4"></script>
+<script defer src="../js/main.js?v=12.19"></script>
+<script defer src="../js/tools/compress.js"></script>
+  <script defer src="/js/feedback.js"></script>
+  <script defer src="/js/visitor-counter.js?v=12.14"></script>
 </body>
 </html>

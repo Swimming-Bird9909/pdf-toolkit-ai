@@ -4,6 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="preconnect" href="https://vc.wezzik.com" crossorigin>
   <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
 <title>Split PDF by Pages Online Free — No Upload | PDF Toolkit AI</title>
 <meta name="description" content="Split a PDF into multiple files by page ranges, every N pages, or extract a single page. Free, no signup, files stay in your browser." />
@@ -14,7 +15,8 @@
   <link rel="alternate" hreflang="en" href="https://wezzik.com/tools/split.html" />
   <link rel="alternate" hreflang="x-default" href="https://wezzik.com/tools/split.html" />
 <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
-<link rel="stylesheet" href="../css/style.css?v=12.12" />
+<link rel="preload" as="style" href="../css/style.css?v=12.19">
+<link rel="stylesheet" href="../css/style.css?v=12.19" />
 
 <script type="application/ld+json">
 {
@@ -61,6 +63,48 @@
   }
 }
 </script>
+  <script async src="/js/analytics.js?v=12.19"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is splitting a PDF safe for confidential files?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Splitting happens locally in your browser. Nothing is uploaded, so contracts, medical records, and financial statements never leave your device."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does splitting reduce quality?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. It is a lossless operation that copies page objects into new containers. Text and images are untouched."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I split by specific page ranges?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — enter ranges like 1-3, 5-12, 20-25, or extract single pages (3, 7, 15), or split every N pages."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the max file size?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Practically about 500MB (limited by browser memory). For larger files, split in smaller batches."
+      }
+    }
+  ]
+}
+</script>
+
 </head>
 <body>
 
@@ -143,6 +187,43 @@
   </section>
 </main>
 
+<section class="next-step">
+  <div class="container">
+    <div class="next-step-inner">
+      <div>
+        <span class="eyebrow">Next step</span>
+        <h3>Need to reassemble pages?</h3>
+        <p>After splitting, you can recombine selected pages into a new document.</p>
+      </div>
+      <a class="btn btn-primary" href="../tools/merge.html">Merge PDF →</a>
+    </div>
+  </div>
+</section>
+
+  <section class="section" id="tool-faq">
+    <div class="container">
+      <h2 class="section-title">Frequently asked questions</h2>
+      <div class="faq">
+        <details>
+          <summary>Is splitting a PDF safe for confidential files?</summary>
+          <p>Yes. Splitting happens locally in your browser. Nothing is uploaded, so contracts, medical records, and financial statements never leave your device.</p>
+        </details>
+        <details>
+          <summary>Does splitting reduce quality?</summary>
+          <p>No. It is a lossless operation that copies page objects into new containers. Text and images are untouched.</p>
+        </details>
+        <details>
+          <summary>Can I split by specific page ranges?</summary>
+          <p>Yes — enter ranges like 1-3, 5-12, 20-25, or extract single pages (3, 7, 15), or split every N pages.</p>
+        </details>
+        <details>
+          <summary>What is the max file size?</summary>
+          <p>Practically about 500MB (limited by browser memory). For larger files, split in smaller batches.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
 <section class="related-tools">
   <div class="container">
     <h3>Related tools</h3>
@@ -178,9 +259,9 @@
   </div>
 </footer>
 
-<script src="../js/main.js"></script>
-<script src="../js/tools/split.js"></script>
-  <script src="/js/feedback.js"></script>
-  <script src="/js/visitor-counter.js?v=12.4"></script>
+<script defer src="../js/main.js?v=12.19"></script>
+<script defer src="../js/tools/split.js"></script>
+  <script defer src="/js/feedback.js"></script>
+  <script defer src="/js/visitor-counter.js?v=12.14"></script>
 </body>
 </html>

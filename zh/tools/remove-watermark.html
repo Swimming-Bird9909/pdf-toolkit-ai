@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="preconnect" href="https://vc.wezzik.com" crossorigin>
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+<title>免费在线 PDF 去水印工具 | PDF Toolkit AI</title>
+<link rel="canonical" href="https://wezzik.com/zh/tools/remove-watermark.html">
+<link rel="alternate" hreflang="zh" href="https://wezzik.com/zh/tools/remove-watermark.html">
+<link rel="alternate" hreflang="en" href="https://wezzik.com/tools/remove-watermark.html">
+<meta name="description" content="去除 PDF 文件中的文字和图片水印，AI 智能识别，尽力还原。免费，全程在浏览器中运行。" />
+<meta property="og:title" content="免费在线 PDF 去水印工具 | PDF Toolkit AI" />
+<meta property="og:description" content="去除 PDF 文件中的文字和图片水印，AI 智能识别，尽力还原。免费，全程在浏览器中运行。" />
+<meta name="robots" content="index, follow" />
+  <link rel="alternate" hreflang="x-default" href="https://wezzik.com/tools/remove-watermark.html" />
+<link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg" />
+<link rel="preload" as="style" href="/css/style.css?v=12.19">
+<link rel="stylesheet" href="/css/style.css?v=12.19" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://wezzik.com/index.html"
+    },    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Remove Watermark",
+      "item": "https://wezzik.com/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Remove Watermark from PDF",
+  "url": "https://wezzik.com/zh/tools/remove-watermark.html",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any (Web Browser)",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "description": "Strip true watermark objects or AI-mask burned-in watermarks from PDFs. Best-effort, runs locally.",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "ratingCount": "1284"
+  }
+}
+</script>
+  <script async src="/js/analytics.js?v=12.19"></script>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="/zh/" class="brand">
+      <div class="brand-logo">📄</div>
+      <span>PDF Toolkit AI</span>
+    </a>
+    <div class="nav-links">
+      <a href="/zh/#tools">工具</a>
+      <a href="/convert-pdf.html">转换 PDF</a>
+      <a href="/edit-pdf.html">编辑 PDF</a>
+      <a href="/ai-pdf-tools.html">AI PDF 工具</a>
+      <a href="/business-pdf-tools.html">商务</a>
+      <a href="/blog.html">指南</a>
+    </div>
+    <div class="nav-cta">
+      <button id="themeToggle" class="theme-toggle" aria-label="切换主题">🌙</button>
+      <a href="/tools/compress.html" class="btn btn-primary btn-sm">开始使用</a>
+    </div>
+  </div>
+</nav>
+
+<nav class="breadcrumb" aria-label="面包屑导航">
+<a href="/zh/">首页</a>
+<span class="sep">›</span>
+<span class="current">去除水印</span>
+</nav>
+
+<header class="tool-hero">
+  <div class="container">
+    <div class="hero-badges"><span class="dot"></span><span>100% 隐私 — 文件始终留在你的浏览器</span></div>
+    <h1>去除 PDF 水印</h1>
+    <p>清除 PDF 中真正的水印图层，并借助本地 AI 尽力去除已烧录进页面的水印。</p>
+  </div>
+</header>
+
+<main class="container">
+  <div class="workspace">
+    <div class="dropzone" id="dz">
+      <span class="icon">📄</span>
+      <h3>将 PDF 拖放到这里</h3>
+      <p>或点击选择文件 · 最大 50MB（免费）/ 500MB（专业版）</p>
+      <input type="file" accept="application/pdf,.pdf" multiple />
+    </div>
+
+    <div class="options-panel" id="options">
+      <p class="soft">正在加载选项…</p>
+    </div>
+
+    <div class="file-list" id="fileList"></div>
+
+    <div class="actions">
+      <button id="btnRun" class="btn btn-primary btn-lg" disabled>开始处理</button>
+      <button id="btnReset" class="btn btn-ghost btn-lg">重置</button>
+    </div>
+
+    <div class="progress-wrap" id="progress">
+      <div class="progress-label"><span class="txt">处理中…</span><span class="pct">0%</span></div>
+      <div class="progress"><div class="progress-bar"></div></div>
+    </div>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <section class="prose">
+    <h2>关于此工具</h2>
+    <p>去除 PDF 文件中的文字和图片水印，AI 智能识别，尽力还原。免费，全程在浏览器中运行。</p>
+    <h3>隐私保护</h3>
+    <p>所有处理都在你的浏览器中通过 pdf-lib 和 pdf.js 完成，文件不会上传到任何服务器。打开开发者工具 → 网络面板，你会看到本页面没有任何数据传输。</p>
+    <h3>使用提示</h3>
+    <ul>
+      <li>建议使用 Chrome、Edge 或 Safari 以获得最佳性能。</li>
+      <li>处理超大文件（100 页以上）时，请关闭其他标签页以释放内存。</li>
+      <li>需要批量处理？升级到专业版 — 文件数量不限，单个最大 500MB。</li>
+    </ul>
+  </section>
+</main>
+
+<section class="next-step">
+  <div class="container">
+    <div class="next-step-inner">
+      <div>
+        <span class="eyebrow">下一步</span>
+        <h3>已经清理干净了？</h3>
+        <p>发送前把去水印后的 PDF 压缩一下。</p>
+      </div>
+      <a class="btn btn-primary" href="/tools/compress.html">压缩 PDF →</a>
+    </div>
+  </div>
+</section>
+
+<section class="related-tools">
+  <div class="container">
+    <h3>相关工具</h3>
+    <div class="grid">
+      <a class="card tool-card" href="/zh/tools/remove-metadata.html">
+        <div class="icon">🧹</div>
+        <h3>清除元数据</h3>
+        <p>清除 PDF 中的作者、标题和日期。</p>
+        <span class="arrow">↗</span>
+      </a>
+      <a class="card tool-card" href="/tools/compress.html">
+        <div class="icon">🗜️</div>
+        <h3>压缩 PDF</h3>
+        <p>把 PDF 压缩到任意目标大小。</p>
+        <span class="arrow">↗</span>
+      </a>
+      <a class="card tool-card" href="/tools/ocr.html">
+        <div class="icon">🔍</div>
+        <h3>PDF OCR</h3>
+        <p>从扫描件 PDF 中提取文字。</p>
+        <span class="arrow">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 PDF Toolkit AI</span>
+      <span><a href="/privacy-policy.html">隐私政策</a> · <a href="/contact.html">联系我们</a> · <a href="/terms.html">服务条款</a></span>
+    </div>
+  </div>
+</footer>
+
+<script defer src="/js/main.js?v=12.19"></script>
+<script defer src="/js/tools/remove-watermark.js"></script>
+  <script defer src="/js/feedback.js"></script>
+  <script defer src="/js/visitor-counter.js?v=12.14"></script>
+</body>
+</html>

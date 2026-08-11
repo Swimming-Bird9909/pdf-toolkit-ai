@@ -3,6 +3,8 @@
 > 10 个核心 PDF 工具，100% 浏览器本地处理，零上传，零注册。
 > 纯静态站点，可一键部署到 Vercel / Netlify / Cloudflare Pages / 任何静态托管。
 
+🌐 **Live site:** https://wezzik.com
+
 ## ✨ 功能
 
 | # | 工具 | 对应长尾关键词 | 竞争度 |
@@ -112,11 +114,10 @@ vercel --prod pdf-toolkit-ai
 2. Settings → Pages → Source: `main` branch, root
 3. 等待部署完成
 
-## 🌐 域名建议
+## 🌐 已上线域名
 
-- wezzik.com
-- pdf-toolkit.app
-- freepdftoolkit.com
+- **wezzik.com** — 生产环境（Cloudflare DNS + 代理 → Vercel 托管）
+- 备选：pdf-toolkit.app / freepdftoolkit.com
 
 ## 📊 上线前清单
 
@@ -133,13 +134,8 @@ vercel --prod pdf-toolkit-ai
 ## 💰 变现路径
 
 1. **联盟营销** — 在 about/blog 页面推荐 Adobe Acrobat / Foxit（带 affiliate link）
-2. **Pro 订阅** — 通过 Stripe 收款，$4.99/月解锁：
-   - 无限文件（vs 免费每天 20 个）
-   - 大文件（500MB vs 50MB）
-   - 批量处理
-   - 优先 OCR
-3. **API 服务** — 把核心能力（特别是 AI Summary）包装成 API，给企业客户
-4. **展示广告** — 不推荐，会破坏"隐私"卖点
+2. **API 服务** — 把核心能力（特别是 AI Summary）包装成 API，给企业客户
+3. **展示广告** — 不推荐，会破坏"隐私"卖点
 
 ## 🔍 SEO 优化要点（已内置）
 
@@ -163,4 +159,4 @@ pdf-lib, pdf.js, Tesseract.js, JSZip：各自的开源协议（MIT / Apache 2.0�
 
 ---
 
-Made with 🦞 by 邱总's team
+Made with 🦞 by Swimming Bird's team

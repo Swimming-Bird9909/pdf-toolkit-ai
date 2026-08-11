@@ -6,6 +6,40 @@
 (function () {
   'use strict';
 
+  /* ---------- Sticky language preference ----------
+     Once the user picks 中文/EN on any page, every subsequent page (however
+     they arrive — internal link, direct URL, external referrer) keeps showing
+     in that language. We store the choice in localStorage and (a) redirect on
+     load when the current page language differs, and (b) rewrite internal
+     links so plain clicks never drop them back to the other language.
+     NOTE: assumes every EN page has a /zh/ counterpart (true for this site). */
+  var LANG_KEY = 'pdftoolkit.lang';
+  function getLangPref() { try { return localStorage.getItem(LANG_KEY); } catch (e) { return null; } }
+  function setLangPref(l) { try { localStorage.setItem(LANG_KEY, l); } catch (e) {} }
+  function pathToLang(path, lang) {
+    if (lang === 'zh') {
+      if (path === '/' || path === '/index.html') return '/zh/';
+      if (path.indexOf('/zh/') === 0) return path;
+      return '/zh' + path;
+    }
+    // to en
+    if (path.indexOf('/zh/') === 0) {
+      var p = path.slice(3);
+      return (p === '' || p === '/') ? '/' : p;
+    }
+    return path;
+  }
+  (function () {
+    var pref = getLangPref();
+    if (!pref) return;
+    var isZh = location.pathname.indexOf('/zh/') === 0 || location.pathname === '/zh';
+    var cur = isZh ? 'zh' : 'en';
+    if (pref !== cur) {
+      var target = pathToLang(location.pathname, pref);
+      if (target && target !== location.pathname) window.location.replace(target);
+    }
+  })();
+
   /* ---------- Theme persistence ---------- */
   const THEME_KEY = 'pdftoolkit.theme';
   const root = document.documentElement;
@@ -236,4 +270,74 @@
       document.head.appendChild(s);
     });
   };
+
+  /* ---------- Service Worker (PWA) ---------- */
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js').catch(() => {});
+    });
+  }
+
+  /* ---------- Language switch (EN ⇄ 中文), per-page + sticky ---------- */
+  document.addEventListener('DOMContentLoaded', () => {
+    if (document.getElementById('langSwitch')) return;
+    const path = location.pathname;
+    const isZh = path.indexOf('/zh/') === 0 || path === '/zh';
+    let counterpart;
+    if (isZh) {
+      // currently on a Chinese page → link back to its English version
+      counterpart = path.slice(3); // drop the "/zh" prefix
+      if (counterpart === '' || counterpart === '/') counterpart = '/';
+    } else {
+      // currently on an English page → link to its Chinese counterpart
+      if (path === '/' || path === '/index.html') counterpart = '/zh/';
+      else counterpart = '/zh' + path;
+    }
+    const a = document.createElement('a');
+    a.id = 'langSwitch';
+    a.className = 'lang-switch';
+    a.href = counterpart;
+    a.textContent = isZh ? '🌐 EN' : '🌐 中文';
+    a.setAttribute('hreflang', isZh ? 'en' : 'zh');
+    a.setAttribute('title', isZh ? 'Switch to English' : '切换到中文');
+    // remember the user's explicit choice so future pages stay in this language
+    const onPick = (e) => { setLangPref(isZh ? 'en' : 'zh'); };
+    a.addEventListener('click', onPick);
+    // inject at the top of the page (inside the nav CTA)
+    const cta = document.querySelector('.nav-cta');
+    if (cta) cta.insertBefore(a, cta.firstChild);
+    else document.body.appendChild(a);
+    // SEO: pair this page with its alternate-language version
+    const altLang = isZh ? 'en' : 'zh';
+    if (!document.querySelector('link[rel="alternate"][hreflang="' + altLang + '"]')) {
+      const alt = document.createElement('link');
+      alt.rel = 'alternate';
+      alt.hreflang = altLang;
+      alt.href = location.origin + counterpart;
+      document.head.appendChild(alt);
+    }
+    // Sticky preference: rewrite internal page links so plain navigation
+    // stays in the chosen language (don't touch the switch button, hashes,
+    // mailto, external, or asset/static files).
+    const pref = getLangPref();
+    if (pref) {
+      const rewrite = (link) => {
+        if (link.id === 'langSwitch') return;
+        const href = link.getAttribute('href');
+        if (!href) return;
+        if (href.charAt(0) === '#' || /^(mailto:|javascript:)/i.test(href) ||
+            /^[a-z]+:\/\//i.test(href)) return;
+        let abs;
+        try { abs = new URL(href, location.href).pathname; } catch (e) { return; }
+        // only real HTML pages (skip /assets, /css, /js, static files)
+        const isPage = abs === '/' || abs.indexOf('/zh/') === 0 || /\.html$/.test(abs);
+        const isAsset = /\.(css|js|json|xml|txt|svg|png|jpe?g|gif|ico|woff2?|ttf|otf|webp|pdf)$/i.test(abs) ||
+                        /\/(assets|css|js)\//.test(abs) || abs.indexOf('/manifest') !== -1;
+        if (!isPage || isAsset) return;
+        const t = pathToLang(abs, pref);
+        if (t && t !== abs) link.setAttribute('href', t);
+      };
+      document.querySelectorAll('a[href]').forEach(rewrite);
+    }
+  });
 })();

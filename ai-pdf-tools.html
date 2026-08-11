@@ -4,6 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="preconnect" href="https://vc.wezzik.com" crossorigin>
   <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
 <title>AI PDF Tools — Summarize, Chat, Analyze PDFs with AI</title>
 <meta name="description" content="AI-powered PDF tools. Summarize long documents, chat with your PDFs, extract key insights. Powered by GPT and Claude, with local processing for privacy." />
@@ -19,7 +20,8 @@
 <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
 <link rel="manifest" href="manifest.json" />
 <meta name="theme-color" content="#6366f1" />
-<link rel="stylesheet" href="css/style.css?v=12.12" />
+<link rel="preload" as="style" href="css/style.css?v=12.19">
+<link rel="stylesheet" href="css/style.css?v=12.19" />
 
 <script type="application/ld+json">
 {
@@ -64,11 +66,12 @@
   "@type": "FAQPage",
   "mainEntity": [
     { "@type": "Question", "name": "Which AI model powers the summarizer?", "acceptedAnswer": { "@type": "Answer", "text": "We use a mix of GPT-4o-mini and Claude 3.5 Sonnet, picked per-task. Short documents (< 50 pages) can also run on-device for zero-upload privacy." } },
-    { "@type": "Question", "name": "Is my PDF used to train AI models?", "acceptedAnswer": { "@type": "Answer", "text": "Never. We send PDFs over HTTPS only when cloud processing is required, and pass the "do not train" flag explicitly. Set your own API key in settings to use your own account." } },
-    { "@type": "Question", "name": "How accurate is Chat With PDF?", "acceptedAnswer": { "@type": "Answer", "text": "Answers are grounded in the document content with page citations. For ambiguous questions, the AI says "I don't know" rather than guessing." } }
+    { "@type": "Question", "name": "Is my PDF used to train AI models?", "acceptedAnswer": { "@type": "Answer", "text": "Never. We send PDFs over HTTPS only when cloud processing is required, and pass the \"do not train\" flag explicitly. Set your own API key in settings to use your own account." } },
+    { "@type": "Question", "name": "How accurate is Chat With PDF?", "acceptedAnswer": { "@type": "Answer", "text": "Answers are grounded in the document content with page citations. For ambiguous questions, the AI says \"I don't know\" rather than guessing." } }
   ]
 }
 </script>
+  <script async src="/js/analytics.js?v=12.19"></script>
 </head>
 <body>
 
@@ -275,7 +278,8 @@
       <div>
         <h5>Company</h5>
         <ul>
-          <li><a href="about.html">About</a></li><li><a href="<li><a href="contact.html">Contact</a></li>contact.html">Contact</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
           <li><a href="blog.html">Blog</a></li>
           <li><a href="privacy-policy.html">Privacy Policy</a></li>
           <li><a href="terms.html">Terms of Service</a></li>
@@ -284,7 +288,7 @@
     </div>
     <div class="footer-bottom">
       <span>© 2026 PDF Toolkit AI. All rights reserved.</span>
-      <span>Made with 🦞 by 邱总's team · Privacy-first</span>
+      <span>Made with 🦞 by Swimming Bird's team · Privacy-first</span>
     </div>
   </div>
 </footer>
@@ -297,9 +301,9 @@
   </div>
 </div>
 
-<script src="js/main.js"></script>
+<script defer src="js/main.js?v=12.19"></script>
 
-  <script src="/js/feedback.js"></script>
-  <script src="/js/visitor-counter.js?v=12.4"></script>
+  <script defer src="/js/feedback.js"></script>
+  <script defer src="/js/visitor-counter.js?v=12.14"></script>
 </body>
 </html>

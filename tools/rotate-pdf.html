@@ -4,6 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="preconnect" href="https://vc.wezzik.com" crossorigin>
   <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
 <title>Rotate PDF Pages — Free Online | PDF Toolkit AI</title>
 <meta name="description" content="Rotate PDF pages by 90°, 180°, or 270°. Rotate all pages or selected pages. Free, no signup, 100% private." />
@@ -19,7 +20,8 @@
 <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
 <link rel="manifest" href="../manifest.json" />
 <meta name="theme-color" content="#6366f1" />
-<link rel="stylesheet" href="../css/style.css?v=12.12" />
+<link rel="preload" as="style" href="../css/style.css?v=12.19">
+<link rel="stylesheet" href="../css/style.css?v=12.19" />
 
 <script type="application/ld+json">
 {
@@ -82,6 +84,7 @@
   ]
 }
 </script>
+  <script async src="/js/analytics.js?v=12.19"></script>
 </head>
 <body>
 
@@ -194,6 +197,19 @@
   </section>
 </main>
 
+<section class="next-step">
+  <div class="container">
+    <div class="next-step-inner">
+      <div>
+        <span class="eyebrow">Next step</span>
+        <h3>File too big after rotation?</h3>
+        <p>Rotating adds no data, but compressing keeps the whole set email-ready.</p>
+      </div>
+      <a class="btn btn-primary" href="../tools/compress.html">Compress PDF →</a>
+    </div>
+  </div>
+</section>
+
 <section class="related-tools">
   <div class="container">
     <h3>Related tools</h3>
@@ -229,9 +245,9 @@
   </div>
 </footer>
 
-<script src="../js/main.js"></script>
-<script src="../js/tools/rotate-pdf.js?v=12.12"></script>
-<script src="/js/feedback.js"></script>
-  <script src="/js/visitor-counter.js?v=12.4"></script>
+<script defer src="../js/main.js?v=12.19"></script>
+<script defer src="../js/tools/rotate-pdf.js?v=12.13"></script>
+<script defer src="/js/feedback.js"></script>
+  <script defer src="/js/visitor-counter.js?v=12.14"></script>
 </body>
 </html>

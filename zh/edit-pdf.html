@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="preconnect" href="https://vc.wezzik.com" crossorigin>
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+<title>编辑 PDF — 免费在线合并、拆分、旋转页面</title>
+<link rel="canonical" href="https://wezzik.com/zh/edit-pdf.html" />
+<link rel="alternate" hreflang="zh" href="https://wezzik.com/zh/edit-pdf.html" />
+<link rel="alternate" hreflang="en" href="https://wezzik.com/edit-pdf.html" />
+<link rel="alternate" hreflang="x-default" href="https://wezzik.com/edit-pdf.html" />
+<meta name="description" content="免费在线 PDF 编辑器。合并多个 PDF、按页拆分、旋转页面、删除页面，全部在浏览器中完成。无需注册，无水印。" />
+<meta name="keywords" content="编辑 pdf, 按任意顺序合并多个 PDF。拖拽即可调整顺序。无需注册，输出不带水印。, 按页范围、每 N 页拆分 PDF，或提取单独一页。支持批量 ZIP 下载。, 将全部页面或选定页面旋转 90°、180° 或 270°。免费、快速、纯浏览器运行。" />
+<meta property="og:title" content="编辑 PDF — 免费在线合并、拆分、旋转页面" />
+<meta property="og:description" content="免费在线 PDF 编辑器。合并多个 PDF、按页拆分、旋转页面、删除页面，全部在浏览器中完成。无需注册，无水印。" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://wezzik.com/zh/edit-pdf.html" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg" />
+<link rel="manifest" href="/manifest.json" />
+<meta name="theme-color" content="#6366f1" />
+<link rel="preload" as="style" href="/css/style.css?v=12.19">
+<link rel="stylesheet" href="/css/style.css?v=12.19" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+    
+      "position": 1,
+    
+      "name": "Home",
+    
+      "item": "https://wezzik.com/index.html"
+    },
+    {
+      "@type": "ListItem",
+    
+      "position": 2,
+    
+      "name": "Edit PDF",
+    
+      "item": "https://wezzik.com/edit-pdf.html"
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Edit PDF",
+  "description": "Free online PDF editor. Merge multiple PDFs, split by pages, rotate pages, remove pages, all in your browser. No signup, no watermark.",
+  "url": "https://wezzik.com/zh/edit-pdf.html",
+  "isPartOf": { "@type": "WebSite", "name": "PDF Toolkit AI", "url": "https://wezzik.com/" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Will my PDF quality drop after editing?", "acceptedAnswer": { "@type": "Answer", "text": "No. Our editor uses lossless pdf-lib re-saves. Fonts, images, and vector graphics are preserved byte-for-byte." } },
+    { "@type": "Question", "name": "Can I reorder pages by drag-and-drop?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — in the Merge tool, drag thumbnails to reorder before combining. In Remove Pages, click to toggle pages for deletion." } },
+    { "@type": "Question", "name": "Does the output have a watermark?", "acceptedAnswer": { "@type": "Answer", "text": "Never. We don't add watermarks to any output. That's the whole point of being free and private." } }
+  ]
+}
+</script>
+  <script async src="/js/analytics.js?v=12.19"></script>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="/index.html" class="brand">
+      <div class="brand-logo">📄</div>
+      <span>PDF Toolkit AI</span>
+    </a>
+    <div class="nav-links">
+      <a href="/index.html#tools">首页</a>
+      <a href="/index.html#tools">工具</a>
+      <a href="/convert-pdf.html">转换 PDF</a>
+      <a href="/edit-pdf.html" class="active">编辑 PDF</a>
+      <a href="/ai-pdf-tools.html">AI PDF 工具</a>
+      <a href="/business-pdf-tools.html">商务</a>
+      <a href="/blog.html">指南</a>
+    </div>
+    <div class="nav-cta">
+      <button id="themeToggle" class="theme-toggle" aria-label="切换主题">🌙</button>
+      <a href="/tools/compress.html" class="btn btn-primary btn-sm">开始使用</a>
+    </div>
+  </div>
+</nav>
+
+<nav class="breadcrumb" aria-label="面包屑导航">
+<a href="/index.html">首页</a>
+<span class="sep">›</span>
+<span class="current">编辑 PDF</span>
+</nav>
+
+<header class="cat-hero">
+  <div class="container">
+    <h1>编辑 PDF<br/><span class="grad">页面、合并、拆分、旋转。</span></h1>
+    <p>你一直希望 Acrobat 能做到的 PDF 编辑器。合并多个文件、按页范围拆分、旋转和删除页面 —— 全部在你的浏览器中完成，无需上传。</p>
+    <span class="cat-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;display:block;flex-shrink:0;"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v18H6.5A2.5 2.5 0 0 0 4 22.5v-18z"/><path d="M8 7h8M8 11h6"/></svg> ️ 4 款工具 · 100% 本地运行 · 无需上传</span>
+  </div>
+</header>
+
+<section class="section" id="tools">
+  <div class="container">
+    <h2 class="section-title">4 款编辑 PDF 工具</h2>
+    <p class="section-sub">所有工具均免费，完全在你的浏览器中运行，无需注册。</p>
+
+    <div class="tool-grid-large">
+
+      <a class="card tool-card" href="/tools/merge.html">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:22px;height:22px;display:block;"><path d="M8 4H5a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h3"/><path d="M16 4h3a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-3"/><path d="M12 7v10M9 14l3 3 3-3"/></svg></div>
+        <h3>合并 PDF</h3>
+        <p>按任意顺序合并多个 PDF。拖拽即可调整顺序。无需注册，输出不带水印。</p>
+        <span class="tag">免费合并 pdf</span>
+        <span class="arrow">↗</span>
+      </a>
+
+      <a class="card tool-card" href="/tools/split.html">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:22px;height:22px;display:block;"><path d="M12 7V4M12 20v-3"/><path d="M9 10l3-3 3 3"/><rect x="3" y="11" width="7" height="9" rx="1"/><rect x="14" y="11" width="7" height="9" rx="1"/><path d="M10.5 14v3M13.5 14v3"/></svg></div>
+        <h3>拆分 PDF</h3>
+        <p>按页范围、每 N 页拆分 PDF，或提取单独一页。支持批量 ZIP 下载。</p>
+        <span class="tag">按页拆分 pdf</span>
+        <span class="arrow">↗</span>
+      </a>
+
+      <a class="card tool-card" href="/tools/rotate-pdf.html">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:22px;height:22px;display:block;"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/><rect x="8" y="8" width="8" height="8" rx="1" transform="rotate(45 12 12)"/></svg></div>
+        <h3>旋转 PDF</h3>
+        <p>将全部页面或选定页面旋转 90°、180° 或 270°。免费、快速、纯浏览器运行。</p>
+        <span class="tag">旋转 pdf 页面</span>
+        <span class="arrow">↗</span>
+      </a>
+
+      <a class="card tool-card" href="/tools/remove-pages.html">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:22px;height:22px;display:block;"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M9 14h6"/></svg></div>
+        <h3>删除页面</h3>
+        <p>通过可视化页面选择器删除 PDF 中不需要的页面。无质量损失，不重新编码。</p>
+        <span class="tag">pdf 页面删除</span>
+        <span class="arrow">↗</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section class="section" id="why" style="background:var(--bg-soft);">
+  <div class="container">
+    <h2 class="section-title">为什么选 PDF Toolkit AI 的编辑 PDF？</h2>
+    <p class="section-sub">为你真正在用的工作流打造，针对真实用户在 Google 上输入的搜索词优化。</p>
+
+    <div class="grid grid-3">
+
+      <div class="card">
+        <div class="icon" style="margin-bottom:14px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:22px;height:22px;display:block;"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></div>
+        <h3>可视化页面选择器</h3>
+        <p>在合并、拆分或删除之前，先查看每一页的缩略图。不用盲操作。</p>
+      </div>
+
+      <div class="card">
+        <div class="icon" style="margin-bottom:14px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:22px;height:22px;display:block;"><path d="M13 2L3 14h7l-1 8 10-12h-7z"/></svg></div>
+        <h3>即时处理</h3>
+        <p>无需上传、无需排队。点击的那一毫秒即刻生效。即使 500 页的 PDF 也能几秒完成。</p>
+      </div>
+
+      <div class="card">
+        <div class="icon" style="margin-bottom:14px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:22px;height:22px;display:block;"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        <h3>真正的隐私</h3>
+        <p>在本地编辑 PDF，意味着机密文档绝不会经过任何第三方服务器。</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section" id="faq">
+  <div class="container">
+    <h2 class="section-title">常见问题</h2>
+    <p class="section-sub">关于编辑 PDF 的常见疑问。</p>
+
+    <div class="faq">
+      <details>
+        <summary>编辑后我的 PDF 质量会下降吗？</summary>
+        <p>不会。我们的编辑器使用 pdf-lib 进行无损重新保存。字体、图片和矢量图形都会逐字节保留。</p>
+      </details>
+
+      <details>
+        <summary>可以拖拽调整页面顺序吗？</summary>
+        <p>可以 —— 在合并工具中，合并前拖动缩略图即可重新排序；在删除页面工具中，点击即可切换要删除的页面。</p>
+      </details>
+
+      <details>
+        <summary>输出文件会带水印吗？</summary>
+        <p>绝不会。我们不会给任何输出添加水印。免费且私密，正是我们存在的意义。</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="explore" style="background:var(--bg-soft);">
+  <div class="container">
+    <h2 class="section-title">探索其他 PDF 工具</h2>
+    <p class="section-sub">每个分类都是一套完整的工具箱。自由组合，搭出属于你的工作流。</p>
+
+    <div class="grid grid-3">
+
+      <article class="card cat-card">
+        <div class="cat-head">
+          <a class="cat-icon" href="/convert-pdf.html" aria-label="分类"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;display:block;"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></a>
+          <h3><a href="/convert-pdf.html">转换 PDF</a></h3>
+        </div>
+        <p class="cat-sub">把 PDF 转换成可编辑的 Word 文档、Excel 表格、JPG 图片和可搜索文本。所有转换都在...</p>
+        <a class="cat-foot" href="/convert-pdf.html">浏览转换 PDF →</a>
+      </article>
+
+      <article class="card cat-card">
+        <div class="cat-head">
+          <a class="cat-icon" href="/ai-pdf-tools.html" aria-label="分类"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;display:block;"><rect x="4" y="6" width="16" height="12" rx="2"/><path d="M9 10v4M12 9v6M15 10v4"/></svg></a>
+          <h3><a href="/ai-pdf-tools.html">AI PDF 工具</a></h3>
+        </div>
+        <p class="cat-sub">让 AI 帮你读。几秒钟摘要 200 页报告，用自然语言就 PDF 内容提问，提取...</p>
+        <a class="cat-foot" href="/ai-pdf-tools.html">浏览 AI PDF 工具 →</a>
+      </article>
+
+      <article class="card cat-card">
+        <div class="cat-head">
+          <a class="cat-icon" href="/business-pdf-tools.html" aria-label="分类"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;display:block;"><path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M8 9V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4"/><path d="M3 13h18"/></svg></a>
+          <h3><a href="/business-pdf-tools.html">商务 PDF 工具</a></h3>
+        </div>
+        <p class="cat-sub">无需购买 Acrobat 或注册 SaaS，也能生成专业的商务 PDF。发票、简历和合同模...</p>
+        <a class="cat-foot" href="/business-pdf-tools.html">浏览商务 PDF 工具 →</a>
+      </article>
+
+      <article class="card cat-card">
+        <div class="cat-head">
+          <a class="cat-icon" href="/tools/compress.html" aria-label="分类"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;display:block;"><path d="M4 9V5a1 1 0 0 1 1-1h4"/><path d="M20 9V5a1 1 0 0 0-1-1h-4"/><path d="M4 15v4a1 1 0 0 0 1 1h4"/><path d="M20 15v4a1 1 0 0 1-1 1h-4"/><path d="M12 7v10M9 14l3 3 3-3"/></svg></a>
+          <h3><a href="/tools/compress.html">压缩 PDF</a></h3>
+        </div>
+        <p class="cat-sub">把 PDF 压缩到正好 100KB、200KB、500KB 或任意你需要的大小。无损模式保留矢量文字与字体。有损...</p>
+        <a class="cat-foot" href="/tools/compress.html">浏览压缩 PDF →</a>
+      </article>
+
+      <article class="card cat-card">
+        <div class="cat-head">
+          <a class="cat-icon" href="/blog.html" aria-label="分类"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;display:block;"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v18H6.5A2.5 2.5 0 0 0 4 22.5v-18z"/><path d="M8 7h8M8 11h6"/></svg></a>
+          <h3><a href="/blog.html">PDF 指南</a></h3>
+        </div>
+        <p class="cat-sub">针对你真正会做的 PDF 任务，提供实用、无废话的指南。每篇指南都配有可用工具，学完即...</p>
+        <a class="cat-foot" href="/blog.html">浏览 PDF 指南 →</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="/index.html" class="brand">
+          <div class="brand-logo">📄</div>
+          <span>PDF Toolkit AI</span>
+        </a>
+        <p class="soft mt-2" style="font-size:14px;max-width:280px;">免费、私密的 PDF 工具，完全在你的浏览器中运行。为速度、隐私和你真正会搜索的长尾关键词而打造。</p>
+      </div>
+      <div>
+        <h5>PDF 工具</h5>
+        <ul>
+          <li><a href="/convert-pdf.html">转换 PDF</a></li>
+          <li><a href="/edit-pdf.html">编辑 PDF</a></li>
+          <li><a href="/ai-pdf-tools.html">AI PDF 工具</a></li>
+          <li><a href="/business-pdf-tools.html">商务工具</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>热门工具</h5>
+        <ul>
+          <li><a href="/tools/compress.html">压缩 PDF</a></li>
+          <li><a href="/tools/merge.html">合并 PDF</a></li>
+          <li><a href="/tools/ocr.html">PDF OCR</a></li>
+          <li><a href="/tools/ai-summary.html">AI 摘要</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>公司</h5>
+        <ul>
+          <li><a href="/about.html">关于我们</a></li>
+          <li><a href="/contact.html">联系我们</a></li>
+          <li><a href="/blog.html">博客</a></li>
+          <li><a href="/privacy-policy.html">隐私政策</a></li>
+          <li><a href="/terms.html">服务条款</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 PDF Toolkit AI. 保留所有权利。</span>
+      <span>Made with 🦞 by Swimming Bird's team · 隐私优先</span>
+    </div>
+  </div>
+</footer>
+
+<div id="cookieBanner" class="cookie-banner">
+  <p>🍪 我们仅使用一个 Cookie 来记住你的主题偏好。我们不会追踪你。</p>
+  <div class="row">
+    <a href="/privacy-policy.html" style="font-size:13px;">了解更多</a>
+    <button id="cookieAccept">知道了</button>
+  </div>
+</div>
+
+<script defer src="/js/main.js?v=12.19"></script>
+
+  <script defer src="/js/feedback.js"></script>
+  <script defer src="/js/visitor-counter.js?v=12.14"></script>
+</body>
+</html>

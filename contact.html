@@ -4,6 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="preconnect" href="https://vc.wezzik.com" crossorigin>
   <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
 <title>Contact — PDF Toolkit AI</title>
 <meta name="description" content="Contact PDF Toolkit AI — privacy-first browser-based PDF tools. We reply to bug reports, partnership inquiries, and feature requests." />
@@ -16,7 +17,8 @@
 <meta property="og:url" content="https://wezzik.com/contact.html" />
 <meta name="robots" content="index, follow" />
 <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
-<link rel="stylesheet" href="css/style.css?v=12.12" />
+<link rel="preload" as="style" href="css/style.css?v=12.19">
+<link rel="stylesheet" href="css/style.css?v=12.19" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -34,9 +36,12 @@
   "url": "https://wezzik.com/",
   "logo": "https://wezzik.com/assets/icons/favicon.svg",
   "email": "hello@wezzik.com",
-  "sameAs": []
+  "sameAs": [
+    "https://github.com/Swimming-Bird9909/pdf-toolkit-ai"
+  ]
 }
 </script>
+  <script async src="/js/analytics.js?v=12.19"></script>
 </head>
 <body>
 
@@ -168,7 +173,8 @@
       <div>
         <h5>Company</h5>
         <ul>
-          <li><a href="about.html">About</a></li><li><a href="<li><a href="contact.html">Contact</a></li>contact.html">Contact</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
           <li><a href="blog.html">Blog</a></li>
           <li><a href="privacy-policy.html">Privacy Policy</a></li>
           <li><a href="terms.html">Terms of Service</a></li>
@@ -219,8 +225,8 @@
 })();
 </script>
 
-<script src="js/main.js"></script>
-<script src="/js/feedback.js"></script>
-<script src="/js/visitor-counter.js?v=12.4"></script>
+<script defer src="js/main.js?v=12.19"></script>
+<script defer src="/js/feedback.js"></script>
+<script defer src="/js/visitor-counter.js?v=12.14"></script>
 </body>
 </html>

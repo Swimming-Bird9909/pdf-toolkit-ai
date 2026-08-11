@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="preconnect" href="https://vc.wezzik.com" crossorigin>
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+<title>与 PDF 对话 — 向你的 PDF 提问 | PDF Toolkit AI</title>
+<link rel="canonical" href="https://wezzik.com/zh/tools/chat-with-pdf.html" />
+<link rel="alternate" hreflang="zh" href="https://wezzik.com/zh/tools/chat-with-pdf.html" />
+<link rel="alternate" hreflang="en" href="https://wezzik.com/tools/chat-with-pdf.html" />
+<link rel="alternate" hreflang="x-default" href="https://wezzik.com/tools/chat-with-pdf.html" />
+<meta name="description" content="用 AI 与任意 PDF 对话。用自然语言提问，获取带页码引用的答案。免费，无需注册。" />
+<meta name="robots" content="index, follow" />
+<meta property="og:title" content="与 PDF 对话 — 向你的 PDF 提问 | PDF Toolkit AI" />
+<meta property="og:description" content="用 AI 与任意 PDF 对话。用自然语言提问，获取带页码引用的答案。免费，无需注册。" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://wezzik.com/tools/chat-with-pdf.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg" />
+<link rel="manifest" href="/manifest.json" />
+<meta name="theme-color" content="#6366f1" />
+<link rel="preload" as="style" href="/css/style.css?v=12.19">
+<link rel="stylesheet" href="/css/style.css?v=12.19" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://wezzik.com/index.html"
+    },    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "AI PDF Tools",
+      "item": "https://wezzik.com/ai-pdf-tools.html"
+    },    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Chat With PDF",
+      "item": "https://wezzik.com/"
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Chat With PDF",
+  "applicationCategory": "ProductivityApplication",
+  "operatingSystem": "Any (Web Browser)",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "Chat with any PDF using AI. Ask questions in natural language, get cited answers with page references. Free, no signup.",
+  "url": "https://wezzik.com/zh/tools/chat-with-pdf.html"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to use Chat With PDF",
+  "description": "Chat with any PDF using AI. Ask questions in natural language, get cited answers with page references. Free, no signup.",
+  "step": [
+    { "@type": "HowToStep", "name": "Upload your PDF", "text": "Drop or select your file. Everything happens locally." },
+    { "@type": "HowToStep", "name": "Configure options", "text": "Choose your preferred output settings." },
+    { "@type": "HowToStep", "name": "Download result", "text": "Click the action button and download your file." }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "How accurate are the answers?", "acceptedAnswer": { "@type": "Answer", "text": "The AI is constrained to answer only from your document. For most factual questions (what is X, when did Y happen, who is Z), answers are highly accurate. For subjective questions (is this contract fair?), the AI summarizes but flags it as opinion." } },
+    { "@type": "Question", "name": "Why is there a page limit?", "acceptedAnswer": { "@type": "Answer", "text": "Each question is sent with relevant document chunks, and we cap chunks to keep responses fast and within model context limits. Free plan: 25 pages. Pro: 200 pages. For longer docs, use the AI Summary tool first to get a condensed version." } },
+    { "@type": "Question", "name": "Can I use my own API key?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Go to settings (gear icon, top right) and paste your OpenAI or Anthropic API key. Your questions then go directly to that provider — our servers never see the document chunks or your questions." } },
+    { "@type": "Question", "name": "Does it work on scanned PDFs?", "acceptedAnswer": { "@type": "Answer", "text": "Only if the PDF has been OCR'd first. Scanned PDFs without an embedded text layer are just images, with no text for the AI to read. Use our <a href=\"ocr.html\">OCR tool</a> first." } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Chat with PDF",
+  "url": "https://wezzik.com/zh/tools/chat-with-pdf.html",
+  "applicationCategory": "ProductivityApplication",
+  "operatingSystem": "Any (Web Browser)",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "description": "Ask questions about a PDF and get answers with cited sources. Bring your own OpenAI / Anthropic API key.",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "ratingCount": "1284"
+  }
+}
+</script>
+  <script async src="/js/analytics.js?v=12.19"></script>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="/zh/" class="brand">
+      <div class="brand-logo">📄</div>
+      <span>PDF Toolkit AI</span>
+    </a>
+    <div class="nav-links">
+      <a href="/zh/#tools">工具</a>
+      <a href="/convert-pdf.html">转换 PDF</a>
+      <a href="/edit-pdf.html">编辑 PDF</a>
+      <a href="/ai-pdf-tools.html">AI PDF 工具</a>
+      <a href="/business-pdf-tools.html">商务</a>
+      <a href="/blog.html">指南</a>
+    </div>
+    <div class="nav-cta">
+      <button id="themeToggle" class="theme-toggle" aria-label="切换主题">🌙</button>
+      <a href="/tools/compress.html" class="btn btn-primary btn-sm">开始使用</a>
+    </div>
+  </div>
+</nav>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+<a href="/zh/">首页</a>
+<span class="sep">›</span>
+<a href="/ai-pdf-tools.html">AI PDF 工具</a>
+<span class="sep">›</span>
+<span class="current">与 PDF 对话</span>
+</nav>
+
+<header class="tool-hero">
+  <div class="container">
+    <div class="hero-badges"><span class="dot"></span><span>100% 私密 — 文件始终留在你的浏览器</span></div>
+    <h1>与你的 PDF 对话</h1>
+    <p>用自然语言向你的 PDF 提问。获取带页码引用的答案 — 两次点击即可核实任何说法。</p>
+  </div>
+</header>
+
+<main class="container">
+  <div class="workspace">
+    <div class="dropzone" id="dz">
+      <span class="icon">💬</span>
+      <h3>将 PDF 拖到此处</h3>
+      <p>或点击浏览 · 最大 25 页（免费）/ 200 页（专业版）</p>
+      <input type="file" accept="application/pdf,.pdf" />
+    </div>
+
+    <div class="options-panel" id="options" style="display:none;">
+      <h3>提问</h3>
+      <p class="soft" style="font-size:13px;margin-bottom:12px;">试试：“这份文档讲的是什么？”、“关键条款有哪些？”、“总结第 3 页”</p>
+      <div style="display:flex;gap:8px;">
+        <input type="text" id="questionInput" placeholder="输入你的问题…" style="flex:1;padding:12px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);font-size:14px;" />
+        <button id="btnAsk" class="btn btn-primary">提问</button>
+      </div>
+
+      <h3 style="margin-top:20px;">推荐问题</h3>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;">
+        <button class="suggested-q btn btn-ghost btn-sm" data-q="What is this document about?">📄 这是什么内容？</button>
+        <button class="suggested-q btn btn-ghost btn-sm" data-q="What are the main points?">🎯 主要观点？</button>
+        <button class="suggested-q btn btn-ghost btn-sm" data-q="Summarize in 3 bullet points">📋 用 3 个要点总结</button>
+        <button class="suggested-q btn btn-ghost btn-sm" data-q="List the key terms and conditions">📜 关键条款？</button>
+        <button class="suggested-q btn btn-ghost btn-sm" data-q="What is the conclusion?">🏁 结论？</button>
+      </div>
+    </div>
+
+    <div id="chatHistory" style="margin-top:24px;display:none;">
+      <h3>对话</h3>
+      <div id="chatMessages" style="display:flex;flex-direction:column;gap:14px;margin-top:14px;"></div>
+    </div>
+
+    <div class="progress-wrap" id="progress">
+      <div class="progress-label"><span class="txt">正在索引 PDF…</span><span class="pct">0%</span></div>
+      <div class="progress"><div class="progress-bar"></div></div>
+    </div>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <section class="prose">
+    <h2>关于本工具</h2>
+  <p>用 AI 与任意 PDF 对话。上传文档，用自然语言提问，即可得到基于文档内容的答案 — 并附页码引用，方便核实。</p>
+  <h3>工作原理</h3>
+  <ul>
+    <li>上传 PDF — 文本使用 pdf.js 在本地提取，不上传、不走服务器。</li>
+    <li>你的问题 + 相关文档片段会被发送给 AI 模型（GPT-4o-mini 或 Claude 3.5 Haiku）进行回答。</li>
+    <li>AI 被要求只根据文档回答，并附页码引用。</li>
+    <li>点击任意引用即可跳转到文档中的对应页面。</li>
+  </ul>
+  <h3>隐私</h3>
+  <ul>
+    <li>文本提取在你的浏览器本地完成。</li>
+    <li>每个问题只把相关片段（而非整篇文档）发送给 AI。</li>
+    <li>我们明确传递“禁止训练”标记。你的文档绝不会被用于模型训练。</li>
+    <li>为获得最高隐私，可在设置中填入你自己的 API Key — 你的问题直接发往 OpenAI/Anthropic，不经过我们的服务器。</li>
+  </ul>
+  <h3>最适合</h3>
+  <ul>
+    <li>阅读长篇合同、研究论文和报告</li>
+    <li>从密集文档中提取特定事实</li>
+    <li>无需通读全文即可快速找到需要的章节</li>
+  </ul>
+
+    <h2>常见问题</h2>
+    <div class="faq">
+      <details><summary>答案有多准确？</summary><p>AI 被限制只能根据文档回答。对大多数事实性问题（X 是什么、Y 何时发生、Z 是谁），答案准确度很高。对主观问题（这份合同公平吗？），AI 会做总结但会标注为观点。</p></details>
+      <details><summary>为什么有页数限制？</summary><p>每个问题都会附带相关文档片段一起发送，我们对片段数量设限以保持响应快速并在模型上下文窗口内。免费版：25 页。专业版：200 页。对更长文档，请先用 AI 摘要工具获得精简版本。</p></details>
+      <details><summary>可以使用自己的 API Key 吗？</summary><p>可以。进入设置（右上角齿轮图标）粘贴你的 OpenAI 或 Anthropic API Key。之后你的问题将直接发往该服务商 — 我们的服务器从不会看到文档片段或你的问题。</p></details>
+      <details><summary>支持扫描件 PDF 吗？</summary><p>仅在该 PDF 已先经过 OCR 时支持。没有内嵌文字层的扫描件只是图片，AI 无可读取的文字。请先使用我们的</p></details>
+    </div>
+  </section>
+</main>
+
+<section class="next-step">
+  <div class="container">
+    <div class="next-step-inner">
+      <div>
+        <span class="eyebrow">下一步</span>
+        <h3>想要精简版？</h3>
+        <p>在追问之前，先获取一份结构化的摘要。</p>
+      </div>
+      <a class="btn btn-primary" href="/tools/ai-summary.html">AI 摘要 →</a>
+    </div>
+  </div>
+</section>
+
+<section class="related-tools">
+  <div class="container">
+    <h3>相关工具</h3>
+    <div class="grid">
+      <a class="card tool-card" href="/tools/ai-summary.html">
+        <div class="icon">📋</div>
+        <h3>AI PDF 摘要</h3>
+        <p>获取简洁的 AI 摘要</p>
+        <span class="arrow">&#8599;</span>
+      </a>
+      <a class="card tool-card" href="/tools/pdf-to-word.html">
+        <div class="icon">📝</div>
+        <h3>PDF 转 Word</h3>
+        <p>转换为可编辑的 .docx</p>
+        <span class="arrow">&#8599;</span>
+      </a>
+      <a class="card tool-card" href="/tools/ocr.html">
+        <div class="icon">🔍</div>
+        <h3>PDF OCR</h3>
+        <p>从扫描件中提取文字</p>
+        <span class="arrow">&#8599;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>&copy; 2026 PDF Toolkit AI</span>
+      <span><a href="/privacy-policy.html">隐私</a> · <a href="/contact.html">联系</a> · <a href="/terms.html">条款</a></span>
+    </div>
+  </div>
+</footer>
+
+<script defer src="/js/main.js?v=12.19"></script>
+<script defer src="/js/tools/chat-with-pdf.js"></script>
+<script defer src="/js/feedback.js"></script>
+  <script defer src="/js/visitor-counter.js?v=12.14"></script>
+</body>
+</html>

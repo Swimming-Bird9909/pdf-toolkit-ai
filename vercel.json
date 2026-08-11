@@ -50,12 +50,14 @@
     {
       "source": "/sitemap(.*)\\.xml",
       "headers": [
+        { "key": "Content-Type", "value": "text/xml; charset=utf-8" },
         { "key": "Cache-Control", "value": "public, max-age=3600, must-revalidate" }
       ]
     },
     {
       "source": "/robots.txt",
       "headers": [
+        { "key": "Content-Type", "value": "text/plain; charset=utf-8" },
         { "key": "Cache-Control", "value": "public, max-age=86400, must-revalidate" }
       ]
     }
@@ -75,6 +77,8 @@
     { "source": "/tools/ocr",        "destination": "/tools/ocr.html",        "statusCode": 301 },
     { "source": "/tools/summary",    "destination": "/tools/ai-summary.html", "statusCode": 301 },
     { "source": "/blog",             "destination": "/blog/index.html",       "statusCode": 301 },
-    { "source": "/blog/",            "destination": "/blog/index.html",       "statusCode": 301 }
+    { "source": "/blog/",            "destination": "/blog/index.html",       "statusCode": 301 },
+    { "source": "/index.html",       "destination": "/",                       "statusCode": 301 },
+    { "source": "/blog/index.html",  "destination": "/blog.html",              "statusCode": 301 }
   ]
 }

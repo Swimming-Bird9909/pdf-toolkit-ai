@@ -4,6 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="preconnect" href="https://vc.wezzik.com" crossorigin>
   <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
 <title>Chat With PDF — Ask Questions About Your PDF | PDF Toolkit AI</title>
 <meta name="description" content="Chat with any PDF using AI. Ask questions in natural language, get cited answers with page references. Free, no signup." />
@@ -19,7 +20,8 @@
 <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
 <link rel="manifest" href="../manifest.json" />
 <meta name="theme-color" content="#6366f1" />
-<link rel="stylesheet" href="../css/style.css?v=12.12" />
+<link rel="preload" as="style" href="../css/style.css?v=12.19">
+<link rel="stylesheet" href="../css/style.css?v=12.19" />
 
 <script type="application/ld+json">
 {
@@ -104,6 +106,7 @@
   }
 }
 </script>
+  <script async src="/js/analytics.js?v=12.19"></script>
 </head>
 <body>
 
@@ -213,10 +216,23 @@
       <details><summary>How accurate are the answers?</summary><p>The AI is constrained to answer only from your document. For most factual questions (what is X, when did Y happen, who is Z), answers are highly accurate. For subjective questions (is this contract fair?), the AI summarizes but flags it as opinion.</p></details>
       <details><summary>Why is there a page limit?</summary><p>Each question is sent with relevant document chunks, and we cap chunks to keep responses fast and within model context limits. Free plan: 25 pages. Pro: 200 pages. For longer docs, use the AI Summary tool first to get a condensed version.</p></details>
       <details><summary>Can I use my own API key?</summary><p>Yes. Go to settings (gear icon, top right) and paste your OpenAI or Anthropic API key. Your questions then go directly to that provider — our servers never see the document chunks or your questions.</p></details>
-      <details><summary>Does it work on scanned PDFs?</summary><p>Only if the PDF has been OCR'd first. Scanned PDFs without an embedded text layer are just images, with no text for the AI to read. Use our <a href=\</p></details>
+      <details><summary>Does it work on scanned PDFs?</summary><p>Only if the PDF has been OCR'd first. Scanned PDFs without an embedded text layer are just images, with no text for the AI to read. Use our <a href="ocr.html">OCR tool</a> to make scanned pages readable first.</p></details>
     </div>
   </section>
 </main>
+
+<section class="next-step">
+  <div class="container">
+    <div class="next-step-inner">
+      <div>
+        <span class="eyebrow">Next step</span>
+        <h3>Want the TL;DR?</h3>
+        <p>Get a structured summary before asking follow-up questions.</p>
+      </div>
+      <a class="btn btn-primary" href="../tools/ai-summary.html">AI Summary →</a>
+    </div>
+  </div>
+</section>
 
 <section class="related-tools">
   <div class="container">
@@ -253,9 +269,9 @@
   </div>
 </footer>
 
-<script src="../js/main.js"></script>
-<script src="../js/tools/chat-with-pdf.js"></script>
-<script src="/js/feedback.js"></script>
-  <script src="/js/visitor-counter.js?v=12.4"></script>
+<script defer src="../js/main.js?v=12.19"></script>
+<script defer src="../js/tools/chat-with-pdf.js"></script>
+<script defer src="/js/feedback.js"></script>
+  <script defer src="/js/visitor-counter.js?v=12.14"></script>
 </body>
 </html>

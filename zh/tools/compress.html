@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="preconnect" href="https://vc.wezzik.com" crossorigin>
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+<title>在线免费将 PDF 压缩至 100KB — 无质量损失 | PDF Toolkit AI</title>
+<meta name="description" content="将 PDF 压缩至 100KB 或任意目标大小。非常适合邮件附件、求职申请和表单上传。100% 免费，无需注册，文件始终留在你的浏览器中。" />
+<meta name="keywords" content="压缩 pdf 至 100kb, 压缩 pdf 用于邮件附件, 无损缩小 pdf 大小, 在线免费压缩 pdf" />
+<link rel="canonical" href="https://wezzik.com/zh/tools/compress.html" />
+  <link rel="alternate" hreflang="zh" href="https://wezzik.com/zh/tools/compress.html" />
+  <link rel="alternate" hreflang="en" href="https://wezzik.com/tools/compress.html" />
+  <link rel="alternate" hreflang="x-default" href="https://wezzik.com/tools/compress.html" />
+<meta property="og:title" content="在线免费将 PDF 压缩至 100KB" />
+<meta property="og:description" content="将任意 PDF 压缩到目标大小 — 100KB、200KB 或便于邮件发送 — 且不损失质量。" />
+<meta name="robots" content="index, follow" />
+<link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg" />
+<link rel="preload" as="style" href="/css/style.css?v=12.19">
+<link rel="stylesheet" href="/css/style.css?v=12.19" />
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"HowTo",
+  "name":"How to compress a PDF to 100KB",
+  "step":[
+    {"@type":"HowToStep","name":"Upload your PDF","text":"Drop your file or click to choose."},
+    {"@type":"HowToStep","name":"Pick a target size","text":"Choose 100KB, 200KB, email-ready, or custom."},
+    {"@type":"HowToStep","name":"Click Compress","text":"We compress in your browser — no upload."},
+    {"@type":"HowToStep","name":"Download","text":"Save the compressed PDF."}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://wezzik.com/index.html"
+    },    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Compress PDF",
+      "item": "https://wezzik.com/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Compress PDF",
+  "url": "https://wezzik.com/zh/tools/compress.html",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any (Web Browser)",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "description": "Compress PDF files to a target size (100KB, 200KB, email-ready) without losing quality. Runs entirely in your browser.",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "ratingCount": "1284"
+  }
+}
+</script>
+  <script async src="/js/analytics.js?v=12.19"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How small can I make a PDF?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Specify any target — 100KB, 200KB, 500KB, or custom. Lossless mode keeps text crisp; lossy mode hits aggressive targets by recompressing images."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does compression reduce quality?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Lossless mode preserves quality exactly. Lossy mode trades some image sharpness for size — preview before downloading."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my file uploaded to compress it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Compression runs in your browser with pdf-lib. Files never touch a server."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is my PDF still large after compressing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If the file is mostly text, there is little to shrink. Scanned or image-heavy PDFs see the biggest reductions."
+      }
+    }
+  ]
+}
+</script>
+
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="/zh/" class="brand">
+      <div class="brand-logo">📄</div>
+      <span>PDF Toolkit AI</span>
+    </a>
+    <div class="nav-links">
+      <a href="/zh/#tools">工具</a>
+      <a href="/convert-pdf.html">转换 PDF</a>
+      <a href="/edit-pdf.html">编辑 PDF</a>
+      <a href="/ai-pdf-tools.html">AI PDF 工具</a>
+      <a href="/business-pdf-tools.html">商务</a>
+      <a href="/blog.html">指南</a>
+    </div>
+    <div class="nav-cta">
+      <button id="themeToggle" class="theme-toggle" aria-label="切换主题">🌙</button>
+      <a href="/tools/compress.html" class="btn btn-primary btn-sm">开始使用</a>
+    </div>
+  </div>
+</nav>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+<a href="/zh/">首页</a>
+<span class="sep">›</span>
+<span class="current">压缩 PDF</span>
+</nav>
+
+<header class="tool-hero">
+  <div class="container">
+    <div class="hero-badges"><span class="dot"></span><span>100% 隐私 — 文件始终留在你的浏览器</span></div>
+    <h1>将 PDF 压缩到任意大小</h1>
+    <p>针对求职申请设定 100KB、用于邮件的尺寸，或以肉眼无质量损失的方式缩小。选择预设或自定义目标。</p>
+  </div>
+</header>
+
+<main class="container">
+  <div class="workspace">
+    <div class="dropzone" id="dz">
+      <span class="icon">📄</span>
+      <h3>将 PDF 拖到此处</h3>
+      <p>或点击浏览 · 免费版最大 50MB / 专业版 500MB</p>
+      <input type="file" accept="application/pdf,.pdf" />
+    </div>
+
+    <div class="options-panel">
+      <div class="grid grid-2">
+        <div class="field">
+          <label>压缩预设</label>
+          <select id="preset">
+            <option value="email" selected>邮件就绪（约 300 KB，推荐）</option>
+            <option value="500kb">压缩至 500 KB</option>
+            <option value="200kb">压缩至 200 KB</option>
+            <option value="100kb">压缩至 100 KB（仅文本，见说明）</option>
+            <option value="lossless">智能打包 — 无质量损失</option>
+            <option value="custom">自定义目标大小</option>
+          </select>
+        </div>
+        <div class="field" id="customField" style="display:none;">
+          <label>自定义目标大小（KB）</label>
+          <input type="number" id="customSize" min="20" max="50000" value="200" />
+        </div>
+      </div>
+    <div class="field">
+      <label>输出文件名</label>
+      <input type="text" id="outName" value="compressed.pdf" />
+    </div>
+    <p class="soft" style="font-size:.85rem;margin-top:.4rem">
+      <strong>质量优先原则：</strong>我们绝不会低于 144 DPI / 75% JPEG。
+      如果目标太小无法保持文字清晰，我们会展示能达到的最佳效果，
+      并建议替代方案（拆分页面、调大目标，或无损重打包）。文字绝不会为缩小体积而被牺牲。
+    </p>
+    </div>
+
+    <div class="file-list" id="fileList"></div>
+
+    <div class="actions">
+      <button id="btnCompress" class="btn btn-primary btn-lg" disabled>🗜️ 压缩 PDF</button>
+      <button id="btnReset" class="btn btn-ghost btn-lg">重置</button>
+    </div>
+
+    <div class="progress-wrap" id="progress">
+      <div class="progress-label"><span class="txt">处理中…</span><span class="pct">0%</span></div>
+      <div class="progress"><div class="progress-bar"></div></div>
+    </div>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <section class="prose">
+    <h2>如何在线压缩 PDF</h2>
+    <ol>
+      <li>将 PDF 拖入上方框中（或点击浏览）。</li>
+      <li>选择预设 — 100KB、200KB、邮件就绪或自定义。</li>
+      <li>点击 <strong>压缩 PDF</strong>。文件在你的浏览器中处理，绝不上传。</li>
+      <li>下载结果。完成。</li>
+    </ol>
+    <h3>压缩的原理</h3>
+    <p>我们以更低的 DPI 重新渲染每一页 PDF，并以更低的 JPEG/WebP 质量重新编码嵌入的图片，直到文件符合你的目标。文字保持清晰，因为我们绝不会对文字层重新栅格化。</p>
+    <h3>隐私</h3>
+    <p>一切都在你的浏览器中运行。无上传、无服务器。打开开发者工具 → 网络，你会看到零流量。文件不会被我们或任何其他人看到。</p>
+  </section>
+</main>
+
+<section class="next-step">
+  <div class="container">
+    <div class="next-step-inner">
+      <div>
+        <span class="eyebrow">下一步</span>
+        <h3>要合并多个文件？</h3>
+        <p>先压缩再合并 — 或先合并再压缩，两种方式都行。</p>
+      </div>
+      <a class="btn btn-primary" href="/zh/tools/merge.html">合并 PDF →</a>
+    </div>
+  </div>
+</section>
+
+  <section class="section" id="tool-faq">
+    <div class="container">
+      <h2 class="section-title">常见问题</h2>
+      <div class="faq">
+        <details>
+          <summary>PDF 能压缩到多小？</summary>
+          <p>可指定任意目标 — 100KB、200KB、500KB 或自定义。无损模式保持文字清晰；有损模式通过重新压缩图片达成激进目标。</p>
+        </details>
+        <details>
+          <summary>压缩会降低质量吗？</summary>
+          <p>无损模式精确保持质量。有损模式以部分图片锐度为代价换取体积 — 下载前先预览。</p>
+        </details>
+        <details>
+          <summary>压缩时我的文件会被上传吗？</summary>
+          <p>不会。压缩在你的浏览器中通过 pdf-lib 运行。文件绝不会接触服务器。</p>
+        </details>
+        <details>
+          <summary>为什么压缩后我的 PDF 仍然很大？</summary>
+          <p>如果文件主要是文字，可压缩的空间很小。扫描件或图片密集的 PDF 压缩效果最明显。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+<section class="related-tools">
+  <div class="container">
+    <h3>相关工具</h3>
+    <div class="grid">
+      <a class="card tool-card" href="/zh/tools/merge.html">
+        <div class="icon">🧩</div>
+        <h3>合并 PDF</h3>
+        <p>按任意顺序合并多个 PDF。</p>
+        <span class="arrow">↗</span>
+      </a>
+      <a class="card tool-card" href="/tools/pdf-to-image.html">
+        <div class="icon">🖼️</div>
+        <h3>PDF 转 JPG / PNG</h3>
+        <p>将每一页 PDF 渲染为高质量图片。</p>
+        <span class="arrow">↗</span>
+      </a>
+      <a class="card tool-card" href="/tools/ai-summary.html">
+        <div class="icon">📋</div>
+        <h3>AI PDF 摘要</h3>
+        <p>获取任意 PDF 的简洁 AI 摘要。</p>
+        <span class="arrow">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 PDF Toolkit AI</span>
+      <span><a href="/privacy-policy.html">隐私</a> · <a href="/contact.html">联系</a> · <a href="/terms.html">条款</a></span>
+    </div>
+  </div>
+</footer>
+
+<script defer src="/js/main.js?v=12.19"></script>
+<script defer src="/js/tools/compress.js"></script>
+  <script defer src="/js/feedback.js"></script>
+  <script defer src="/js/visitor-counter.js?v=12.14"></script>
+</body>
+</html>

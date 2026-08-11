@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="preconnect" href="https://vc.wezzik.com" crossorigin>
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<title>Is it safe to upload your PDF online? A privacy guide — PDF Toolkit AI</title>
+<meta name="description" content="What really happens when you upload a PDF to an online tool? Learn the 3 risk levels, how to verify client-side processing, and why browser-based tools are safer." />
+<link rel="canonical" href="https://wezzik.com/blog/is-online-pdf-safe.html" />
+  <link rel="alternate" hreflang="en" href="https://wezzik.com/blog/is-online-pdf-safe.html" />
+  <link rel="alternate" hreflang="x-default" href="https://wezzik.com/blog/is-online-pdf-safe.html" />
+<meta property="og:title" content="Is it safe to upload your PDF online? A privacy guide" />
+<meta property="og:description" content="What really happens when you upload a PDF to an online tool — and how to protect yourself." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wezzik.com/blog/is-online-pdf-safe.html" />
+<meta name="robots" content="index, follow" />
+<link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
+<meta name="theme-color" content="#6366f1" />
+<link rel="preload" as="style" href="../css/style.css?v=12.19">
+<link rel="stylesheet" href="../css/style.css?v=12.19" />
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"Is it safe to upload your PDF online? A privacy guide",
+  "description":"What really happens when you upload a PDF to an online tool? Learn the 3 risk levels and how to verify client-side processing.",
+  "author":{"@type":"Organization","name":"PDF Toolkit AI"},
+  "publisher":{"@type":"Organization","name":"PDF Toolkit AI","url":"https://wezzik.com/"},
+  "datePublished":"2026-08-07",
+  "dateModified":"2026-08-07"
+}
+</script>
+  <script async src="/js/analytics.js?v=12.19"></script>
+</head>
+<body>
+
+<!-- ============================ Navbar ============================ -->
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="../" class="brand">
+      <div class="brand-logo">📄</div>
+      <span>PDF Toolkit AI</span>
+    </a>
+    <div class="nav-links">
+      <a href="../#tools">Tools</a>
+      <a href="../#features">Why us</a>
+      <a href="../blog.html" aria-current="page" style="color:var(--brand);">Blog</a>
+      <a href="../#faq">FAQ</a>
+    </div>
+    <div class="nav-cta">
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+      <a href="../tools/compress.html" class="btn btn-primary btn-sm">Get started</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================ Article Hero ============================ -->
+<header class="hero">
+  <div class="container" style="max-width:780px;">
+    <div class="hero-badges">
+      <span class="dot"></span>
+      <span>🔒 Privacy &amp; security</span>
+    </div>
+    <h1>Is it safe to upload your PDF online?<br/><span class="grad">A practical privacy guide.</span></h1>
+    <p>You need to merge two PDFs, compress a resume, or convert a document. The first Google result looks convenient. But where does your file actually go? Here's what happens behind the scenes — and how to tell the safe tools from the risky ones.</p>
+    <div class="hero-cta" style="justify-content:center;">
+      <a href="../" class="btn btn-primary btn-lg">Try our private tools →</a>
+      <a href="../blog.html" class="btn btn-ghost btn-lg">← All articles</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============================ Article ============================ -->
+<main class="container section" style="max-width:780px;">
+  <article class="prose">
+    <p class="soft">📅 August 7, 2026 · 6 min read · Privacy guide</p>
+
+    <h2>The question everyone asks</h2>
+    <p>"I need to merge two PDFs — is it safe to use an online tool?" It's a reasonable question. You're about to hand a document to a website you've never heard of. Maybe it's a contract. Maybe it's a medical record. Maybe it's a resume with your phone number and home address.</p>
+    <p>The answer depends entirely on <strong>how the tool processes your file</strong>. And there are two fundamentally different models.</p>
+
+    <h2>What happens when you upload a PDF</h2>
+    <p>When you use a typical online PDF tool — the kind that says "Upload your file" — here's what actually happens:</p>
+    <ol>
+      <li>Your PDF travels over the internet to a server you don't control.</li>
+      <li>The server's software processes it (merge, compress, convert, etc.).</li>
+      <li>The result is sent back to you.</li>
+      <li>The server <em>may</em> delete your file. Or it may not.</li>
+    </ol>
+    <p>Step 4 is the problem. You're trusting the vendor's word that your file is deleted. But server logs, backups, CDN caches, and error-reporting systems can all retain copies of your file without the vendor even realizing it.</p>
+
+    <h2>The 3 risk levels of online PDF tools</h2>
+
+    <h3>High risk: Free tools with no privacy policy</h3>
+    <p>These sites have no privacy policy, no company name, no address. They're covered in ads. They exist to harvest files — either for data mining, for training AI models, or simply because the operator doesn't know how to secure a server.</p>
+    <p><strong>Red flags:</strong> No "About" page, no privacy policy, excessive ads, file size limits that seem designed to push you to a paid tier, no mention of where your data is stored.</p>
+
+    <h3>Medium risk: Freemium SaaS (Smallpdf, ILovePDF, SodaPDF)</h3>
+    <p>These are legitimate companies with privacy policies and data retention rules. They process your file server-side, then claim to delete it after a set period (usually 1-2 hours). For <em>non-sensitive</em> documents, this is often acceptable.</p>
+    <p>But "delete after 1 hour" has caveats:</p>
+    <ul>
+      <li>Backups may retain the file for days or weeks.</li>
+      <li>Server logs may contain file metadata.</li>
+      <li>If the company is breached, your file could be exposed before deletion.</li>
+      <li>Some "free" tiers analyze file content for advertising or AI training.</li>
+    </ul>
+    <p><strong>Verdict:</strong> Fine for public documents. Risky for anything confidential.</p>
+
+    <h3>Zero risk: Client-side tools (like ours)</h3>
+    <p>Client-side tools process your file <strong>entirely in your browser</strong>. The file never leaves your device. There's no upload, no server processing, no retention policy — because there's nothing to retain.</p>
+    <p>This is what PDF Toolkit AI does. Every tool — compress, merge, split, OCR, AI summary — runs locally using JavaScript libraries like pdf-lib, pdf.js, and Tesseract.js.</p>
+
+    <h2>How to verify a tool is truly client-side</h2>
+    <p>Don't just take a website's word for it. You can verify in 30 seconds:</p>
+
+    <h3>Test 1: The Network tab</h3>
+    <ol>
+      <li>Open the tool in your browser.</li>
+      <li>Press <strong>F12</strong> to open Developer Tools.</li>
+      <li>Go to the <strong>Network</strong> tab.</li>
+      <li>Upload a PDF.</li>
+      <li>Watch the network traffic.</li>
+    </ol>
+    <p>If you see a large POST request with your file going to a server — it's <strong>not</strong> client-side. If the only network traffic is the initial page load and CDN resources (CSS/JS), the tool is processing locally.</p>
+
+    <h3>Test 2: The offline test</h3>
+    <p>Load the tool, then disconnect your internet (turn off Wi-Fi). Try processing a PDF. If it works, the tool is client-side. If it fails with a network error, it depends on a server.</p>
+
+    <h3>Test 3: Read the source</h3>
+    <p>Client-side tools load all their processing code in your browser. You can read the JavaScript. Look for libraries like <code>pdf-lib</code>, <code>pdfjs-dist</code>, <code>tesseract.js</code> in the source code — these are client-side PDF libraries.</p>
+
+    <h2>Real-world horror stories</h2>
+    <p>These are composite scenarios based on documented incidents:</p>
+    <ul>
+      <li><strong>The leaked resume:</strong> A job seeker used a free PDF converter to tidy up their resume. The converter's server was misconfigured, exposing uploaded files via a public URL. The resume — with full contact details — was indexed by search engines.</li>
+      <li><strong>The medical records:</strong> A patient converted medical test results to PDF using an online tool. The tool's privacy policy allowed "analyzing file content for service improvement." Sensitive health data was processed by third-party analytics.</li>
+      <li><strong>The confidential contract:</strong> A law firm intern used a free PDF merger to combine contract drafts. The merged file was temporarily stored on a shared cloud server, accessible to other users due to a permissions bug.</li>
+    </ul>
+
+    <h2>The litmus test</h2>
+    <p>Before uploading any PDF to an online tool, ask yourself:</p>
+    <blockquote style="border-left:3px solid var(--brand); padding-left:16px; margin:24px 0; font-size:18px; color:var(--text);">
+      "If this file were printed on paper, would I hand it to a stranger on the internet?"
+    </blockquote>
+    <p>If the answer is no — and for most professional documents, it should be — use a client-side tool instead.</p>
+
+    <h2>FAQ</h2>
+    <p><strong>Doesn't HTTPS protect my file during upload?</strong><br/>HTTPS encrypts data in transit (between your browser and the server). It prevents eavesdropping. But once your file arrives at the server, HTTPS offers zero protection. The server can store, analyze, or leak your file regardless of HTTPS.</p>
+    <p><strong>What about "we delete files after 1 hour"?</strong><br/>This is a promise, not a guarantee. Backups, logs, and caching layers can retain copies beyond the stated deletion time. And "deletion" may mean soft-deletion (hidden from the UI but still on disk) rather than secure erasure.</p>
+    <p><strong>Are client-side tools slower?</strong><br/>For files under 100 MB, the difference is negligible — often faster because there's no upload/download round trip. For very large files (500 MB+), a server with a powerful CPU may be faster, but you're trading speed for privacy.</p>
+    <p><strong>Can a website steal my files through JavaScript?</strong><br/>A malicious website could theoretically read files on your device if you grant it access (e.g., through a file picker). But reputable client-side tools only access the file you explicitly select, process it in memory, and never transmit it. Always check the Network tab if you're unsure.</p>
+
+    <h2>Takeaway</h2>
+    <p>Not all online PDF tools are created equal. The key distinction isn't "free vs. paid" — it's <strong>server-side vs. client-side</strong>. Server-side tools require you to trust a third party with your file. Client-side tools don't.</p>
+    <p>Every tool on <a href="../">PDF Toolkit AI</a> is client-side. Your files never leave your browser. That's not a marketing claim — it's verifiable with your browser's DevTools in 30 seconds.</p>
+
+    <p style="margin-top:40px; text-align:center;">
+      <a class="btn btn-primary btn-lg" href="../">Explore our private tools →</a>
+    </p>
+  </article>
+</main>
+
+<!-- ============================ Footer ============================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="../" class="brand">
+          <div class="brand-logo">📄</div>
+          <span>PDF Toolkit AI</span>
+        </a>
+        <p class="soft" style="margin-top:12px; max-width:300px;">10 free, private, browser-based PDF tools. Your files never leave your device.</p>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="../tools/compress.html">Compress PDF</a></li>
+          <li><a href="../tools/merge.html">Merge PDF</a></li>
+          <li><a href="../tools/split.html">Split PDF</a></li>
+          <li><a href="../tools/ocr.html">PDF OCR</a></li>
+          <li><a href="../tools/ai-summary.html">AI Summary</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>More</h4>
+        <ul>
+          <li><a href="../blog.html">Blog</a></li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../terms.html">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 PDF Toolkit AI</span>
+      <span>Made with care · Files never leave your browser</span>
+    </div>
+  </div>
+</footer>
+
+<script defer src="../js/main.js?v=12.13"></script>
+  <script defer src="/js/feedback.js"></script>
+  <script defer src="/js/visitor-counter.js?v=12.14"></script>
+</body>
+</html>

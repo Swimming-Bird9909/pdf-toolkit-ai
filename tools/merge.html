@@ -4,6 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="preconnect" href="https://vc.wezzik.com" crossorigin>
   <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
 <title>Merge PDF Files Free — No Signup, No Watermark | PDF Toolkit AI</title>
 <meta name="description" content="Combine multiple PDF files into one. Drag to reorder, no watermark, no signup. Files stay in your browser." />
@@ -14,7 +15,8 @@
   <link rel="alternate" hreflang="en" href="https://wezzik.com/tools/merge.html" />
   <link rel="alternate" hreflang="x-default" href="https://wezzik.com/tools/merge.html" />
 <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
-<link rel="stylesheet" href="../css/style.css?v=12.12" />
+<link rel="preload" as="style" href="../css/style.css?v=12.19">
+<link rel="stylesheet" href="../css/style.css?v=12.19" />
 
 <script type="application/ld+json">
 {
@@ -61,6 +63,48 @@
   }
 }
 </script>
+  <script async src="/js/analytics.js?v=12.19"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I merge PDFs without uploading them?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Merging runs entirely in your browser with pdf-lib — your files never leave your device. Open DevTools → Network and you will see zero upload traffic."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a page or file limit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There is no hard limit. Very large jobs (hundreds of pages) depend on your device memory; a desktop browser handles the biggest batches best."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will merging change the quality?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Pages are copied losslessly into the new file — text, images, and vectors stay pixel-identical. Bookmarks inside the source files are preserved."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I reorder pages before merging?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Drag files to reorder whole documents, or use Split first to drop specific pages, then merge the result."
+      }
+    }
+  ]
+}
+</script>
+
 </head>
 <body>
 
@@ -143,6 +187,43 @@
   </section>
 </main>
 
+<section class="next-step">
+  <div class="container">
+    <div class="next-step-inner">
+      <div>
+        <span class="eyebrow">Next step</span>
+        <h3>Shrink the merged file?</h3>
+        <p>Combined PDFs are often large — compress before emailing or uploading.</p>
+      </div>
+      <a class="btn btn-primary" href="../tools/compress.html">Compress PDF →</a>
+    </div>
+  </div>
+</section>
+
+  <section class="section" id="tool-faq">
+    <div class="container">
+      <h2 class="section-title">Frequently asked questions</h2>
+      <div class="faq">
+        <details>
+          <summary>Can I merge PDFs without uploading them?</summary>
+          <p>Yes. Merging runs entirely in your browser with pdf-lib — your files never leave your device. Open DevTools → Network and you will see zero upload traffic.</p>
+        </details>
+        <details>
+          <summary>Is there a page or file limit?</summary>
+          <p>There is no hard limit. Very large jobs (hundreds of pages) depend on your device memory; a desktop browser handles the biggest batches best.</p>
+        </details>
+        <details>
+          <summary>Will merging change the quality?</summary>
+          <p>No. Pages are copied losslessly into the new file — text, images, and vectors stay pixel-identical. Bookmarks inside the source files are preserved.</p>
+        </details>
+        <details>
+          <summary>Can I reorder pages before merging?</summary>
+          <p>Yes. Drag files to reorder whole documents, or use Split first to drop specific pages, then merge the result.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
 <section class="related-tools">
   <div class="container">
     <h3>Related tools</h3>
@@ -178,9 +259,9 @@
   </div>
 </footer>
 
-<script src="../js/main.js"></script>
-<script src="../js/tools/merge.js"></script>
-  <script src="/js/feedback.js"></script>
-  <script src="/js/visitor-counter.js?v=12.4"></script>
+<script defer src="../js/main.js?v=12.19"></script>
+<script defer src="../js/tools/merge.js"></script>
+  <script defer src="/js/feedback.js"></script>
+  <script defer src="/js/visitor-counter.js?v=12.14"></script>
 </body>
 </html>

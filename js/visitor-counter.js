@@ -1,28 +1,46 @@
 /**
  * Visitor Counter — 自包含访问量统计模块
- * 使用 api.counterapi.dev 免费计数服务
+ * 后端：Cloudflare Workers + KV（部署在 https://vc.wezzik.com）
+ * 路由：
+ *   GET /total                  读总数
+ *   GET /total/up               递增总数
+ *   GET /daily/YYYY-MM-DD       读某日
+ *   GET /daily/YYYY-MM-DD/up    递增某日
+ *
  * 防刷：sessionStorage 标记同一会话只递增一次
+ * 降级：网络/服务端异常时显示 "—"，不影响页面其他功能
  */
 (function () {
   'use strict';
 
-  var NAMESPACE = 'wezzik-com';
-  var API_BASE = 'https://api.counterapi.dev/v1/' + NAMESPACE;
+  var API_BASE = 'https://vc.wezzik.com';
   var SESSION_KEY = 'wezzik_vc_session';
 
   /* ---------- 工具函数 ---------- */
 
-  function getTodayKey() {
+  function getTodayDate() {
     var d = new Date();
-    var y = d.getFullYear();
-    var m = String(d.getMonth() + 1).padStart(2, '0');
-    var day = String(d.getDate()).padStart(2, '0');
-    return 'daily-' + y + '-' + m + '-' + day;
+    return d.getFullYear() + '-' +
+      String(d.getMonth() + 1).padStart(2, '0') + '-' +
+      String(d.getDate()).padStart(2, '0');
   }
 
   function formatNumber(n) {
     if (n == null || isNaN(n)) return '—';
     return Number(n).toLocaleString('en-US');
+  }
+
+  function buildUrl(key, incr) {
+    // key: 'total' 或 '2026-08-08'
+    var path;
+    if (key === 'total') {
+      path = '/total' + (incr ? '/up' : '');
+    } else if (/^\d{4}-\d{2}-\d{2}$/.test(key)) {
+      path = '/daily/' + key + (incr ? '/up' : '');
+    } else {
+      return null;
+    }
+    return API_BASE + path;
   }
 
   function animateValue(el, target) {
@@ -31,13 +49,11 @@
       return;
     }
     var duration = 1200;
-    var start = 0;
     var startTime = null;
 
     function step(timestamp) {
       if (!startTime) startTime = timestamp;
       var progress = Math.min((timestamp - startTime) / duration, 1);
-      // easeOutCubic
       var eased = 1 - Math.pow(1 - progress, 3);
       var current = Math.floor(eased * target);
       el.textContent = formatNumber(current);
@@ -55,8 +71,6 @@
   function injectContainer() {
     var footer = document.querySelector('.footer');
     if (!footer) return false;
-
-    // 避免重复注入
     if (document.getElementById('visitorStats')) return true;
 
     var container = footer.querySelector('.container');
@@ -78,7 +92,6 @@
         '<span class="stat-value" id="vcToday">—</span>' +
       '</div>';
 
-    // 插入到 footer-bottom 之前
     var footerBottom = container.querySelector('.footer-bottom');
     if (footerBottom) {
       container.insertBefore(stats, footerBottom);
@@ -92,12 +105,12 @@
 
   /**
    * 只读获取计数（带尾斜杠避免 301）。
-   * counterapi.dev 服务波动大，单次请求可能在 4s~30s+ 之间。
-   * 策略：12s 超时后自动重试一次（间隔 2s），覆盖瞬时抖动。
+   * 策略：10s 超时后自动重试一次（间隔 2s），覆盖瞬时抖动。
    */
   function fetchReadOnly(key) {
-    var url = API_BASE + '/' + key + '/';
-    var TIMEOUT_MS = 12000;
+    var url = buildUrl(key, false);
+    if (!url) return Promise.resolve(null);
+    var TIMEOUT_MS = 10000;
     var RETRY_DELAY_MS = 2000;
 
     function attempt() {
@@ -110,7 +123,7 @@
         }, TIMEOUT_MS);
       }
 
-      var opts = { method: 'GET' };
+      var opts = { method: 'GET', cache: 'no-store' };
       if (controller) opts.signal = controller.signal;
 
       return fetch(url, opts)
@@ -128,7 +141,6 @@
         });
     }
 
-    // 首次失败 → 等 2s → 重试一次。再失败就返回 null（显示 —）
     return attempt().then(function (count) {
       if (count !== null) return count;
       return new Promise(function (resolve) {
@@ -139,13 +151,14 @@
 
   /**
    * fire-and-forget 递增计数。
-   * counterapi.dev 的 /up 端点极慢（30s+），不能等它返回再渲染。
-   * 用 no-cors + keepalive 发出请求即可，服务器会处理递增，浏览器不等响应。
+   * 浏览器不等响应，服务器拿到请求就会处理递增。
+   * 用 no-cors + keepalive 确保页面关闭后请求也能发出。
    */
   function incrementBackground(key) {
-    var url = API_BASE + '/' + key + '/up';
+    var url = buildUrl(key, true);
+    if (!url) return;
     try {
-      fetch(url, { mode: 'no-cors', keepalive: true }).catch(function () {});
+      fetch(url, { mode: 'no-cors', keepalive: true, cache: 'no-store' }).catch(function () {});
     } catch (e) { /* 静默失败 */ }
   }
 
@@ -159,21 +172,21 @@
       alreadyCounted = sessionStorage.getItem(SESSION_KEY) === '1';
     } catch (e) { /* sessionStorage 不可用时也正常工作 */ }
 
-    var todayKey = getTodayKey();
+    var today = getTodayDate();
 
     // 新会话：fire-and-forget 递增（不等返回，不阻塞渲染）
     if (!alreadyCounted) {
       incrementBackground('total');
-      incrementBackground(todayKey);
+      incrementBackground(today);
       try { sessionStorage.setItem(SESSION_KEY, '1'); } catch (e) {}
     }
 
-    // 独立渲染：用只读接口获取计数（~8s），两个互不阻塞
+    // 独立渲染：用只读接口获取计数
     fetchReadOnly('total').then(function (count) {
       var el = document.getElementById('vcTotal');
       if (el) animateValue(el, count);
     });
-    fetchReadOnly(todayKey).then(function (count) {
+    fetchReadOnly(today).then(function (count) {
       var el = document.getElementById('vcToday');
       if (el) animateValue(el, count);
     });

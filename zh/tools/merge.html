@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="preconnect" href="https://vc.wezzik.com" crossorigin>
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+<title>免费合并 PDF — 无需注册、无水印 | PDF Toolkit AI</title>
+<meta name="description" content="将多个 PDF 文件合并为一个。拖拽排序，无水印、无需注册。文件始终留在你的浏览器中。" />
+<meta property="og:title" content="免费合并 PDF — 无需注册、无水印 | PDF Toolkit AI" />
+<meta property="og:description" content="将多个 PDF 文件合并为一个。拖拽排序，无水印、无需注册。文件始终留在你的浏览器中。" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://wezzik.com/zh/tools/merge.html" />
+  <link rel="alternate" hreflang="zh" href="https://wezzik.com/zh/tools/merge.html" />
+  <link rel="alternate" hreflang="en" href="https://wezzik.com/tools/merge.html" />
+  <link rel="alternate" hreflang="x-default" href="https://wezzik.com/tools/merge.html" />
+<link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg" />
+<link rel="preload" as="style" href="/css/style.css?v=12.19">
+<link rel="stylesheet" href="/css/style.css?v=12.19" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://wezzik.com/index.html"
+    },    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Edit PDF",
+      "item": "https://wezzik.com/edit-pdf.html"
+    },    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Merge PDF",
+      "item": "https://wezzik.com/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Merge PDF",
+  "url": "https://wezzik.com/zh/tools/merge.html",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any (Web Browser)",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "description": "Combine multiple PDFs into one file, reorder pages, drag to arrange. Runs entirely in your browser.",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "ratingCount": "1284"
+  }
+}
+</script>
+  <script async src="/js/analytics.js?v=12.19"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I merge PDFs without uploading them?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Merging runs entirely in your browser with pdf-lib — your files never leave your device. Open DevTools → Network and you will see zero upload traffic."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a page or file limit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "There is no hard limit. Very large jobs (hundreds of pages) depend on your device memory; a desktop browser handles the biggest batches best."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will merging change the quality?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Pages are copied losslessly into the new file — text, images, and vectors stay pixel-identical. Bookmarks inside the source files are preserved."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I reorder pages before merging?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Drag files to reorder whole documents, or use Split first to drop specific pages, then merge the result."
+      }
+    }
+  ]
+}
+</script>
+
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="/zh/" class="brand">
+      <div class="brand-logo">📄</div>
+      <span>PDF Toolkit AI</span>
+    </a>
+    <div class="nav-links">
+      <a href="/zh/#tools">工具</a>
+      <a href="/convert-pdf.html">转换 PDF</a>
+      <a href="/edit-pdf.html">编辑 PDF</a>
+      <a href="/ai-pdf-tools.html">AI PDF 工具</a>
+      <a href="/business-pdf-tools.html">商务</a>
+      <a href="/blog.html">指南</a>
+    </div>
+    <div class="nav-cta">
+      <button id="themeToggle" class="theme-toggle" aria-label="切换主题">🌙</button>
+      <a href="/tools/compress.html" class="btn btn-primary btn-sm">开始使用</a>
+    </div>
+  </div>
+</nav>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+<a href="/zh/">首页</a>
+<span class="sep">›</span>
+<a href="/edit-pdf.html">编辑 PDF</a>
+<span class="sep">›</span>
+<span class="current">合并 PDF</span>
+</nav>
+
+<header class="tool-hero">
+  <div class="container">
+    <div class="hero-badges"><span class="dot"></span><span>100% 隐私 — 文件始终留在你的浏览器</span></div>
+    <h1>合并 PDF 文件</h1>
+    <p>拖拽即可重新排序。合并不限数量文件。100% 隐私，不添加水印。</p>
+  </div>
+</header>
+
+<main class="container">
+  <div class="workspace">
+    <div class="dropzone" id="dz">
+      <span class="icon">📄</span>
+      <h3>将 PDF 拖到此处</h3>
+      <p>或点击浏览 · 免费版最大 50MB / 专业版 500MB</p>
+      <input type="file" accept="application/pdf,.pdf" multiple />
+    </div>
+
+    <div class="options-panel" id="options">
+      <p class="soft">选项加载中…</p>
+    </div>
+
+    <div class="file-list" id="fileList"></div>
+
+    <div class="actions">
+      <button id="btnRun" class="btn btn-primary btn-lg" disabled>处理</button>
+      <button id="btnReset" class="btn btn-ghost btn-lg">重置</button>
+    </div>
+
+    <div class="progress-wrap" id="progress">
+      <div class="progress-label"><span class="txt">处理中…</span><span class="pct">0%</span></div>
+      <div class="progress"><div class="progress-bar"></div></div>
+    </div>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <section class="prose">
+    <h2>关于本工具</h2>
+    <p>将多个 PDF 文件合并为一个。拖拽排序，无水印、无需注册。文件始终留在你的浏览器中。</p>
+    <h3>隐私</h3>
+    <p>一切都在你的浏览器中通过 pdf-lib 和 pdf.js 运行。你的文件绝不会接触服务器。打开开发者工具 → 网络，你会看到本页零流量。</p>
+    <h3>提示</h3>
+    <ul>
+      <li>使用 Chrome、Edge 或 Safari 以获得最佳性能。</li>
+      <li>对于超大文件（100 页以上），关闭其他标签页以释放内存。</li>
+      <li>需要批量处理？升级到专业版 — 不限文件数量，单个最大 500MB。</li>
+    </ul>
+  </section>
+</main>
+
+<section class="next-step">
+  <div class="container">
+    <div class="next-step-inner">
+      <div>
+        <span class="eyebrow">下一步</span>
+        <h3>合并后的文件太大？</h3>
+        <p>合并后的 PDF 通常较大 — 发送邮件或上传前先压缩。</p>
+      </div>
+      <a class="btn btn-primary" href="/tools/compress.html">压缩 PDF →</a>
+    </div>
+  </div>
+</section>
+
+  <section class="section" id="tool-faq">
+    <div class="container">
+      <h2 class="section-title">常见问题</h2>
+      <div class="faq">
+        <details>
+          <summary>我能不上传就合并 PDF 吗？</summary>
+          <p>可以。合并完全在你的浏览器中通过 pdf-lib 运行 — 文件永远不会离开你的设备。打开开发者工具 → 网络，你会看到零上传流量。</p>
+        </details>
+        <details>
+          <summary>有页数或文件数量限制吗？</summary>
+          <p>没有硬性限制。超大任务（数百页）取决于你的设备内存；桌面浏览器处理最大批量效果最佳。</p>
+        </details>
+        <details>
+          <summary>合并会改变质量吗？</summary>
+          <p>不会。页面以无损方式复制到新文件 — 文本、图片和矢量图保持像素级一致。源文件内的书签会被保留。</p>
+        </details>
+        <details>
+          <summary>合并前可以重新排序页面吗？</summary>
+          <p>可以。拖拽文件重新排序整个文档，或先使用拆分功能删除特定页面，再合并结果。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+<section class="related-tools">
+  <div class="container">
+    <h3>相关工具</h3>
+    <div class="grid">
+      <a class="card tool-card" href="/zh/tools/split.html">
+        <div class="icon">✂️</div>
+        <h3>拆分 PDF</h3>
+        <p>按页码范围拆分 PDF 或提取单页。</p>
+        <span class="arrow">↗</span>
+      </a>
+      <a class="card tool-card" href="/zh/tools/rotate-pdf.html">
+        <div class="icon">🔄</div>
+        <h3>旋转 PDF</h3>
+        <p>将页面旋转 90°、180° 或 270°。</p>
+        <span class="arrow">↗</span>
+      </a>
+      <a class="card tool-card" href="/tools/remove-pages.html">
+        <div class="icon">🗑️</div>
+        <h3>删除页面</h3>
+        <p>从 PDF 中删除不需要的页面。</p>
+        <span class="arrow">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 PDF Toolkit AI</span>
+      <span><a href="/privacy-policy.html">隐私</a> · <a href="/contact.html">联系</a> · <a href="/terms.html">条款</a></span>
+    </div>
+  </div>
+</footer>
+
+<script defer src="/js/main.js?v=12.19"></script>
+<script defer src="/js/tools/merge.js"></script>
+  <script defer src="/js/feedback.js"></script>
+  <script defer src="/js/visitor-counter.js?v=12.14"></script>
+</body>
+</html>

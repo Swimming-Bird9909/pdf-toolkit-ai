@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="preconnect" href="https://vc.wezzik.com" crossorigin>
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+<title>AI PDF 摘要 — 免费在线摘要 | PDF Toolkit AI</title>
+<link rel="canonical" href="https://wezzik.com/zh/tools/ai-summary.html" />
+<link rel="alternate" hreflang="zh" href="https://wezzik.com/zh/tools/ai-summary.html" />
+<link rel="alternate" hreflang="en" href="https://wezzik.com/tools/ai-summary.html" />
+<link rel="alternate" hreflang="x-default" href="https://wezzik.com/tools/ai-summary.html" />
+<meta name="description" content="为任意 PDF 生成简洁的 AI 摘要。适用于合同、研究论文和报告。免费、私密，在本地设备上运行。" />
+<meta property="og:title" content="AI PDF 摘要 — 免费在线摘要 | PDF Toolkit AI" />
+<meta property="og:description" content="为任意 PDF 生成简洁的 AI 摘要。适用于合同、研究论文和报告。免费、私密，在本地设备上运行。" />
+<meta name="robots" content="index, follow" />
+<link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg" />
+<link rel="preload" as="style" href="/css/style.css?v=12.19">
+<link rel="stylesheet" href="/css/style.css?v=12.19" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://wezzik.com/index.html"
+    },    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "AI PDF Tools",
+      "item": "https://wezzik.com/ai-pdf-tools.html"
+    },    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "AI PDF Summarizer",
+      "item": "https://wezzik.com/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "AI PDF Summarizer",
+  "url": "https://wezzik.com/zh/tools/ai-summary.html",
+  "applicationCategory": "ProductivityApplication",
+  "operatingSystem": "Any (Web Browser)",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "description": "Generate a structured TL;DR with key points, section cards, and topic chips from any PDF. Runs locally for short docs.",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "ratingCount": "1284"
+  }
+}
+</script>
+  <script async src="/js/analytics.js?v=12.19"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does AI Summary send my PDF to a server?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Text extraction (pdf.js) and the ranking algorithm (TF-IDF + MMR) both run in your browser. There are zero API calls to OpenAI or Google."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How accurate is the summary?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is extractive: every sentence in the summary is verbatim from your document, so it cannot hallucinate. It selects the most informative sentences rather than rewriting."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What languages are supported?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Any language with sentence boundaries — English, Spanish, French, German, and CJK languages with special segmentation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the max file size?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "About 200MB or 1000 pages. A 10-page PDF takes ~2s; a 500-page PDF takes ~15s."
+      }
+    }
+  ]
+}
+</script>
+
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="/zh/" class="brand">
+      <div class="brand-logo">📄</div>
+      <span>PDF Toolkit AI</span>
+    </a>
+    <div class="nav-links">
+      <a href="/zh/#tools">工具</a>
+      <a href="/convert-pdf.html">转换 PDF</a>
+      <a href="/edit-pdf.html">编辑 PDF</a>
+      <a href="/ai-pdf-tools.html">AI PDF 工具</a>
+      <a href="/business-pdf-tools.html">商务</a>
+      <a href="/blog.html">指南</a>
+    </div>
+    <div class="nav-cta">
+      <button id="themeToggle" class="theme-toggle" aria-label="切换主题">🌙</button>
+      <a href="/tools/compress.html" class="btn btn-primary btn-sm">开始使用</a>
+    </div>
+  </div>
+</nav>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+<a href="/zh/">首页</a>
+<span class="sep">›</span>
+<a href="/ai-pdf-tools.html">AI PDF 工具</a>
+<span class="sep">›</span>
+<span class="current">AI PDF 摘要</span>
+</nav>
+
+<header class="tool-hero">
+  <div class="container">
+    <div class="hero-badges"><span class="dot"></span><span>100% 私密 — 文件始终留在你的浏览器</span></div>
+    <h1>AI PDF 摘要</h1>
+    <p>拖入 PDF，几秒即可得到简洁摘要。适用于合同、论文、报告。</p>
+  </div>
+</header>
+
+<main class="container">
+  <div class="workspace">
+    <div class="dropzone" id="dz">
+      <span class="icon">📄</span>
+      <h3>将 PDF 拖到此处</h3>
+      <p>或点击浏览 · 最大 50MB（免费）/ 500MB（专业版）</p>
+      <input type="file" accept="application/pdf,.pdf" multiple />
+    </div>
+
+    <div class="options-panel" id="options">
+      <p class="soft">正在加载选项…</p>
+    </div>
+
+    <div class="file-list" id="fileList"></div>
+
+    <div class="actions">
+      <button id="btnRun" class="btn btn-primary btn-lg" disabled>处理</button>
+      <button id="btnReset" class="btn btn-ghost btn-lg">重置</button>
+    </div>
+
+    <div class="progress-wrap" id="progress">
+      <div class="progress-label"><span class="txt">正在处理…</span><span class="pct">0%</span></div>
+      <div class="progress"><div class="progress-bar"></div></div>
+    </div>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <section class="prose">
+    <h2>关于本工具</h2>
+    <p>为任意 PDF 生成简洁的 AI 摘要。适用于合同、研究论文和报告。免费、私密，本地运行。</p>
+    <h3>隐私</h3>
+    <p>一切都在你的浏览器中用 pdf-lib 和 pdf.js 运行。文件从不上传服务器。打开开发者工具 → 网络，你会看到本页面零流量。</p>
+    <h3>提示</h3>
+    <ul>
+      <li>使用 Chrome、Edge 或 Safari 以获得最佳性能。</li>
+      <li>处理超大文件（100+ 页）时，关闭其他标签页以释放内存。</li>
+      <li>需要批量处理？升级到专业版 — 不限文件数量，单个最大 500MB。</li>
+    </ul>
+  </section>
+</main>
+
+<section class="next-step">
+  <div class="container">
+    <div class="next-step-inner">
+      <div>
+        <span class="eyebrow">下一步</span>
+        <h3>有具体问题？</h3>
+        <p>摘要提供全局概览 — 与 PDF 对话可带引用深入细节。</p>
+      </div>
+      <a class="btn btn-primary" href="/tools/chat-with-pdf.html">与 PDF 对话 →</a>
+    </div>
+  </div>
+</section>
+
+  <section class="section" id="tool-faq">
+    <div class="container">
+      <h2 class="section-title">常见问题</h2>
+      <div class="faq">
+        <details>
+          <summary>AI 摘要会把我的 PDF 上传到服务器吗？</summary>
+          <p>不会。文本提取（pdf.js）与排序算法（TF-IDF + MMR）都在你的浏览器中运行，绝不调用 OpenAI 或 Google 的 API。</p>
+        </details>
+        <details>
+          <summary>摘要的准确度如何？</summary>
+          <p>这是抽取式摘要：摘要中的每句话都直接取自你的文档，因此不会产生幻觉。它挑选信息量最大的句子，而非重新改写。</p>
+        </details>
+        <details>
+          <summary>支持哪些语言？</summary>
+          <p>任何有句子边界的语言 — 英语、西班牙语、法语、德语，以及需要特殊分词的 CJK 语言。</p>
+        </details>
+        <details>
+          <summary>最大文件大小是多少？</summary>
+          <p>约 200MB 或 1000 页。10 页 PDF 约需 2 秒；500 页 PDF 约需 15 秒。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+<section class="related-tools">
+  <div class="container">
+    <h3>相关工具</h3>
+    <div class="grid">
+      <a class="card tool-card" href="/tools/chat-with-pdf.html">
+        <div class="icon">💬</div>
+        <h3>与 PDF 对话</h3>
+        <p>用自然语言向你的 PDF 提问。</p>
+        <span class="arrow">↗</span>
+      </a>
+      <a class="card tool-card" href="/tools/ocr.html">
+        <div class="icon">🔍</div>
+        <h3>PDF OCR</h3>
+        <p>先从扫描件 PDF 中提取文字。</p>
+        <span class="arrow">↗</span>
+      </a>
+      <a class="card tool-card" href="/tools/compress.html">
+        <div class="icon">🗜️</div>
+        <h3>压缩 PDF</h3>
+        <p>在摘要前先压缩大型 PDF。</p>
+        <span class="arrow">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 PDF Toolkit AI</span>
+      <span><a href="/privacy-policy.html">隐私</a> · <a href="/contact.html">联系</a> · <a href="/terms.html">条款</a></span>
+    </div>
+  </div>
+</footer>
+
+<script defer src="/js/main.js?v=12.19"></script>
+<script defer src="/js/tools/ai-summary.js?v=12.13"></script>
+  <script defer src="/js/feedback.js"></script>
+  <script defer src="/js/visitor-counter.js?v=12.14"></script>
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="preconnect" href="https://vc.wezzik.com" crossorigin>
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<title>把 PDF 上传到网上安全吗？一份隐私指南 — PDF Toolkit AI</title>
+<meta name="description" content="把 PDF 上传到在线工具时，背后到底发生了什么？了解 3 个风险等级，如何验证客户端处理，以及为什么基于浏览器的工具更安全。" />
+<link rel="canonical" href="https://wezzik.com/zh/blog/is-online-pdf-safe.html" />
+  <link rel="alternate" hreflang="zh" href="https://wezzik.com/zh/blog/is-online-pdf-safe.html" />
+  <link rel="alternate" hreflang="en" href="https://wezzik.com/blog/is-online-pdf-safe.html" />
+  <link rel="alternate" hreflang="x-default" href="https://wezzik.com/blog/is-online-pdf-safe.html" />
+<meta property="og:title" content="把 PDF 上传到网上安全吗？一份隐私指南" />
+<meta property="og:description" content="把 PDF 上传到在线工具时，背后到底发生了什么——以及如何保护自己。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wezzik.com/blog/is-online-pdf-safe.html" />
+<meta name="robots" content="index, follow" />
+<link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg" />
+<meta name="theme-color" content="#6366f1" />
+<link rel="preload" as="style" href="/css/style.css?v=12.19">
+<link rel="stylesheet" href="/css/style.css?v=12.19" />
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"Is it safe to upload your PDF online? A privacy guide",
+  "description":"What really happens when you upload a PDF to an online tool? Learn the 3 risk levels and how to verify client-side processing.",
+  "author":{"@type":"Organization","name":"PDF Toolkit AI"},
+  "publisher":{"@type":"Organization","name":"PDF Toolkit AI","url":"https://wezzik.com/"},
+  "datePublished":"2026-08-07",
+  "dateModified":"2026-08-07"
+}
+</script>
+  <script async src="/js/analytics.js?v=12.19"></script>
+</head>
+<body>
+
+<!-- ============================ Navbar ============================ -->
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="/" class="brand">
+      <div class="brand-logo">📄</div>
+      <span>PDF Toolkit AI</span>
+    </a>
+    <div class="nav-links">
+      <a href="/#tools">工具</a>
+      <a href="/#features">为什么选我们</a>
+      <a href="/blog.html" aria-current="page" style="color:var(--brand);">博客</a>
+      <a href="/#faq">常见问题</a>
+    </div>
+    <div class="nav-cta">
+      <button id="themeToggle" class="theme-toggle" aria-label="切换主题">🌙</button>
+      <a href="/tools/compress.html" class="btn btn-primary btn-sm">开始使用</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================ Article Hero ============================ -->
+<header class="hero">
+  <div class="container" style="max-width:780px;">
+    <div class="hero-badges">
+      <span class="dot"></span>
+      <span>🔒 隐私与安全</span>
+    </div>
+    <h1>把 PDF 上传到网上安全吗？<br/><span class="grad">一份实用的隐私指南。</span></h1>
+    <p>你需要合并两份 PDF、压缩一份简历，或转换一份文档。Google 第一条结果看起来很方便。但你的文件究竟去了哪里？下面揭晓幕后的真相——以及如何分辨安全的工具和危险的工具。</p>
+    <div class="hero-cta" style="justify-content:center;">
+      <a href="/" class="btn btn-primary btn-lg">试试我们的私密工具 →</a>
+      <a href="/blog.html" class="btn btn-ghost btn-lg">← 全部文章</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============================ Article ============================ -->
+<main class="container section" style="max-width:780px;">
+  <article class="prose">
+    <p class="soft">📅 2026年8月7日 · 阅读约 6 分钟 · 隐私指南</p>
+
+    <h2>人人都会问的问题</h2>
+    <p>“我需要合并两份 PDF——用在线工具安全吗？”这是个合理的问题。你正准备把一份文档交给一个你从没听说过的网站。也许它是一份合同。也许是医疗记录。也许是写着你电话号码和家庭住址的简历。</p>
+    <p>答案完全取决于<strong>工具如何处理你的文件</strong>。而这里有两种根本不同的模式。</p>
+
+    <h2>上传 PDF 时发生了什么</h2>
+    <p>当你使用一个典型的在线 PDF 工具——那种写着“上传你的文件”的——实际发生的是：</p>
+    <ol>
+      <li>你的 PDF 通过互联网传送到一个你无法控制的服务器。</li>
+      <li>服务器上的软件处理它（合并、压缩、转换等）。</li>
+      <li>结果发回给你。</li>
+      <li>服务器<em>可能</em>删除你的文件。也可能不会。</li>
+    </ol>
+    <p>问题出在第 4 步。你在相信供应商“文件已删除”的口头承诺。但服务器日志、备份、CDN 缓存和错误上报系统都可能在供应商毫无察觉的情况下保留了你文件的副本。</p>
+
+    <h2>在线 PDF 工具的 3 个风险等级</h2>
+
+    <h3>高风险：没有隐私政策的免费工具</h3>
+    <p>这些网站没有隐私政策、没有公司名称、没有地址。它们铺满广告。它们存在的目的是收割文件——要么用于数据挖掘，要么用于训练 AI 模型，或者仅仅因为运营者不懂如何保护服务器。</p>
+    <p><strong>危险信号：</strong>没有“关于”页面、没有隐私政策、广告泛滥、文件大小限制像是故意把人逼向付费档、不提数据存储在何处。</p>
+
+    <h3>中等风险：Freemium SaaS（Smallpdf、ILovePDF、SodaPDF）</h3>
+    <p>这些都是有隐私政策和数据留存规则的合法公司。它们在服务器端处理你的文件，然后声称会在一段时间后（通常 1–2 小时）删除。对于<em>非敏感</em>文档，这通常可以接受。</p>
+    <p>但“1 小时后删除”也有前提：</p>
+    <ul>
+      <li>备份可能把文件保留数天甚至数周。</li>
+      <li>服务器日志可能包含文件元数据。</li>
+      <li>如果公司被攻破，你的文件可能在删除前就已泄露。</li>
+      <li>某些“免费”档会分析文件内容用于广告或 AI 训练。</li>
+    </ul>
+    <p><strong>结论：</strong>公开文档没问题。任何机密文件都有风险。</p>
+
+    <h3>零风险：客户端工具（比如我们）</h3>
+    <p>客户端工具<strong>完全在你的浏览器中</strong>处理你的文件。文件永远不会离开你的设备。没有上传、没有服务器处理、没有留存策略——因为根本没有需要留存的东西。</p>
+    <p>这正是 PDF Toolkit AI 的做法。每一款工具——压缩、合并、拆分、OCR、AI 摘要——都使用 pdf-lib、pdf.js 和 Tesseract.js 等 JavaScript 库在本地运行。</p>
+
+    <h2>如何验证一款工具真的是客户端处理</h2>
+    <p>不要只听网站的口头宣传。你 30 秒就能验证：</p>
+
+    <h3>测试一：网络面板</h3>
+    <ol>
+      <li>在浏览器中打开该工具。</li>
+      <li>按 <strong>F12</strong> 打开开发者工具。</li>
+      <li>切换到 <strong>网络</strong> 面板。</li>
+      <li>上传一个 PDF。</li>
+      <li>观察网络流量。</li>
+    </ol>
+    <p>如果你看到一条大型 POST 请求，带着你的文件发往某个服务器——那它就<strong>不是</strong>客户端处理。如果唯一的网络流量只是页面初次加载和 CDN 资源（CSS/JS），那工具就在本地处理。</p>
+
+    <h3>测试二：离线测试</h3>
+    <p>加载工具，然后断开网络（关掉 Wi-Fi）。试着处理一个 PDF。如果能用，说明工具是客户端处理。如果因网络错误而失败，说明它依赖服务器。</p>
+
+    <h3>测试三：阅读源码</h3>
+    <p>客户端工具会在你的浏览器中加载全部处理代码。你可以阅读那些 JavaScript。在源码中找 <code>pdf-lib</code>、<code>pdfjs-dist</code>、<code>tesseract.js</code> 这类库——这些都是客户端 PDF 库。</p>
+
+    <h2>真实世界的恐怖故事</h2>
+    <p>以下情景基于有记录的真实事件整理而成：</p>
+    <ul>
+      <li><strong>泄露的简历：</strong>一位求职者用免费 PDF 转换器整理简历。该转换器的服务器配置错误，导致上传的文件通过公开 URL 被暴露。那份带完整联系方式的简历被搜索引擎收录。</li>
+      <li><strong>医疗记录：</strong>一位患者用在线工具把体检结果转成 PDF。该工具的隐私政策允许“为改进服务而分析文件内容”。敏感健康数据被第三方分析服务处理。</li>
+      <li><strong>机密合同：</strong>一家律所的实习生用免费 PDF 合并器合并合同草稿。合并后的文件被临时存放在一个共享云服务器上，因权限漏洞可被其他用户访问。</li>
+    </ul>
+
+    <h2>试金石</h2>
+    <p>把任何 PDF 上传到在线工具之前，先问自己：</p>
+    <blockquote style="border-left:3px solid var(--brand); padding-left:16px; margin:24px 0; font-size:18px; color:var(--text);">
+      “如果这份文件印在纸上，我会把它交给互联网上的一个陌生人吗？”
+    </blockquote>
+    <p>如果答案是否定的——而对大多数工作文档来说本该如此——那就改用客户端工具。</p>
+
+    <h2>常见问题</h2>
+    <p><strong>HTTPS 难道不能在上传时保护我的文件吗？</strong><br/>HTTPS 加密传输中的数据（浏览器与服务器之间）。它能防止窃听。但一旦你的文件到达服务器，HTTPS 就提供零保护。无论有没有 HTTPS，服务器都可以存储、分析或泄露你的文件。</p>
+    <p><strong>那“1 小时后删除文件”呢？</strong><br/>这是承诺，不是保证。备份、日志和缓存层都可能把副本保留到声明删除时间之后。而且“删除”可能只是软删除（在界面上隐藏但仍留在磁盘上），而非安全擦除。</p>
+    <p><strong>客户端工具会更慢吗？</strong><br/>对小于 100MB 的文件，差别可以忽略不计——往往更快，因为没有上传/下载的来回往返。对超大文件（500MB+），拥有强力 CPU 的服务器可能更快，但你是在用速度换取隐私。</p>
+    <p><strong>网站能通过 JavaScript 偷走我的文件吗？</strong><br/>恶意网站理论上可以在你授权的情况下（例如通过文件选择器）读取你设备上的文件。但声誉良好的客户端工具只会访问你明确选择的文件，在内存中处理，且从不传输。如果不确定，随时查看网络面板。</p>
+
+    <h2>要点</h2>
+    <p>并非所有在线 PDF 工具都同等安全。关键区别不在于“免费 vs 付费”——而在于<strong>服务器端 vs 客户端</strong>。服务器端工具要求你把自己的文件托付给第三方。客户端工具则不需要。</p>
+    <p><a href="/">PDF Toolkit AI</a> 上的每一款工具都是客户端处理。你的文件永远不会离开你的浏览器。这不是营销口号——用你浏览器的开发者工具，30 秒就能验证。</p>
+
+    <p style="margin-top:40px; text-align:center;">
+      <a class="btn btn-primary btn-lg" href="/">探索我们的私密工具 →</a>
+    </p>
+  </article>
+</main>
+
+<!-- ============================ Footer ============================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="/" class="brand">
+          <div class="brand-logo">📄</div>
+          <span>PDF Toolkit AI</span>
+        </a>
+        <p class="soft" style="margin-top:12px; max-width:300px;">10 款免费、私密的浏览器端 PDF 工具。你的文件永远不会离开你的设备。</p>
+      </div>
+      <div>
+        <h4>工具</h4>
+        <ul>
+          <li><a href="/tools/compress.html">压缩 PDF</a></li>
+          <li><a href="/tools/merge.html">合并 PDF</a></li>
+          <li><a href="/tools/split.html">拆分 PDF</a></li>
+          <li><a href="/tools/ocr.html">PDF OCR</a></li>
+          <li><a href="/tools/ai-summary.html">AI 摘要</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>更多</h4>
+        <ul>
+          <li><a href="/blog.html">博客</a></li>
+          <li><a href="/about.html">关于</a></li>
+          <li><a href="/privacy-policy.html">隐私政策</a></li>
+          <li><a href="/contact.html">联系我们</a></li>
+          <li><a href="/terms.html">使用条款</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 PDF Toolkit AI</span>
+      <span>用心打造 · 文件永不离开你的浏览器</span>
+    </div>
+  </div>
+</footer>
+
+<script defer src="/js/main.js?v=12.13"></script>
+  <script defer src="/js/feedback.js"></script>
+  <script defer src="/js/visitor-counter.js?v=12.14"></script>
+</body>
+</html>
