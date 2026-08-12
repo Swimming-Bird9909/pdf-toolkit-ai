@@ -2,8 +2,8 @@
 """
 Bulk optimizer for PDF Toolkit AI.
 Operations:
-  A. Inject GA4 loader (<script async src="/js/analytics.js?v=12.21">) before </head> on all HTML.
-  B. Bump main.js references to ?v=12.21 so SW + lang toggle load fresh.
+  A. Inject GA4 loader (<script async src="/js/analytics.js?v=12.22">) before </head> on all HTML.
+  B. Bump main.js references to ?v=12.22 so SW + lang toggle load fresh.
   C. Homepage: add "Most popular this week" strip after hero.
   D. Homepage: add Newsletter section before footer.
   E. Tool pages: add "Next step" CTA before <section class="related-tools">.
@@ -20,7 +20,7 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 APPLY = '--apply' in sys.argv
 
-GA_SNIPPET = '  <script async src="/js/analytics.js?v=12.21"></script>\n'
+GA_SNIPPET = '  <script async src="/js/analytics.js?v=12.22"></script>\n'
 
 # ---- E. Next-step CTA mapping (href relative to tools/) ----
 NEXT = {
@@ -82,17 +82,17 @@ def edit_file(path, changes):
     original = t
 
     # A. GA4 injection
-    if 'analytics.js?v=12.21' not in t:
+    if 'analytics.js?v=12.22' not in t:
         t = t.replace('</head>', GA_SNIPPET + '</head>', 1)
         changes.append('GA4 snippet')
 
     # B. main.js version bump
     new_t = t
-    new_t = new_t.replace('src="js/main.js"', 'src="js/main.js?v=12.21"')
-    new_t = new_t.replace('src="../js/main.js"', 'src="../js/main.js?v=12.21"')
+    new_t = new_t.replace('src="js/main.js"', 'src="js/main.js?v=12.22"')
+    new_t = new_t.replace('src="../js/main.js"', 'src="../js/main.js?v=12.22"')
     if new_t != t:
         t = new_t
-        changes.append('main.js?v=12.21')
+        changes.append('main.js?v=12.22')
 
     base = os.path.basename(path)
 

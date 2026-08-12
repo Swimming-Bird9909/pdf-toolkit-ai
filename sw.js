@@ -8,9 +8,9 @@ const CACHE = 'pdftoolkit-v3';
 const CORE = [
   '/',
   '/index.html',
-  '/css/style.css?v=12.21',
-  '/js/main.js?v=12.21',
-  '/js/analytics.js?v=12.21',
+  '/css/style.css?v=12.22',
+  '/js/main.js?v=12.22',
+  '/js/analytics.js?v=12.22',
   '/manifest.json',
   '/assets/icons/icon-192.png',
   '/assets/icons/icon-512.png'

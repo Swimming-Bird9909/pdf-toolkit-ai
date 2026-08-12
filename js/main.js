@@ -321,14 +321,15 @@
         return a;
       }
     };
-    // Order: ZH first on ZH pages, EN first on EN pages (consistency with the
-    // menu reading direction).
+    // Compact labels: "中" for Chinese, "EN" for English (user feedback:
+    // "中文/English was too wide — just use 中/EN"). The full native names
+    // remain in aria-label / title attributes for screen readers.
     if (isZh) {
-      wrap.appendChild(makeOpt('中文', { active: true, hreflang: 'zh' }));
-      wrap.appendChild(makeOpt('English', { active: false, hreflang: 'en', title: 'Switch to English' }));
+      wrap.appendChild(makeOpt('中',  { active: true,  hreflang: 'zh' }));
+      wrap.appendChild(makeOpt('EN', { active: false, hreflang: 'en', title: 'Switch to English' }));
     } else {
-      wrap.appendChild(makeOpt('中文', { active: false, hreflang: 'zh', title: '切换到中文' }));
-      wrap.appendChild(makeOpt('English', { active: true, hreflang: 'en' }));
+      wrap.appendChild(makeOpt('中',  { active: false, hreflang: 'zh', title: '切换到中文' }));
+      wrap.appendChild(makeOpt('EN', { active: true,  hreflang: 'en' }));
     }
     // Inject at the top of the page (inside the nav CTA)
     const cta = document.querySelector('.nav-cta');

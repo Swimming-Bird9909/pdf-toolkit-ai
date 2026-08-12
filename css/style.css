@@ -1590,12 +1590,12 @@ img { max-width: 100%; display: block; }
   display: inline-flex;
   align-items: center;
   gap: 2px;
-  padding: 4px;
+  padding: 3px;
   border-radius: 999px;
   background: rgba(99,102,241,.08);
   border: 1px solid rgba(99,102,241,.18);
   box-shadow: 0 2px 8px rgba(99,102,241,.08);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
   white-space: nowrap;
   transition: box-shadow .15s ease;
@@ -1603,13 +1603,15 @@ img { max-width: 100%; display: block; }
 .lang-switch__opt {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 6px 12px;
+  gap: 4px;
+  padding: 4px 9px;
   border-radius: 999px;
   text-decoration: none;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
   transition: all .18s ease;
   cursor: pointer;
+  min-width: 28px;
+  justify-content: center;
 }
 .lang-switch__opt--active {
   background: var(--gradient, linear-gradient(135deg, #6366f1, #8b5cf6));
@@ -1639,8 +1641,8 @@ img { max-width: 100%; display: block; }
 [data-theme="dark"] .lang-switch__opt--alt { color: #cbd5e1; }
 [data-theme="dark"] .lang-switch__opt--alt:hover { background: rgba(255,255,255,.06); color: #a5b4fc; }
 @media (max-width: 600px) {
-  .lang-switch { font-size: 12px; }
-  .lang-switch__opt { padding: 5px 9px; }
+  .lang-switch { font-size: 11px; }
+  .lang-switch__opt { padding: 3px 7px; min-width: 24px; }
 }
 
 /* ============================== Homepage: Most popular this week ============================== */
