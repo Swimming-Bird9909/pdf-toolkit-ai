@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="preconnect" href="https://vc.wezzik.com" crossorigin />
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<title>Why does the site switch back to Chinese? (And how we fixed it) — PDF Toolkit AI</title>
+<meta name="description" content="If you pick English but the page flips back to Chinese after a refresh — especially in Safari or Firefox — here's exactly why it happened and what we changed so your language choice finally sticks." />
+<link rel="canonical" href="https://wezzik.com/blog/language-toggle-explained.html" />
+  <link rel="alternate" hreflang="en" href="https://wezzik.com/blog/language-toggle-explained.html" />
+  <link rel="alternate" hreflang="x-default" href="https://wezzik.com/blog/language-toggle-explained.html" />
+  <link rel="alternate" hreflang="zh" href="https://wezzik.com/zh/blog/language-toggle-explained.html" />
+<meta property="og:title" content="Why does the site switch back to Chinese? (And how we fixed it)" />
+<meta property="og:description" content="English flips back to Chinese after refresh in Safari/Firefox? Here's the root cause and the fix." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wezzik.com/blog/language-toggle-explained.html" />
+<meta name="robots" content="index, follow" />
+<link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
+<meta name="theme-color" content="#6366f1" />
+<link rel="preload" as="style" href="../css/style.css?v=12.32">
+<link rel="stylesheet" href="../css/style.css?v=12.32" />
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"Why does the site switch back to Chinese? (And how we fixed it)",
+  "description":"If you pick English but the page flips back to Chinese after a refresh — especially in Safari or Firefox — here's exactly why it happened and what we changed.",
+  "author":{"@type":"Organization","name":"PDF Toolkit AI"},
+  "publisher":{"@type":"Organization","name":"PDF Toolkit AI","url":"https://wezzik.com/"},
+  "datePublished":"2026-08-12",
+  "dateModified":"2026-08-12"
+}
+</script>
+  <script async src="/js/analytics.js?v=12.28"></script>
+</head>
+<body>
+
+<!-- ============================ Navbar ============================ -->
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="../" class="brand">
+      <div class="brand-logo">📄</div>
+      <span>PDF Toolkit AI</span>
+    </a>
+    <div class="nav-links">
+      <a href="../#tools">Tools</a>
+      <a href="../#features">Why us</a>
+      <a href="../blog.html" aria-current="page" style="color:var(--brand);">Blog</a>
+      <a href="../#faq">FAQ</a>
+    </div>
+    <div class="nav-cta">
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+      <a href="../tools/compress.html" class="btn btn-primary btn-sm">Get started</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================ Article Hero ============================ -->
+<header class="hero">
+  <div class="container" style="max-width:780px;">
+    <div class="hero-badges">
+      <span class="dot"></span>
+      <span>🌐 Language &amp; settings</span>
+    </div>
+    <h1>Why does the site switch back to Chinese?<br/><span class="grad">(And how we fixed it)</span></h1>
+    <p>You tap <strong>EN</strong>, the page turns English, you refresh — and it's Chinese again. If that sounds familiar, you're not imagining it. Here's exactly what was happening and what we changed.</p>
+    <div class="hero-cta" style="justify-content:center;">
+      <a href="../tools/compress.html" class="btn btn-primary btn-lg">Try the tools →</a>
+      <a href="../blog.html" class="btn btn-ghost btn-lg">← All articles</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============================ Article ============================ -->
+<main class="container section" style="max-width:780px;">
+  <article class="prose">
+    <p class="soft">📅 August 12, 2026 · 4 min read</p>
+
+    <h2>The short version</h2>
+    <p>Your language choice was being saved in a part of the browser called <strong>localStorage</strong>. Some browsers — mainly <strong>Safari, Firefox, and aggressive privacy/anti-tracking modes</strong> — restrict or silently drop localStorage writes. So your "English" choice never actually got saved, and the next time the page loaded it fell back to the default language.</p>
+    <p><strong>We now save your choice in a cookie instead.</strong> Cookies survive those restrictions, so English (or Chinese) now sticks across refreshes, tabs, and most privacy settings. If you were hitting this, just refresh once more and pick your language — it'll stay.</p>
+
+    <h2>What you were seeing</h2>
+    <ul>
+      <li>You click <strong>EN</strong> in the top-right switcher. The page shows English. Good.</li>
+      <li>You refresh the page (or pull-to-refresh on mobile). It's Chinese again.</li>
+      <li>Clicking <strong>中文</strong> always stays Chinese — only English "reverts".</li>
+      <li>It's worst in Safari and Firefox, and "works fine" in Chrome.</li>
+    </ul>
+    <p>That last point is the big clue. Chrome is more permissive about localStorage, so the choice stuck there. Safari and Firefox are stricter, so the choice got lost — and only the <em>English</em> choice was affected because the fallback language happens to be Chinese.</p>
+
+    <h2>Why it happened (plain English)</h2>
+    <p>Every page on the site exists in two flavors with two addresses:</p>
+    <ul>
+      <li>English: <code>wezzik.com/...</code> (no <code>/zh/</code> prefix)</li>
+      <li>Chinese: <code>wezzik.com/zh/...</code> (with the <code>/zh/</code> prefix)</li>
+    </ul>
+    <p>When you switch languages, two things happen: the site takes you to the matching address <em>and</em> remembers your pick so future visits open in that language. The "remember" part was the problem.</p>
+    <p>We stored that memory in <strong>localStorage</strong>. It works great in Chrome. But in Safari/Firefox (and in any browser with "Block all cookies" or strong tracking protection), localStorage can be blocked or wiped — and our code quietly swallowed the error instead of failing loudly. Result: the memory was empty, so the site assumed you wanted the default language (Chinese) and redirected you there.</p>
+    <p>Because the default is Chinese, only the <em>English</em> choice ever looked "broken" — Chinese was both the fallback and the saved value, so it always appeared correct.</p>
+
+    <h2>What we changed</h2>
+    <ol>
+      <li><strong>Your language choice is now saved in a cookie</strong>, not localStorage. Cookies are the web's standard, reliable memory — they aren't blocked by the same privacy settings that break localStorage. The choice persists for a year and works across every browser we tested.</li>
+      <li><strong>The address is always the source of truth.</strong> Even with no memory at all, the URL you're on decides the language. Bookmark <code>wezzik.com</code> for English or <code>wezzik.com/zh/</code> for Chinese and it can never "flip" on you.</li>
+      <li><strong>We removed a stuck loading state</strong> on the switcher so the click always feels instant.</li>
+    </ol>
+    <p>No accounts, no upload, no tracking — just a tiny cookie that says "this visitor prefers English".</p>
+
+    <h2>How to make sure English sticks for you</h2>
+    <ol>
+      <li><strong>Refresh once</strong> after this update so your browser picks up the new code.</li>
+      <li>Pick <strong>EN</strong> in the switcher. It now saves to a cookie and survives refreshes.</li>
+      <li><strong>Bookmark the English URL</strong> (<code>wezzik.com</code>) if you want to be 100% safe — the address itself is English.</li>
+      <li>If you use <strong>"Block all cookies"</strong> or a very strict anti-tracking extension, allow cookies for <code>wezzik.com</code>. The language memory lives in a first-party cookie; without it, the site can't remember any setting (theme included).</li>
+    </ol>
+
+    <h2>FAQ</h2>
+    <p><strong>Is my PDF data affected by this?</strong><br/>No. The language setting is completely separate from file processing. Every tool still runs 100% in your browser — your files never leave your device.</p>
+    <p><strong>Why was it fine in Chrome but not Safari/Firefox?</strong><br/>Chrome allows localStorage even under stricter defaults; Safari and Firefox (and most privacy modes) restrict it. We switched to cookies precisely because cookies are respected across all of them.</p>
+    <p><strong>Does this mean you're tracking me?</strong><br/>No. The only thing the cookie stores is your language preference (<code>en</code> or <code>zh</code>). There's no identifier, no analytics tie-in, and nothing is sent anywhere except back to our own server to serve the right page.</p>
+    <p><strong>What if I want Chinese back?</strong><br/>Click <strong>中文</strong> in the switcher. It saves the same way and sticks just as reliably.</p>
+
+    <p style="margin-top:40px; text-align:center;">
+      <a class="btn btn-primary btn-lg" href="../tools/compress.html">Try the tools →</a>
+    </p>
+  </article>
+</main>
+
+<!-- ============================ Footer ============================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="../" class="brand">
+          <div class="brand-logo">📄</div>
+          <span>PDF Toolkit AI</span>
+        </a>
+        <p class="soft" style="margin-top:12px; max-width:300px;">10 free, private, browser-based PDF tools. Your files never leave your device.</p>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="../tools/compress.html">Compress PDF</a></li>
+          <li><a href="../tools/merge.html">Merge PDF</a></li>
+          <li><a href="../tools/split.html">Split PDF</a></li>
+          <li><a href="../tools/ocr.html">PDF OCR</a></li>
+          <li><a href="../tools/ai-summary.html">AI Summary</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>More</h4>
+        <ul>
+          <li><a href="../blog.html">Blog</a></li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../terms.html">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 PDF Toolkit AI</span>
+      <span>Made with care · Files never leave your browser</span>
+    </div>
+  </div>
+</footer>
+
+<script defer src="../js/main.js?v=12.32"></script>
+  <script defer src="/js/feedback.js"></script>
+  <script defer src="/js/visitor-counter.js?v=12.28"></script>
+</body>
+</html>

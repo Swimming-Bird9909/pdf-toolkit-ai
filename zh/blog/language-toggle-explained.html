@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="preconnect" href="https://vc.wezzik.com" crossorigin />
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<title>为什么切换英文后刷新会变回中文？（以及我们如何修复）— PDF Toolkit AI</title>
+<meta name="description" content="如果你选了英文，刷新后页面又变回中文——尤其在 Safari 或 Firefox 里——这里说明原因，以及我们做了什么改动，让你的语言选择终于能记住。" />
+<link rel="canonical" href="https://wezzik.com/zh/blog/language-toggle-explained.html" />
+  <link rel="alternate" hreflang="zh" href="https://wezzik.com/zh/blog/language-toggle-explained.html" />
+  <link rel="alternate" hreflang="en" href="https://wezzik.com/blog/language-toggle-explained.html" />
+  <link rel="alternate" hreflang="x-default" href="https://wezzik.com/blog/language-toggle-explained.html" />
+<meta property="og:title" content="为什么切换英文后刷新会变回中文？（以及我们如何修复）" />
+<meta property="og:description" content="英文刷新后变回中文？Safari/Firefox 常见——说明根因与修复方式。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wezzik.com/zh/blog/language-toggle-explained.html" />
+<meta name="robots" content="index, follow" />
+<link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg" />
+<meta name="theme-color" content="#6366f1" />
+<link rel="preload" as="style" href="/css/style.css?v=12.32">
+<link rel="stylesheet" href="/css/style.css?v=12.32" />
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"为什么切换英文后刷新会变回中文？（以及我们如何修复）",
+  "description":"如果你选了英文，刷新后页面又变回中文——尤其在 Safari 或 Firefox 里——这里说明原因，以及我们做了什么改动。",
+  "author":{"@type":"Organization","name":"PDF Toolkit AI"},
+  "publisher":{"@type":"Organization","name":"PDF Toolkit AI","url":"https://wezzik.com/"},
+  "datePublished":"2026-08-12",
+  "dateModified":"2026-08-12"
+}
+</script>
+  <script async src="/js/analytics.js?v=12.28"></script>
+</head>
+<body>
+
+<!-- ============================ Navbar ============================ -->
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="../" class="brand">
+      <div class="brand-logo">📄</div>
+      <span>PDF Toolkit AI</span>
+    </a>
+    <div class="nav-links">
+      <a href="../#tools">工具</a>
+      <a href="../#features">为什么选我们</a>
+      <a href="../blog.html" aria-current="page" style="color:var(--brand);">博客</a>
+      <a href="../#faq">常见问题</a>
+    </div>
+    <div class="nav-cta">
+      <button id="themeToggle" class="theme-toggle" aria-label="切换主题">🌙</button>
+      <a href="../tools/compress.html" class="btn btn-primary btn-sm">开始使用</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================ Article Hero ============================ -->
+<header class="hero">
+  <div class="container" style="max-width:780px;">
+    <div class="hero-badges">
+      <span class="dot"></span>
+      <span>🌐 语言与设置</span>
+    </div>
+    <h1>为什么切换英文后刷新会变回中文？<br/><span class="grad">（以及我们如何修复）</span></h1>
+    <p>你点了 <strong>EN</strong>，页面变成英文，刷新一下——又变回中文了。如果你遇到过，不是错觉。下面说清到底发生了什么，以及我们改了什么。</p>
+    <div class="hero-cta" style="justify-content:center;">
+      <a href="../tools/compress.html" class="btn btn-primary btn-lg">试用工具 →</a>
+      <a href="../blog.html" class="btn btn-ghost btn-lg">← 全部文章</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============================ Article ============================ -->
+<main class="container section" style="max-width:780px;">
+  <article class="prose">
+    <p class="soft">📅 2026 年 8 月 12 日 · 4 分钟阅读</p>
+
+    <h2>一句话结论</h2>
+    <p>你选的语言原本保存在浏览器的一个叫 <strong>localStorage</strong> 的地方。部分浏览器——主要是 <strong>Safari、Firefox，以及开启了严格隐私/拦截 Cookie 的模式</strong>——会限制甚至悄悄丢弃 localStorage 的写入。于是你的"英文"选择根本没存下来，下次加载页面时就退回了默认语言。</p>
+    <p><strong>我们现在改用 Cookie 来保存你的选择。</strong>Cookie 不受上述限制影响，所以无论刷新、开新标签页，还是大多数隐私设置下，英文（或中文）都能记住。如果你之前遇到这个问题，再刷新一次、选好语言即可，它会一直保持。</p>
+
+    <h2>你看到的现象</h2>
+    <ul>
+      <li>你点右上角的 <strong>EN</strong>，页面变成英文。没问题。</li>
+      <li>你刷新页面（或手机上下拉刷新），又变回中文。</li>
+      <li>点 <strong>中文</strong> 一直保持中文——只有英文会"回弹"。</li>
+      <li>在 Safari、Firefox 里最严重，Chrome 里"看起来正常"。</li>
+    </ul>
+    <p>最后一点是关键线索。Chrome 对 localStorage 更宽松，所以选择能存住；Safari、Firefox 更严格，选择丢失了——而只有 <em>英文</em> 看起来"坏了"，是因为默认语言恰好是中文。</p>
+
+    <h2>为什么会这样（大白话）</h2>
+    <p>本站每个页面都有两个版本、两个地址：</p>
+    <ul>
+      <li>英文：<code>wezzik.com/...</code>（没有 <code>/zh/</code> 前缀）</li>
+      <li>中文：<code>wezzik.com/zh/...</code>（带 <code>/zh/</code> 前缀）</li>
+    </ul>
+    <p>你切换语言时，会做两件事：跳到对应的地址，<em>并且</em>记住你的选择，方便以后默认打开该语言。出问题的就是"记住"这一步。</p>
+    <p>我们原来把这段记忆存在 <strong>localStorage</strong> 里。在 Chrome 里没问题；但在 Safari/Firefox（以及任何"屏蔽所有 Cookie"或强拦截跟踪的浏览器）里，localStorage 可能被屏蔽或清空，而我们的代码当时把错误静默吞掉了，没有报错。结果：记忆是空的，站点就假设你想要默认语言（中文），把你重定向过去。</p>
+    <p>因为默认是中文，所以只有 <em>英文</em> 选择显得"坏"——中文既是默认值也是被存下的值，所以永远看起来是对的。</p>
+
+    <h2>我们改了什么</h2>
+    <ol>
+      <li><strong>语言选择现在存进 Cookie</strong>，而不是 localStorage。Cookie 是网页标准的、可靠的记忆方式，不会被那些会破坏 localStorage 的隐私设置屏蔽。选择会保留一年，在我们测试过的所有浏览器里都生效。</li>
+      <li><strong>地址永远是第一真相。</strong>即使没有任何记忆，你所在的网址也决定语言。把 <code>wezzik.com</code> 存为英文书签、<code>wezzik.com/zh/</code> 存为中文书签，它就绝不会"变"。</li>
+      <li><strong>去掉了切换器上一个卡住的加载状态</strong>，点击始终即时响应。</li>
+    </ol>
+    <p>没有账号、没有上传、没有追踪——只是一个极小的 Cookie，写着"这位访客偏好英文"。</p>
+
+    <h2>如何确保你的英文选择记住</h2>
+    <ol>
+      <li>本次更新后<strong>刷新一次</strong>，让浏览器加载新代码。</li>
+      <li>在切换器里点 <strong>EN</strong>。现在它会写入 Cookie，刷新后依然保持。</li>
+      <li><strong>把英文网址存为书签</strong>（<code>wezzik.com</code>），想 100% 保险就靠地址本身——它本来就是英文。</li>
+      <li>如果你开了 <strong>"屏蔽所有 Cookie"</strong> 或很严格的拦截跟踪插件，请对 <code>wezzik.com</code> 允许 Cookie。语言记忆就存在于一个第一方 Cookie 里；没有它，站点无法记住任何设置（主题也一样）。</li>
+    </ol>
+
+    <h2>常见问题</h2>
+    <p><strong>我的 PDF 数据会受此影响吗？</strong><br/>不会。语言设置和文件处理完全无关。每个工具都 100% 在浏览器内运行——你的文件从不出设备。</p>
+    <p><strong>为什么 Chrome 正常，Safari/Firefox 不行？</strong><br/>Chrome 在较严格默认下仍允许 localStorage；Safari、Firefox（以及多数隐私模式）会限制它。我们改用 Cookie，正是因为它在所有浏览器里都被尊重。</p>
+    <p><strong>这是不是意味着你们在追踪我？</strong><br/>不是。Cookie 只存你的语言偏好（<code>en</code> 或 <code>zh</code>）。没有标识符、不关联任何分析、除回传给我们自己的服务器以给出正确页面外，不上传任何地方。</p>
+    <p><strong>我想换回中文怎么办？</strong><br/>点切换器里的 <strong>中文</strong>。保存方式相同，一样可靠。</p>
+
+    <p style="margin-top:40px; text-align:center;">
+      <a class="btn btn-primary btn-lg" href="../tools/compress.html">试用工具 →</a>
+    </p>
+  </article>
+</main>
+
+<!-- ============================ Footer ============================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="../" class="brand">
+          <div class="brand-logo">📄</div>
+          <span>PDF Toolkit AI</span>
+        </a>
+        <p class="soft" style="margin-top:12px; max-width:300px;">10 个免费、私密的浏览器端 PDF 工具。你的文件从不出设备。</p>
+      </div>
+      <div>
+        <h4>工具</h4>
+        <ul>
+          <li><a href="../tools/compress.html">压缩 PDF</a></li>
+          <li><a href="../tools/merge.html">合并 PDF</a></li>
+          <li><a href="../tools/split.html">拆分 PDF</a></li>
+          <li><a href="../tools/ocr.html">PDF OCR</a></li>
+          <li><a href="../tools/ai-summary.html">AI 摘要</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>更多</h4>
+        <ul>
+          <li><a href="../blog.html">博客</a></li>
+          <li><a href="../about.html">关于</a></li>
+          <li><a href="../privacy-policy.html">隐私政策</a></li>
+          <li><a href="../contact.html">联系我们</a></li>
+          <li><a href="../terms.html">使用条款</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 PDF Toolkit AI</span>
+      <span>用心打造 · 文件从不出你的浏览器</span>
+    </div>
+  </div>
+</footer>
+
+<script defer src="../js/main.js?v=12.32"></script>
+  <script defer src="/js/feedback.js"></script>
+  <script defer src="/js/visitor-counter.js?v=12.28"></script>
+</body>
+</html>
