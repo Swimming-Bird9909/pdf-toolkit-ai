@@ -41,5 +41,9 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
+# === IndexNow ======================================================================
+# Bing / Yandex / Naver / Seznam re-crawl within minutes when we POST changes.
+IndexNow: https://wezzik.com/6904effd19f68a0789a3a82af2b74288.txt
+
 # === Sitemaps =======================================================================
 Sitemap: https://wezzik.com/sitemap.xml
