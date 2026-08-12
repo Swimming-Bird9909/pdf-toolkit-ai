@@ -17,9 +17,14 @@
   `;
 
   window.initDropzone('#dz', (files) => {
-    currentFiles = Array.from(files).filter(f => /\.pdf$/i.test(f.name));
+    // Append instead of replace — user can keep clicking the dropzone to add more PDFs.
+    const incoming = Array.from(files).filter(f => /\.pdf$/i.test(f.name));
+    currentFiles = currentFiles.concat(incoming);
     renderList();
     btn.disabled = currentFiles.length === 0;
+    // Reset the underlying <input> so re-selecting the SAME file still fires `change`.
+    const input = document.querySelector('#dz input[type="file"]');
+    if (input) input.value = '';
   });
 
   function renderList() {
