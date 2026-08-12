@@ -4,16 +4,13 @@
              cache-first for static assets (css/js/icons).
    Bump CACHE name when you change cached asset URLs/versions.
    ========================================================================== */
-const CACHE = 'pdftoolkit-v3';
+const CACHE = 'pdftoolkit-v4';
 const CORE = [
   '/',
   '/index.html',
-  '/css/style.css?v=12.22',
-  '/js/main.js?v=12.22',
-  '/js/analytics.js?v=12.22',
-  '/manifest.json',
-  '/assets/icons/icon-192.png',
-  '/assets/icons/icon-512.png'
+  '/css/style.css?v=12.24',
+  '/js/main.js?v=12.24',
+  '/manifest.json'
 ];
 
 self.addEventListener('install', (event) => {
@@ -42,9 +39,13 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Assets: cache-first, then network (and cache the result).
-  event.respondWith(
-    caches.match(req).then((cached) => {
+  // Assets: bypass cache for ?v=* URLs (always fresh from network); for
+  // unversioned assets use cache-first with network fallback.
+  event.respondWith((function () {
+    const url = new URL(req.url);
+    const isVersioned = /[?&]v=/.test(url.search);
+    if (isVersioned) return fetch(req);
+    return caches.match(req).then((cached) => {
       if (cached) return cached;
       return fetch(req).then((res) => {
         if (res && res.status === 200 && res.type === 'basic') {
@@ -53,6 +54,6 @@ self.addEventListener('fetch', (event) => {
         }
         return res;
       });
-    })
-  );
+    });
+  })());
 });

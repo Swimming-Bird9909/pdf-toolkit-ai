@@ -4,6 +4,7 @@
    ========================================================================== */
 
 :root {
+  --container: 1180px;
   --bg: #f7f8fc;
   --bg-elev: #ffffff;
   --bg-soft: #eef0f6;
@@ -781,7 +782,11 @@ img { max-width: 100%; display: block; }
   color: var(--text-mute);
   max-width: var(--container);
   margin: 0 auto;
-  padding: 18px 24px 0;
+  /* align with content below (workspace has 32px internal padding). */
+  padding: 18px 0 0;
+}
+@media (min-width: 1240px) {
+  .breadcrumb { padding-left: 32px; }
 }
 .breadcrumb a {
   color: var(--text-soft);
