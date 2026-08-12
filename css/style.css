@@ -1585,26 +1585,63 @@ img { max-width: 100%; display: block; }
 
 [data-theme="dark"] .summary-points li { background: var(--bg-soft); border-color: var(--border); }
 
-/* ============================== Floating language switch ============================== */
+/* ============================== Language switcher (two-option toggle) ============================== */
 .lang-switch {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 9px 16px;
+  gap: 2px;
+  padding: 4px;
   border-radius: 999px;
-  background: var(--gradient);
-  color: #fff;
-  font-size: 14px;
+  background: rgba(99,102,241,.08);
+  border: 1px solid rgba(99,102,241,.18);
+  box-shadow: 0 2px 8px rgba(99,102,241,.08);
+  font-size: 13px;
   font-weight: 700;
+  white-space: nowrap;
+  transition: box-shadow .15s ease;
+}
+.lang-switch__opt {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
   text-decoration: none;
   letter-spacing: 0.02em;
-  white-space: nowrap;
-  border: 1px solid rgba(255,255,255,.18);
-  box-shadow: 0 4px 16px rgba(99,102,241,.40), 0 0 0 2px rgba(255,255,255,.08) inset;
-  transition: transform .15s ease, box-shadow .15s ease;
+  transition: all .18s ease;
+  cursor: pointer;
 }
-.lang-switch:hover { transform: translateY(-1px); box-shadow: 0 8px 22px rgba(99,102,241,.55), 0 0 0 2px rgba(255,255,255,.14) inset; }
-@media (max-width: 600px) { .lang-switch { padding: 6px 11px; font-size: 12px; } }
+.lang-switch__opt--active {
+  background: var(--gradient, linear-gradient(135deg, #6366f1, #8b5cf6));
+  color: #fff;
+  cursor: default;
+  box-shadow: 0 4px 14px rgba(99,102,241,.40), 0 0 0 2px rgba(255,255,255,.10) inset;
+  position: relative;
+}
+.lang-switch__opt--active::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #34d399; /* Tailwind emerald-400 — matches privacy-badge active dot */
+  box-shadow: 0 0 0 2px rgba(52,211,153,.25);
+}
+.lang-switch__opt--alt {
+  color: #475569; /* slate-600 */
+  background: transparent;
+}
+.lang-switch__opt--alt:hover {
+  background: #fff;
+  color: #4338ca; /* indigo-700 */
+  box-shadow: 0 2px 6px rgba(99,102,241,.18);
+}
+[data-theme="dark"] .lang-switch { background: rgba(99,102,241,.15); border-color: rgba(99,102,241,.25); }
+[data-theme="dark"] .lang-switch__opt--alt { color: #cbd5e1; }
+[data-theme="dark"] .lang-switch__opt--alt:hover { background: rgba(255,255,255,.06); color: #a5b4fc; }
+@media (max-width: 600px) {
+  .lang-switch { font-size: 12px; }
+  .lang-switch__opt { padding: 5px 9px; }
+}
 
 /* ============================== Homepage: Most popular this week ============================== */
 .popular-strip { padding-top: 8px; padding-bottom: 8px; }

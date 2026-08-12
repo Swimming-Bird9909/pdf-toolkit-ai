@@ -278,35 +278,62 @@
     });
   }
 
-  /* ---------- Language switch (EN ⇄ 中文), per-page + sticky ---------- */
+  /* ---------- Language switcher (two-option toggle: 中文 | English) ----------
+     Renders BOTH options inside one pill so users can always see what's
+     available. The currently-active language is shown as a non-clickable
+     label with a green active dot; the other option is a real link to the
+     counterpart page. Clicking the alt pill sets the sticky preference
+     (so future pages auto-redirect to the chosen language).
+     NOTE: assumes every EN page has a /zh/ counterpart (true for this site). */
   document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('langSwitch')) return;
     const path = location.pathname;
     const isZh = path.indexOf('/zh/') === 0 || path === '/zh';
+    // Compute the counterpart URL (where the other-language link should point)
     let counterpart;
     if (isZh) {
-      // currently on a Chinese page → link back to its English version
-      counterpart = path.slice(3); // drop the "/zh" prefix
+      counterpart = path.slice(3); // drop "/zh" prefix
       if (counterpart === '' || counterpart === '/') counterpart = '/';
     } else {
-      // currently on an English page → link to its Chinese counterpart
-      if (path === '/' || path === '/index.html') counterpart = '/zh/';
-      else counterpart = '/zh' + path;
+      counterpart = (path === '/' || path === '/index.html') ? '/zh/' : '/zh' + path;
     }
-    const a = document.createElement('a');
-    a.id = 'langSwitch';
-    a.className = 'lang-switch';
-    a.href = counterpart;
-    a.textContent = isZh ? '🌐 EN' : '🌐 中文';
-    a.setAttribute('hreflang', isZh ? 'en' : 'zh');
-    a.setAttribute('title', isZh ? 'Switch to English' : '切换到中文');
-    // remember the user's explicit choice so future pages stay in this language
-    const onPick = (e) => { setLangPref(isZh ? 'en' : 'zh'); };
-    a.addEventListener('click', onPick);
-    // inject at the top of the page (inside the nav CTA)
+    // Build the toggle: [active-label | alt-link]
+    const wrap = document.createElement('div');
+    wrap.id = 'langSwitch';
+    wrap.className = 'lang-switch' + (isZh ? ' lang-switch--zh' : ' lang-switch--en');
+    wrap.setAttribute('role', 'group');
+    wrap.setAttribute('aria-label', 'Language switcher');
+    const makeOpt = (label, opts) => {
+      if (opts.active) {
+        const span = document.createElement('span');
+        span.className = 'lang-switch__opt lang-switch__opt--active';
+        span.setAttribute('aria-current', 'true');
+        span.textContent = label;
+        return span;
+      } else {
+        const a = document.createElement('a');
+        a.className = 'lang-switch__opt lang-switch__opt--alt';
+        a.href = counterpart;
+        a.setAttribute('hreflang', opts.hreflang);
+        a.setAttribute('title', opts.title);
+        a.textContent = label;
+        a.addEventListener('click', () => { setLangPref(opts.hreflang === 'zh' ? 'zh' : 'en'); });
+        return a;
+      }
+    };
+    // Order: ZH first on ZH pages, EN first on EN pages (consistency with the
+    // menu reading direction).
+    if (isZh) {
+      wrap.appendChild(makeOpt('中文', { active: true, hreflang: 'zh' }));
+      wrap.appendChild(makeOpt('English', { active: false, hreflang: 'en', title: 'Switch to English' }));
+    } else {
+      wrap.appendChild(makeOpt('中文', { active: false, hreflang: 'zh', title: '切换到中文' }));
+      wrap.appendChild(makeOpt('English', { active: true, hreflang: 'en' }));
+    }
+    // Inject at the top of the page (inside the nav CTA)
     const cta = document.querySelector('.nav-cta');
-    if (cta) cta.insertBefore(a, cta.firstChild);
-    else document.body.appendChild(a);
+    if (cta) cta.insertBefore(wrap, cta.firstChild);
+    else document.body.appendChild(wrap);
     // SEO: pair this page with its alternate-language version
     const altLang = isZh ? 'en' : 'zh';
     if (!document.querySelector('link[rel="alternate"][hreflang="' + altLang + '"]')) {

@@ -4,13 +4,13 @@
              cache-first for static assets (css/js/icons).
    Bump CACHE name when you change cached asset URLs/versions.
    ========================================================================== */
-const CACHE = 'pdftoolkit-v2';
+const CACHE = 'pdftoolkit-v3';
 const CORE = [
   '/',
   '/index.html',
-  '/css/style.css?v=12.19',
-  '/js/main.js?v=12.19',
-  '/js/analytics.js?v=12.19',
+  '/css/style.css?v=12.21',
+  '/js/main.js?v=12.21',
+  '/js/analytics.js?v=12.21',
   '/manifest.json',
   '/assets/icons/icon-192.png',
   '/assets/icons/icon-512.png'
