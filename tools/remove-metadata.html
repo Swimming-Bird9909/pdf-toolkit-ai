@@ -58,6 +58,47 @@
   }
 }
 </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What metadata does this tool remove?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Author, creator, dates, software name, hidden properties, and embedded file paths."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why should I remove PDF metadata?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Metadata can leak your name, device, and edit history. Strip it before sharing publicly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does removing metadata change the PDF content?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Only invisible properties are stripped; text and layout stay untouched."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the process private?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. All processing stays in your browser."
+      }
+    }
+  ]
+}
+</script>
   <script async src="/js/analytics.js?v=12.28"></script>
 </head>
 <body>
@@ -190,6 +231,6 @@
 <script defer src="../js/main.js?v=12.32"></script>
 <script defer src="../js/tools/remove-metadata.js"></script>
   <script defer src="/js/feedback.js"></script>
-  <script defer src="/js/visitor-counter.js?v=12.28"></script>
+  <script defer src="/js/visitor-counter.js?v=12.33"></script>
 </body>
 </html>

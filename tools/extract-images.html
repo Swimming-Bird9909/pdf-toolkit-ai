@@ -58,6 +58,47 @@
   }
 }
 </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I extract images from a PDF without losing quality?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We pull the original embedded images (not screenshots), so the full resolution is preserved."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What format are the extracted images saved as?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "JPG and PNG files, downloaded together as a single ZIP archive."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do my files leave my browser?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Extraction runs entirely on your device; nothing is uploaded to a server."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I extract images from a scanned PDF?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A scanned PDF is already one big image. Use our OCR tool if you need the text instead."
+      }
+    }
+  ]
+}
+</script>
   <script async src="/js/analytics.js?v=12.28"></script>
 </head>
 <body>
@@ -190,6 +231,6 @@
 <script defer src="../js/main.js?v=12.32"></script>
 <script defer src="../js/tools/extract-images.js"></script>
   <script defer src="/js/feedback.js"></script>
-  <script defer src="/js/visitor-counter.js?v=12.28"></script>
+  <script defer src="/js/visitor-counter.js?v=12.33"></script>
 </body>
 </html>

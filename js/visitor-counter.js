@@ -110,8 +110,9 @@
   function fetchReadOnly(key) {
     var url = buildUrl(key, false);
     if (!url) return Promise.resolve(null);
-    var TIMEOUT_MS = 10000;
+    var TIMEOUT_MS = 15000;     // 跨境到 Cloudflare Worker 可能较慢，放宽超时
     var RETRY_DELAY_MS = 2000;
+    var MAX_ATTEMPTS = 3;       // 最多重试 3 次，覆盖瞬时抖动
 
     function attempt() {
       var controller = (typeof AbortController !== 'undefined') ? new AbortController() : null;
@@ -141,12 +142,18 @@
         });
     }
 
-    return attempt().then(function (count) {
-      if (count !== null) return count;
-      return new Promise(function (resolve) {
-        setTimeout(function () { attempt().then(resolve); }, RETRY_DELAY_MS);
+    // 顺序重试：任一次成功立即返回；全部失败回退 null（由调用方显示 "—"）。
+    function run(attemptNo) {
+      return attempt().then(function (count) {
+        if (count !== null) return count;
+        if (attemptNo >= MAX_ATTEMPTS) return null;
+        return new Promise(function (resolve) {
+          setTimeout(function () { run(attemptNo + 1).then(resolve); }, RETRY_DELAY_MS);
+        });
       });
-    });
+    }
+
+    return run(1);
   }
 
   /**

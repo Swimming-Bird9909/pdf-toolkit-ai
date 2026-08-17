@@ -59,6 +59,47 @@
   }
 }
 </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "提取 PDF 图片会损失质量吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不会。我们提取的是 PDF 内原始嵌入的图片（非截图），分辨率完整保留。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "提取的图片保存成什么格式？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "JPG 和 PNG，一起打包成单个 ZIP 下载。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "文件会离开浏览器吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不会。提取完全在本地设备进行，不上传到任何服务器。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "扫描件 PDF 能提取图片吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "扫描件本身是一张大图。如果需要文字，请用我们的 OCR 功能。"
+      }
+    }
+  ]
+}
+</script>
   <script async src="/js/analytics.js?v=12.28"></script>
 </head>
 <body>
@@ -191,6 +232,6 @@
 <script defer src="/js/main.js?v=12.32"></script>
 <script defer src="/js/tools/extract-images.js"></script>
   <script defer src="/js/feedback.js"></script>
-  <script defer src="/js/visitor-counter.js?v=12.28"></script>
+  <script defer src="/js/visitor-counter.js?v=12.33"></script>
 </body>
 </html>

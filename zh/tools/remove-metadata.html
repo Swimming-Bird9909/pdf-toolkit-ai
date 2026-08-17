@@ -59,6 +59,47 @@
   }
 }
 </script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "这个工具删除哪些元数据？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "作者、创建者、日期、软件名、隐藏属性和嵌入的文件路径。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "为什么要删除 PDF 元数据？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "元数据会泄露你的姓名、设备和编辑历史，公开分享前应清除。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "删除元数据会改变 PDF 内容吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "不会。只清除不可见属性，文字和排版保持不变。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "处理过程私密吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "是。所有处理都在浏览器本地进行。"
+      }
+    }
+  ]
+}
+</script>
   <script async src="/js/analytics.js?v=12.28"></script>
 </head>
 <body>
@@ -191,6 +232,6 @@
 <script defer src="/js/main.js?v=12.32"></script>
 <script defer src="/js/tools/remove-metadata.js"></script>
   <script defer src="/js/feedback.js"></script>
-  <script defer src="/js/visitor-counter.js?v=12.28"></script>
+  <script defer src="/js/visitor-counter.js?v=12.33"></script>
 </body>
 </html>
