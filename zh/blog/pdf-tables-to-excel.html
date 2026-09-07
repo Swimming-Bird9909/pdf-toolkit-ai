@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="preconnect" href="https://vc.wezzik.com" crossorigin />
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<title>如何把 PDF 表格转成 Excel 而无需手工重录 | PDF Toolkit AI</title>
+<meta name="description" content="把 PDF 表格转成 .xlsx 或 .csv，一个格子都不用重录。三种方法对比——浏览器本地、Acrobat、Google 表格。免费、私密、不上传。" />
+<link rel="canonical" href="https://wezzik.com/zh/blog/pdf-tables-to-excel.html" />
+  <link rel="alternate" hreflang="en" href="https://wezzik.com/blog/pdf-tables-to-excel.html" />
+  <link rel="alternate" hreflang="zh" href="https://wezzik.com/zh/blog/pdf-tables-to-excel.html" />
+  <link rel="alternate" hreflang="x-default" href="https://wezzik.com/blog/pdf-tables-to-excel.html" />
+<meta property="og:title" content="PDF 表格转 Excel，无需手工重录" />
+<meta property="og:description" content="在浏览器里把 PDF 表格转成 .xlsx 或 .csv。免费、私密、不上传。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wezzik.com/zh/blog/pdf-tables-to-excel.html" />
+<meta property="og:image" content="https://wezzik.com/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:site_name" content="PDF Toolkit AI" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://wezzik.com/assets/og-image.png" />
+<meta name="robots" content="index, follow" />
+<link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
+<meta name="theme-color" content="#6366f1" />
+<link rel="preload" as="style" href="../css/style.css?v=12.40">
+<link rel="stylesheet" href="../css/style.css?v=12.40" />
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"如何把 PDF 表格转成 Excel 而无需手工重录",
+  "description":"把 PDF 表格转成 .xlsx 或 .csv，一个格子都不用重录。三种方法对比——浏览器本地、Acrobat、Google 表格。免费、私密、不上传。",
+  "author":{"@type":"Organization","name":"PDF Toolkit AI"},
+  "publisher":{"@type":"Organization","name":"PDF Toolkit AI","url":"https://wezzik.com/"},
+  "datePublished":"2026-08-29",
+  "dateModified":"2026-08-29"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"首页","item":"https://wezzik.com/zh/"},
+    {"@type":"ListItem","position":2,"name":"指南","item":"https://wezzik.com/zh/blog.html"},
+    {"@type":"ListItem","position":3,"name":"如何把 PDF 表格转成 Excel 而无需手工重录","item":"https://wezzik.com/zh/blog/pdf-tables-to-excel.html"}
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="../" class="brand">
+      <div class="brand-logo">📄</div>
+      <span>PDF Toolkit AI</span>
+    </a>
+    <div class="nav-links">
+      <a href="../#tools">工具</a>
+      <a href="../#features">优势</a>
+      <a href="../blog.html" aria-current="page" style="color:var(--brand);">指南</a>
+      <a href="../#faq">常见问题</a>
+    </div>
+    <div class="nav-cta">
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+      <a href="../tools/pdf-to-excel.html" class="btn btn-primary btn-sm">开始使用</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container" style="max-width:780px;">
+    <div class="hero-badges">
+      <span class="dot"></span>
+      <span>📊 数据工作流</span>
+    </div>
+    <h1>如何把 PDF 表格转成 Excel<br/><span class="grad">——一个格子都不用重录</span></h1>
+    <p>PDF 并不知道什么是行、什么是列，所以从里面复制表格往往会毁掉整个版式。这里有三种把数据弄进表格软件的方法，其中一种不会上传你的文件。</p>
+    <div class="hero-cta" style="justify-content:center;">
+      <a href="../tools/pdf-to-excel.html" class="btn btn-primary btn-lg">转换 PDF 表格 →</a>
+      <a href="../blog.html" class="btn btn-ghost btn-lg">← 全部文章</a>
+    </div>
+  </div>
+</header>
+
+<main class="container section" style="max-width:780px;">
+  <article class="prose">
+    <p class="soft">📅 2026 年 8 月 29 日 · 5 分钟阅读 · <a href="../tools/pdf-to-excel.html">PDF 转 Excel</a> tool</p>
+
+<h2>为什么 PDF 里的表格这么难用</h2>
+    <p>PDF 的设计目标是"还原一页印刷品"，而不是保存数据网格。它只记录每个字符落在页面的哪个位置，并不知道"第 14 行 C 列"是什么。所以你从 PDF 里复制表格时，经常得到一整列挤在一起、对齐全乱的数字。</p>
+    <p>好的转换工具必须重建整个网格：先识别表格线，再把文字聚合成单元格，最后判断哪些块属于同一行。源文件越规整，结果越干净。</p>
+
+    <h2>方法一：浏览器本地转换（免费，不上传）</h2>
+    <p>打开 <a href="../tools/pdf-to-excel.html">PDF 转 Excel 工具</a>，拖入文件，点击转换。它会读取文字块、对齐到行列网格，然后给你 <strong>.xlsx</strong> 和 <strong>.csv</strong> 两种结果，你按表格软件的喜好选一个。</p>
+    <p><strong>适用场景：</strong>银行流水、发票、报价单、问卷导出，以及任何你本来要手工重录的表格。</p>
+    <p>因为全程在浏览器里跑，财务文件不会经过任何第三方服务器。这一点比很多人想的重要——一份银行流水里有你的地址、账号和消费记录。</p>
+
+    <h2>方法二：Adobe Acrobat Pro（付费，走云端）</h2>
+    <p>Acrobat Pro → 导出 PDF → 电子表格 → Microsoft Excel 工作簿。它对复杂版式的识别最准，还允许你在导出前手工修正表格边框。缺点是<strong>每月 22.99 美元</strong>，而且除非在设置里关掉，文件会上传到 Adobe 云端处理。</p>
+
+    <h2>方法三：Google Drive / 表格（免费，但要上传）</h2>
+    <p>把 PDF 上传到 Drive，右键 → 打开方式 → Google 表格，Google 会生成一个含提取文字的新表格。免费且快，但跨页表格经常错位，而且文件会存在 Google 服务器上。</p>
+    <p>临时处理一份价目表没问题，机密文件就别这么干了。</p>
+
+    <h2>常见问题与解决办法</h2>
+
+    <h3>"合并单元格塌成一格"</h3>
+    <p>合并表头是最难的情况。如果导出的表头全挤在一列，改用 <strong>.csv</strong> 导出，再在表格软件里用固定分隔符分列。慢一点，但结果可预期。</p>
+
+    <h3>"数字变成了文本"</h3>
+    <p>货币符号和千分位分隔符经常导致这个问题。Excel 里选中该列 → 数据 → 分列 → 完成。Google 表格用 <code>=VALUE(SUBSTITUTE(A1,",",""))</code>。另外注意欧式的小数逗号——先把 <code>,</code> 换成 <code>.</code>。</p>
+
+    <h3>"跨两页的表格被拆错了"</h3>
+    <p>那就一页一页提取。先用 <a href="../tools/split.html">拆分 PDF</a> 在表格边界处切开，分别转换，再把结果拼起来。这比指望工具猜对可靠得多。</p>
+
+    <h3>"什么都提取不出来"</h3>
+    <p>那这份 PDF 很可能是扫描件——是表格的照片，不是真正的文字。先跑一遍 <a href="../tools/ocr.html">PDF OCR</a> 加上文字层，再转换。</p>
+
+    <h2>隐私</h2>
+    <p>我们的转换工具完全在你的浏览器里运行。文件在本地解析、表格在本地生成、下载也在本地完成——不上传、不用注册、服务端不留副本。如果表格里有客户姓名、工资或银行账号，就该用这个版本。</p>
+
+    <p style="margin-top:40px; text-align:center;">
+      <a class="btn btn-primary btn-lg" href="../tools/pdf-to-excel.html">转换 PDF 表格 →</a>
+    </p>
+  </article>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="../" class="brand">
+          <div class="brand-logo">📄</div>
+          <span>PDF Toolkit AI</span>
+        </a>
+        <p class="soft" style="margin-top:12px; max-width:300px;">10 个免费、私密、基于浏览器的 PDF 工具。你的文件不会离开本机。</p>
+      </div>
+      <div>
+        <h4>工具</h4>
+        <ul>
+          <li><a href="../tools/compress.html">压缩 PDF</a></li>
+          <li><a href="../tools/merge.html">合并 PDF</a></li>
+          <li><a href="../tools/split.html">拆分 PDF</a></li>
+          <li><a href="../tools/ocr.html">PDF OCR</a></li>
+          <li><a href="../tools/ai-summary.html">AI 摘要</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>更多</h4>
+        <ul>
+          <li><a href="../blog.html">指南</a></li>
+          <li><a href="../about.html">关于我们</a></li>
+          <li><a href="../privacy-policy.html">隐私政策</a></li>
+          <li><a href="../contact.html">联系我们</a></li>
+          <li><a href="../terms.html">使用条款</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 PDF Toolkit AI</span>
+      <span>用心制作 · 文件永不离开你的浏览器</span>
+    </div>
+  </div>
+    <div class="footer-sister">
+      <span class="lbl">姊妹产品：</span><a href="https://wipeai.wezzik.com/">WipeAI · 图片去水印</a>
+    </div>
+</footer>
+
+<script defer src="../js/main.js?v=12.32"></script>
+  <script defer src="/js/feedback.js"></script>
+  <script defer src="/js/visitor-counter.js?v=12.33"></script>
+</body>
+</html>
