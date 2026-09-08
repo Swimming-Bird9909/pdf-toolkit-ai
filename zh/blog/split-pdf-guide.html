@@ -27,12 +27,29 @@
 {
   "@context":"https://schema.org",
   "@type":"Article",
-  "headline":"How to split a PDF into separate pages (3 methods)",
-  "description":"Step-by-step guide to split a PDF by page ranges, extract single pages, or split every N pages.",
-  "author":{"@type":"Organization","name":"PDF Toolkit AI"},
-  "publisher":{"@type":"Organization","name":"PDF Toolkit AI","url":"https://wezzik.com/"},
+  "@id":"https://wezzik.com/zh/blog/split-pdf-guide.html#article",
+  "headline":"如何将 PDF 拆分为单独的页面（3 种方法）",
+  "description":"分步介绍按页码范围拆分 PDF、提取单页，以及每 N 页自动拆分的方法。",
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://wezzik.com/zh/blog/split-pdf-guide.html"},
+  "image":{"@type":"ImageObject","url":"https://wezzik.com/assets/og-image.png","width":1200,"height":630},
+  "author":{"@type":"Organization","@id":"https://wezzik.com/#organization","name":"PDF Toolkit AI","url":"https://wezzik.com/zh/about.html"},
+  "publisher":{"@type":"Organization","@id":"https://wezzik.com/#organization","name":"PDF Toolkit AI","url":"https://wezzik.com/"},
+  "inLanguage":"zh-CN",
+  "keywords":["拆分 PDF","提取 PDF 页面","隐私 PDF 工具","浏览器本地处理"],
   "datePublished":"2026-08-07",
-  "dateModified":"2026-08-07"
+  "dateModified":"2026-09-08"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"拆分文件会保留书签吗？","acceptedAnswer":{"@type":"Answer","text":"落在被提取页码范围内的书签会保留，指向范围外页面的书签会被移除。"}},
+    {"@type":"Question","name":"可以拆分受密码保护的 PDF 吗？","acceptedAnswer":{"@type":"Answer","text":"不可以。请先解锁 PDF 并另存为无密码文件，然后再拆分。"}},
+    {"@type":"Question","name":"最大 PDF 文件大小是多少？","acceptedAnswer":{"@type":"Answer","text":"实际限制约为 500 MB，并取决于浏览器可用内存；更大的文件建议分批处理。"}},
+    {"@type":"Question","name":"拆分会降低 PDF 质量吗？","acceptedAnswer":{"@type":"Answer","text":"不会。拆分只是把页面对象复制到新的 PDF 容器，不会重新压缩文字、图片或矢量图形。"}}
+  ]
 }
 </script>
   <script async src="/js/analytics.js?v=12.28"></script>
