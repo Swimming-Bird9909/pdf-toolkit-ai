@@ -67,6 +67,13 @@
         { "key": "Content-Type", "value": "text/plain; charset=utf-8" },
         { "key": "Cache-Control", "value": "public, max-age=86400, must-revalidate" }
       ]
+    },
+    {
+      "source": "/(404\\.html|zh/404\\.html)",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, follow" },
+        { "key": "Cache-Control", "value": "public, max-age=300, must-revalidate" }
+      ]
     }
   ],
   "redirects": [
@@ -83,9 +90,15 @@
     { "source": "/tools/merge",      "destination": "/tools/merge.html",      "statusCode": 301 },
     { "source": "/tools/ocr",        "destination": "/tools/ocr.html",        "statusCode": 301 },
     { "source": "/tools/summary",    "destination": "/tools/ai-summary.html", "statusCode": 301 },
-    { "source": "/blog",             "destination": "/blog/index.html",       "statusCode": 301 },
-    { "source": "/blog/",            "destination": "/blog/index.html",       "statusCode": 301 },
+    { "source": "/blog",             "destination": "/blog.html",             "statusCode": 301 },
+    { "source": "/blog/",            "destination": "/blog.html",             "statusCode": 301 },
     { "source": "/index.html",       "destination": "/",                       "statusCode": 301 },
-    { "source": "/blog/index.html",  "destination": "/blog.html",              "statusCode": 301 }
+    { "source": "/blog/index.html",  "destination": "/blog.html",              "statusCode": 301 },
+    { "source": "/blog/split-pdf-into-individual-pages.html", "destination": "/blog/split-pdf-guide.html", "statusCode": 301 },
+    { "source": "/zh/index.html",    "destination": "/zh/",                    "statusCode": 301 },
+    { "source": "/zh/blog",          "destination": "/zh/blog/",                "statusCode": 301 },
+    { "source": "/zh/blog.html",     "destination": "/zh/blog/",                "statusCode": 301 },
+    { "source": "/zh/blog/index.html", "destination": "/zh/blog/",              "statusCode": 301 },
+    { "source": "/zh/blog/split-pdf-into-individual-pages.html", "destination": "/zh/blog/split-pdf-guide.html", "statusCode": 301 }
   ]
 }

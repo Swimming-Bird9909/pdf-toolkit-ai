@@ -8,9 +8,8 @@ Allow: /
 Allow: /tools/
 Allow: /blog/
 
-# Block query-string URLs to prevent duplicate-content indexing (canonical already points to clean URLs)
-Disallow: /*?*
-Disallow: /*&*
+# Allow parameterized URLs to be crawled so search engines can see their canonical
+# targets. Canonical tags, not robots.txt, consolidate tracking-parameter variants.
 
 # Block development / build artifacts that should never be indexed
 Disallow: /.git/
@@ -28,9 +27,6 @@ Disallow: /*.json$      # except sitemap.xml handled below
 Disallow: /test_*
 Disallow: /playwright-cli.json
 
-# Soft hint: modern crawlers ignore Crawl-delay, but listed for politeness
-Crawl-delay: 0
-
 # === AI bots (explicit allow to encourage indexing for AI search) ==================
 User-agent: GPTBot
 Allow: /
@@ -40,10 +36,6 @@ User-agent: PerplexityBot
 Allow: /
 User-agent: Google-Extended
 Allow: /
-
-# === IndexNow ======================================================================
-# Bing / Yandex / Naver / Seznam re-crawl within minutes when we POST changes.
-IndexNow: https://wezzik.com/6904effd19f68a0789a3a82af2b74288.txt
 
 # === Sitemaps =======================================================================
 Sitemap: https://wezzik.com/sitemap.xml

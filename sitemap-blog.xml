@@ -4,7 +4,7 @@
   <!-- Blog index -->
   <url>
     <loc>https://wezzik.com/blog.html</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-09-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -12,37 +12,37 @@
   <!-- Blog guides — long-form SEO content (high value for organic traffic) -->
   <url>
     <loc>https://wezzik.com/blog/compress-pdf-for-email.html</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-09-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://wezzik.com/blog/merge-pdf-without-watermark.html</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-09-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://wezzik.com/blog/extract-images-from-pdf.html</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-09-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://wezzik.com/blog/split-pdf-guide.html</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-09-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://wezzik.com/blog/is-online-pdf-safe.html</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-09-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://wezzik.com/blog/ai-summary-guide.html</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-09-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -50,19 +50,19 @@
   <!-- New long-tail guides (2026-08-10) -->
   <url>
     <loc>https://wezzik.com/blog/compress-pdf-to-100kb.html</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-09-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://wezzik.com/blog/pdf-to-word-keep-formatting.html</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-09-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://wezzik.com/blog/merge-pdf-keep-quality.html</loc>
-    <lastmod>2026-08-10</lastmod>
+    <lastmod>2026-09-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -70,7 +70,7 @@
   <!-- Language toggle explainer (2026-08-12) -->
   <url>
     <loc>https://wezzik.com/blog/language-toggle-explained.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-09-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -78,13 +78,61 @@
   <!-- New long-tail guides (2026-08-17) -->
   <url>
     <loc>https://wezzik.com/blog/ocr-scanned-pdf.html</loc>
-    <lastmod>2026-08-17</lastmod>
+    <lastmod>2026-09-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://wezzik.com/blog/rotate-pdf-pages.html</loc>
-    <lastmod>2026-08-17</lastmod>
+    <lastmod>2026-09-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wezzik.com/blog/merge-pdf-files-free.html</loc>
+    <lastmod>2026-09-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://wezzik.com/blog/pdf-tables-to-excel.html</loc>
+    <lastmod>2026-09-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://wezzik.com/blog/remove-pdf-metadata.html</loc>
+    <lastmod>2026-09-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://wezzik.com/blog/remove-watermark-pdf.html</loc>
+    <lastmod>2026-09-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://wezzik.com/blog/chat-with-pdf-guide.html</loc>
+    <lastmod>2026-09-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://wezzik.com/blog/pdf-to-image-guide.html</loc>
+    <lastmod>2026-09-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://wezzik.com/blog/remove-pages-from-pdf.html</loc>
+    <lastmod>2026-09-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

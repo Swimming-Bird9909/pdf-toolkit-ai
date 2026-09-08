@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="preconnect" href="https://vc.wezzik.com" crossorigin />
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<title>Chat With Your PDF: How to Use AI to Ask Questions About Long Documents | PDF Toolkit AI</title>
+<meta name="description" content="Ask plain-language questions about any PDF and get page-cited answers. Three methods compared: browser-based, ChatGPT Plus, NotebookLM. Free, private, no upload." />
+<link rel="canonical" href="https://wezzik.com/blog/chat-with-pdf-guide.html" />
+  <link rel="alternate" hreflang="en" href="https://wezzik.com/blog/chat-with-pdf-guide.html" />
+  <link rel="alternate" hreflang="zh" href="https://wezzik.com/zh/blog/chat-with-pdf-guide.html" />
+  <link rel="alternate" hreflang="x-default" href="https://wezzik.com/blog/chat-with-pdf-guide.html" />
+<meta property="og:title" content="Chat With Your PDF — Free, Private, On-Device" />
+<meta property="og:description" content="Use AI to ask questions about any PDF — with page citations. Free, private, runs in your browser." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://wezzik.com/blog/chat-with-pdf-guide.html" />
+<meta property="og:image" content="https://wezzik.com/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:site_name" content="PDF Toolkit AI" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://wezzik.com/assets/og-image.png" />
+<meta name="robots" content="index, follow" />
+<link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
+<meta name="theme-color" content="#6366f1" />
+<link rel="preload" as="style" href="../css/style.css?v=12.40">
+<link rel="stylesheet" href="../css/style.css?v=12.40" />
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"Chat With Your PDF: How to Use AI to Ask Questions About Long Documents",
+  "description":"Ask plain-language questions about any PDF and get page-cited answers. Three methods compared: browser-based, ChatGPT Plus, NotebookLM. Free, private, no upload.",
+  "author":{"@type":"Organization","name":"PDF Toolkit AI"},
+  "publisher":{"@type":"Organization","name":"PDF Toolkit AI","url":"https://wezzik.com/"},
+  "datePublished":"2026-09-03",
+  "dateModified":"2026-09-03"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BreadcrumbList",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://wezzik.com/"},
+    {"@type":"ListItem","position":2,"name":"Blog","item":"https://wezzik.com/blog.html"},
+    {"@type":"ListItem","position":3,"name":"Chat With Your PDF: How to Use AI to Ask Questions About Long Documents","item":"https://wezzik.com/blog/chat-with-pdf-guide.html"}
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="../" class="brand">
+      <div class="brand-logo">📄</div>
+      <span>PDF Toolkit AI</span>
+    </a>
+    <div class="nav-links">
+      <a href="../#tools">Tools</a>
+      <a href="../#features">Why us</a>
+      <a href="../blog.html" aria-current="page" style="color:var(--brand);">Blog</a>
+      <a href="../#faq">FAQ</a>
+    </div>
+    <div class="nav-cta">
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+      <a href="../tools/chat-with-pdf.html" class="btn btn-primary btn-sm">Get started</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container" style="max-width:780px;">
+    <div class="hero-badges">
+      <span class="dot"></span>
+      <span>💬 AI workflows</span>
+    </div>
+    <h1>Chat with your PDF<br/><span class="grad">— get page-cited answers without uploading</span></h1>
+    <p>An AI that reads your PDF and answers questions with page citations is one of the most useful tools to come along in years. The catch: most of them upload your file to someone else's server. Here's how to use the feature without that trade-off.</p>
+    <div class="hero-cta" style="justify-content:center;">
+      <a href="../tools/chat-with-pdf.html" class="btn btn-primary btn-lg">Chat with a PDF →</a>
+      <a href="../blog.html" class="btn btn-ghost btn-lg">← All articles</a>
+    </div>
+  </div>
+</header>
+
+<main class="container section" style="max-width:780px;">
+  <article class="prose">
+    <p class="soft">📅 September 3, 2026 · 6 min read · <a href="../tools/chat-with-pdf.html">Chat with PDF</a> tool</p>
+
+<h2>What "chat with a PDF" actually means</h2>
+    <p>An AI reads your PDF, builds a temporary index of every page, and answers your questions by pointing back to the exact passages it used. You ask plain-language questions ("what's the termination clause?" or "summarise section 3"), and it returns answers with citations like "page 12, paragraph 2" so you can verify.</p>
+    <p>Useful for contracts you don't want to read cover-to-cover, research papers, multi-chapter reports, and long manuals. Less useful for short documents — reading them is faster than asking.</p>
+
+    <h2>Method 1: Browser-based, runs on-device (free, nothing uploaded)</h2>
+    <p>Open the <a href="../tools/chat-with-pdf.html">Chat with PDF tool</a>, drop your file in, and start typing. It runs the model locally using WebAssembly and your browser's storage. The PDF is parsed, indexed, and answered against entirely inside your tab — no server round-trip.</p>
+    <p><strong>Best for:</strong> legal contracts, medical records, internal reports, anything where "this file left my computer" is not an option you can afford.</p>
+    <p>Because the file never leaves your device, you can paste a 200-page contract and ask "list every liability clause" without worrying about it training someone else's model or showing up in a future data breach.</p>
+
+    <h2>Method 2: ChatGPT Plus (paid, cloud)</h2>
+    <p>Open ChatGPT Plus → "Work with Apps" or the file upload button → upload your PDF → ask. It uses GPT-4 with retrieval over your file. Excellent at synthesis, decent at citing the right page.</p>
+    <p>Costs <strong>$20/month</strong> and uploads the document to OpenAI's servers. Files are stored for a retention period; you can delete them in settings, but they may be processed for abuse review.</p>
+
+    <h2>Method 3: NotebookLM (free, Google account required)</h2>
+    <p>Google's NotebookLM accepts PDFs, Google Docs, and pasted text. It answers with citations pulled from your sources — and crucially, it answers <em>only</em> from the sources you give it, so it won't hallucinate from the open web.</p>
+    <p>Free with a Google account. Files are stored in Google's cloud.</p>
+
+    <h2>Method 4: Claude.ai (paid, cloud)</h2>
+    <p>Upload a PDF to claude.ai (free tier accepts small files; Pro is $20/month for large ones). Claude is especially good at long documents — its 200K context window handles 500-page reports without chunking.</p>
+
+    <h2>Common gotchas</h2>
+
+    <h3>"The answer contradicts itself"</h3>
+    <p>Long PDFs confuse even the best models. If the file is over ~100 pages, prefer a tool that indexes the document (browser-based or NotebookLM) over a model that just dumps the whole thing into context. Indexing means it can re-read a specific section when answering, rather than guessing from a blurry memory of the whole thing.</p>
+
+    <h3>"It cites page 7 but page 7 says something different"</h3>
+    <p>Page numbers in PDFs are physical — "page 7" is the 7th sheet of paper, not always the 7th numbered page in the document. Tools sometimes report the logical page number and sometimes the physical one. Always open the cited page and read for yourself before relying on the answer.</p>
+
+    <h3>"It won't read scanned PDFs"</h3>
+    <p>A scan is an image — there's no text to index. Run it through <a href="../tools/ocr.html">PDF OCR</a> first to add a text layer, then chat with it.</p>
+
+    <h3>"It refuses to answer my question"</h3>
+    <p>Most cloud tools have safety filters that flag legal, medical, and certain business documents. Browser-based tools don't, because there's nothing to enforce against — the file and the model are both on your machine.</p>
+
+    <h2>Which one should you use?</h2>
+    <table style="width:100%;border-collapse:collapse;margin:16px 0;">
+      <thead><tr style="background:var(--surface);"><th style="text-align:left;padding:8px;">Use case</th><th style="text-align:left;padding:8px;">Pick</th></tr></thead>
+      <tbody>
+      <tr><td style="padding:8px;">Confidential contract / medical file</td><td style="padding:8px;">Browser-based</td></tr>
+      <tr><td style="padding:8px;">Research paper, 50-100 pages, no privacy concerns</td><td style="padding:8px;">NotebookLM (free)</td></tr>
+      <tr><td style="padding:8px;">Very long document (300+ pages), need synthesis</td><td style="padding:8px;">Claude Pro</td></tr>
+      <tr><td style="padding:8px;">Quick Q&A on a non-sensitive PDF</td><td style="padding:8px;">ChatGPT Plus</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Privacy in plain English</h2>
+    <p>If you wouldn't paste the document into a public Slack channel, don't upload it to a cloud AI tool. Browser-based tools — including ours — run the whole pipeline locally, so the file stays yours. That's the only way to be sure.</p>
+
+    <p style="margin-top:40px; text-align:center;">
+      <a class="btn btn-primary btn-lg" href="../tools/chat-with-pdf.html">Chat with a PDF →</a>
+    </p>
+  </article>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="../" class="brand">
+          <div class="brand-logo">📄</div>
+          <span>PDF Toolkit AI</span>
+        </a>
+        <p class="soft" style="margin-top:12px; max-width:300px;">10 free, private, browser-based PDF tools. Your files never leave your device.</p>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="../tools/compress.html">Compress PDF</a></li>
+          <li><a href="../tools/merge.html">Merge PDF</a></li>
+          <li><a href="../tools/split.html">Split PDF</a></li>
+          <li><a href="../tools/ocr.html">PDF OCR</a></li>
+          <li><a href="../tools/ai-summary.html">AI Summary</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>More</h4>
+        <ul>
+          <li><a href="../blog.html">Blog</a></li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../terms.html">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 PDF Toolkit AI</span>
+      <span>Made with care · Files never leave your browser</span>
+    </div>
+  </div>
+    <div class="footer-sister">
+      <span class="lbl">Sister site: </span><a href="https://wipeai.wezzik.com/">WipeAI · Remove Image Watermark</a>
+    </div>
+</footer>
+
+<script defer src="../js/main.js?v=12.32"></script>
+  <script defer src="/js/feedback.js"></script>
+  <script defer src="/js/visitor-counter.js?v=12.33"></script>
+</body>
+</html>
