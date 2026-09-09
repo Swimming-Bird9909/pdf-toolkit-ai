@@ -29,17 +29,44 @@
 <link rel="preload" as="style" href="css/style.css?v=12.40">
 <link rel="stylesheet" href="css/style.css?v=12.40" />
 
-<!-- Structured Data: Organization + SoftwareApplication -->
+<!-- Structured Data: stable site, publisher and product entities -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "PDF Toolkit AI",
-  "url": "https://wezzik.com/",
-  "operatingSystem": "Any (Web Browser)",
-  "applicationCategory": "ProductivityApplication",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-  "description": "Free online PDF tools with privacy-first local processing."
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://wezzik.com/#organization",
+      "name": "PDF Toolkit AI",
+      "url": "https://wezzik.com/",
+      "logo": { "@type": "ImageObject", "url": "https://wezzik.com/assets/og-image.png", "width": 1200, "height": 630 },
+      "email": "hello@wezzik.com",
+      "sameAs": [
+        "https://medium.com/@qiuliang087",
+        "https://dev.to/swimmingbird",
+        "https://blog.csdn.net/SwimmingBird9909"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://wezzik.com/#website",
+      "url": "https://wezzik.com/",
+      "name": "PDF Toolkit AI",
+      "publisher": { "@id": "https://wezzik.com/#organization" },
+      "inLanguage": ["en", "zh-CN"]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://wezzik.com/#software",
+      "name": "PDF Toolkit AI",
+      "url": "https://wezzik.com/",
+      "operatingSystem": "Any (Web Browser)",
+      "applicationCategory": "ProductivityApplication",
+      "publisher": { "@id": "https://wezzik.com/#organization" },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "description": "Free online PDF tools with privacy-first local processing."
+    }
+  ]
 }
 </script>
 <script type="application/ld+json">

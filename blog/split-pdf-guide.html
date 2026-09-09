@@ -26,12 +26,29 @@
 {
   "@context":"https://schema.org",
   "@type":"Article",
+  "@id":"https://wezzik.com/blog/split-pdf-guide.html#article",
   "headline":"How to split a PDF into separate pages (3 methods)",
   "description":"Step-by-step guide to split a PDF by page ranges, extract single pages, or split every N pages.",
-  "author":{"@type":"Organization","name":"PDF Toolkit AI"},
-  "publisher":{"@type":"Organization","name":"PDF Toolkit AI","url":"https://wezzik.com/"},
+  "mainEntityOfPage":{"@type":"WebPage","@id":"https://wezzik.com/blog/split-pdf-guide.html"},
+  "image":{"@type":"ImageObject","url":"https://wezzik.com/assets/og-image.png","width":1200,"height":630},
+  "author":{"@type":"Organization","@id":"https://wezzik.com/#organization","name":"PDF Toolkit AI","url":"https://wezzik.com/about.html"},
+  "publisher":{"@type":"Organization","@id":"https://wezzik.com/#organization","name":"PDF Toolkit AI","url":"https://wezzik.com/"},
+  "inLanguage":"en",
+  "keywords":["split PDF","extract PDF pages","private PDF tool","browser PDF processing"],
   "datePublished":"2026-08-07",
   "dateModified":"2026-09-07"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Are bookmarks preserved in split files?","acceptedAnswer":{"@type":"Answer","text":"Bookmarks within the extracted page range are preserved. Bookmarks pointing outside the range are removed."}},
+    {"@type":"Question","name":"Can I split a password-protected PDF?","acceptedAnswer":{"@type":"Answer","text":"No. Unlock the PDF first, save it without a password, and then split it."}},
+    {"@type":"Question","name":"What is the maximum PDF file size?","acceptedAnswer":{"@type":"Answer","text":"The practical limit is about 500 MB and depends on available browser memory. Use batches for larger files."}},
+    {"@type":"Question","name":"Does splitting reduce PDF quality?","acceptedAnswer":{"@type":"Answer","text":"No. Splitting copies page objects into new PDF containers without recompressing text, images, or vectors."}}
+  ]
 }
 </script>
   <script async src="/js/analytics.js?v=12.28"></script>
