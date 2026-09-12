@@ -1,0 +1,47 @@
+# PDF Toolkit AI
+
+> Free online PDF tools — compress, merge, split, convert, OCR and AI-powered document processing. 100% in-browser, no signup, no watermark, files never leave your device. Available in English and Chinese.
+
+## Core PDF Tools
+
+- [PDF Converter](https://wezzik.com/convert-pdf.html): Convert PDF to Word, Excel, JPG and more. No signup, no watermark, 100% private.
+- [PDF Editor](https://wezzik.com/edit-pdf.html): Merge, split, rotate and delete PDF pages entirely in the browser.
+- [AI PDF Tools](https://wezzik.com/ai-pdf-tools.html): Summarize long documents, chat with PDFs and extract key insights with GPT/Claude, processed locally for privacy.
+- [Business PDF Tools](https://wezzik.com/business-pdf-tools.html): Generate invoices, resumes and contract templates; edit, sign and share business documents.
+
+## Blog — PDF How-Tos and Guides
+
+- [Compress PDF for Email](https://wezzik.com/blog/compress-pdf-for-email.html): How to compress a PDF under 25 MB for email attachments.
+- [Compress PDF to 100KB](https://wezzik.com/blog/compress-pdf-to-100kb.html): Hit exact file-size limits for email and forms.
+- [Merge PDF Files Free](https://wezzik.com/blog/merge-pdf-files-free.html): Combine PDFs without upload or watermark.
+- [Merge PDF Without Losing Quality](https://wezzik.com/blog/merge-pdf-keep-quality.html): Merge while preserving quality and page order.
+- [Split PDF Guide](https://wezzik.com/blog/split-pdf-guide.html): Three easy ways to split PDF pages online for free.
+- [Split PDF into Individual Pages](https://wezzik.com/blog/split-pdf-into-individual-pages.html): Free, no-upload page extraction.
+- [Extract Images from PDF](https://wezzik.com/blog/extract-images-from-pdf.html): Three ways to extract images from a PDF.
+- [Convert PDF to Word Without Losing Formatting](https://wezzik.com/blog/pdf-to-word-keep-formatting.html): Keep tables, fonts and layout intact.
+- [Convert PDF Tables to Excel](https://wezzik.com/blog/pdf-tables-to-excel.html): Extract tables without retyping.
+- [Convert PDF Pages to Images](https://wezzik.com/blog/pdf-to-image-guide.html): PNG/JPG/WebP conversion, free, no upload.
+- [OCR a Scanned PDF](https://wezzik.com/blog/ocr-scanned-pdf.html): Make scanned documents searchable.
+- [Rotate PDF Pages](https://wezzik.com/blog/rotate-pdf-pages.html): Fix upside-down scans and wrong page orientation.
+- [Remove Pages from PDF](https://wezzik.com/blog/remove-pages-from-pdf.html): Delete pages free, no upload, no quality loss.
+- [Remove Watermark from PDF](https://wezzik.com/blog/remove-watermark-pdf.html): Free, no-upload watermark removal.
+- [Remove PDF Metadata](https://wezzik.com/blog/remove-pdf-metadata.html): Strip hidden data your PDF reveals.
+- [AI PDF Summary](https://wezzik.com/blog/ai-summary-guide.html): Digest a 100-page report in 30 seconds.
+- [Chat with Your PDF](https://wezzik.com/blog/chat-with-pdf-guide.html): Ask questions about long documents with AI.
+- [Is it safe to upload your PDF online?](https://wezzik.com/blog/is-online-pdf-safe.html): A practical privacy guide to online PDF tools.
+- [Why does the site switch back to Chinese?](https://wezzik.com/blog/language-toggle-explained.html): How the language toggle works and why it was fixed.
+
+## Company & Legal
+
+- [About](https://wezzik.com/about.html): Why we built PDF Toolkit AI — a privacy-first, 100% browser-based PDF suite.
+- [Contact](https://wezzik.com/contact.html): Bug reports, partnership inquiries and feature requests.
+- [Privacy Policy](https://wezzik.com/privacy-policy.html): Files are processed locally; no upload, no tracking of document contents.
+- [Terms](https://wezzik.com/terms.html): Terms of service for PDF Toolkit AI.
+
+## Chinese Version (中文版)
+
+- [首页](https://wezzik.com/zh/index.html): 免费在线 PDF 工具，浏览器内完成，无需注册。
+- [PDF 转换](https://wezzik.com/zh/convert-pdf.html): PDF 转 Word、Excel、JPG，无水印、100% 私密。
+- [PDF 编辑](https://wezzik.com/zh/edit-pdf.html): 在线合并、拆分、旋转、删除 PDF 页面。
+- [AI PDF 工具](https://wezzik.com/zh/ai-pdf-tools.html): AI 总结、对话式阅读长文档。
+- [中文博客](https://wezzik.com/zh/blog.html): PDF 压缩、合并、去水印等实用教程。
