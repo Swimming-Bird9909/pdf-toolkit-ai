@@ -1,0 +1,21 @@
+# 文档工具主站
+
+> 提供文档合并、拆分、压缩、格式转换、文字识别及辅助摘要。功能、处理模式和限制以当前界面为准，不保证任意文件的排版、目标大小或速度。
+
+## 功能与处理边界
+
+- [处理方式与使用限制](https://wezzik.com/product-guide.html)
+- [文档转换](https://wezzik.com/convert-pdf.html)
+- [文档编辑](https://wezzik.com/edit-pdf.html)
+- [摘要与辅助阅读](https://wezzik.com/ai-pdf-tools.html)
+- [隐私政策](https://wezzik.com/privacy-policy.html)
+- [关于](https://wezzik.com/about.html)
+- [联系](https://wezzik.com/contact.html)
+
+常规合并、拆分等工具在浏览器中处理。输入接口密钥并启用可选云端摘要润色时，相关文本会发送至外部模型接口。不能将全站概括为文件绝不离开设备，不能保证外部服务不留存或不用于训练。重要结论须核对原文。
+
+## 相关工具
+
+- [单位换算](https://convert.wezzik.com/)
+- [图片尺寸与格式](https://tools.wezzik.com/)
+- [图片局部修复](https://wipeai.wezzik.com/)

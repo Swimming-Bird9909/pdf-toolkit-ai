@@ -75,9 +75,13 @@
   "@type": "FAQPage",
   "mainEntity": [
     { "@type": "Question", "name": "Is PDF Toolkit AI really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every tool is completely free to use — no signup, no daily limits, no hidden fees. We may add optional paid services later, but the core tools will stay free." }},
-    { "@type": "Question", "name": "Are my files uploaded to a server?", "acceptedAnswer": { "@type": "Answer", "text": "No — and we mean it. Open your browser's Network tab and you'll see zero file uploads. Everything happens locally using pdf-lib, pdf.js, and Tesseract.js." }},
+    { "@type": "Question", "name": "Are my files uploaded to a server?", "acceptedAnswer": { "@type": "Answer", "text": "常规合并、拆分等功能在浏览器中处理。启用可选云端摘要润色时，相关文本会发送至外部接口。处理敏感文档前，请确认所选工具的模式与隐私说明。" }},
     { "@type": "Question", "name": "Do I need to create an account?", "acceptedAnswer": { "@type": "Answer", "text": "No signup required. We hate signup walls as much as you do. Just open the tool and start working." }},
-    { "@type": "Question", "name": "How large a PDF can I process?", "acceptedAnswer": { "@type": "Answer", "text": "There's no enforced file-size limit. Very large files (over ~200MB) may be slow on phones or low-RAM devices — use a desktop browser for best results." } }
+    { "@type": "Question", "name": "How large a PDF can I process?", "acceptedAnswer": { "@type": "Answer", "text": "There's no enforced file-size limit. Very large files (over ~200MB) may be slow on phones or low-RAM devices — use a desktop browser for best results." } },
+    { "@type": "Question", "name": "Is it safe to use online PDF tools?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, when you choose tools that process files locally. PDF Toolkit AI runs everything in your browser — files never leave your device, so there is nothing to intercept or store on a server. Always avoid tools that require uploading documents to an unknown server." } },
+    { "@type": "Question", "name": "Can I convert PDF to Word for free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The PDF converter turns PDF files into editable Word (.docx), Excel (.xlsx) and JPG images completely free — no signup, no watermark, and the conversion happens in your browser." } },
+    { "@type": "Question", "name": "How do I compress a PDF to a specific file size?", "acceptedAnswer": { "@type": "Answer", "text": "Open the PDF compressor and choose a target size. The tool recompresses images and optimizes the file until it fits your limit — for example 100KB for forms or 25MB for email attachments — while keeping quality as high as possible." } },
+    { "@type": "Question", "name": "Does PDF Toolkit AI work on mobile?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. All tools are responsive and work on phones and tablets. For very large files we recommend a desktop browser, since mobile devices have less memory for heavy PDF processing." } }
   ]
 }
 </script>
@@ -110,12 +114,16 @@
   </div>
 </nav>
 
+<section class="sr-only" aria-label="Direct answer">
+  <p>PDF Toolkit AI is a free online PDF toolkit for merging, splitting, compressing, converting and extracting text from PDF files. Routine tools run in the browser; review the processing and privacy guide before using optional cloud-assisted summaries.</p>
+</section>
+
 <!-- ============================ Hero ============================ -->
 <header class="hero">
   <div class="container">
     <div class="hero-badges">
       <span class="dot"></span>
-      <span>100% private — files stay in your browser</span>
+      <span>Browser-first processing — review each tool's privacy path</span>
     </div>
     <h1>Every PDF tool you need,<br/><span class="grad">organized by workflow.</span></h1>
     <p>16 PDF tools in 6 categories — convert, edit, compress, AI-summary, generate business docs, and learn. Free, fast, and zero signup required.</p>
@@ -349,7 +357,7 @@
       <div class="card">
         <div class="icon" style="margin-bottom:14px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:22px;height:22px;display:block;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
         <h3>Privacy by design</h3>
-        <p>Every tool runs entirely in your browser using WebAssembly. Your PDFs are never uploaded, never stored, never seen by us.</p>
+        <p>常规合并、拆分等工具在浏览器中处理。启用可选云端摘要润色时，相关文本会发送至外部接口；请先确认当前处理模式。</p>
       </div>
       <div class="card">
         <div class="icon" style="margin-bottom:14px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:22px;height:22px;display:block;"><path d="M13 2L3 14h7l-1 8 10-12h-7z"/></svg></div>
@@ -393,7 +401,7 @@
       </details>
       <details>
         <summary>Are my files uploaded to a server?</summary>
-        <p>No — and we mean it. Open your browser's Network tab and you'll see zero file uploads. Everything happens locally using pdf-lib, pdf.js, and Tesseract.js. Your files never leave your device.</p>
+        <p>常规合并、拆分等功能在浏览器中处理。启用可选云端摘要润色时，相关文本会发送至外部接口。处理敏感文档前，请确认所选工具的模式与隐私说明。</p>
       </details>
       <details>
         <summary>Do I need to create an account?</summary>
@@ -409,7 +417,7 @@
       </details>
       <details>
         <summary>Can I use the AI Summary without an account?</summary>
-        <p>Yes — for short documents, summary runs entirely on-device. For longer documents, we route through OpenAI / Anthropic APIs but your file is sent as base64 over HTTPS, not stored, and not used for training. Set your own API key in settings to use your own account.</p>
+        <p>摘要工具支持本地提取式摘要；输入接口密钥并启用云端润色时，相关文本会发送至外部模型接口。费用及数据政策取决于服务提供方。重要结论应回到原文核对。</p>
       </details>
       <details>
         <summary>Is there an offline / desktop version?</summary>
@@ -494,5 +502,6 @@
 <script defer src="js/main.js?v=12.32"></script>
   <script defer src="/js/feedback.js"></script>
   <script defer src="/js/visitor-counter.js?v=12.33"></script>
+<nav aria-label="产品说明"><a href="/product-guide.html">处理方式、使用示例与结果限制</a></nav>
 </body>
 </html>
