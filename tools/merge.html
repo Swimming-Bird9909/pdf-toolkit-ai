@@ -3,9 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
     <link rel="preconnect" href="https://vc.wezzik.com" crossorigin>
-  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
 <title>Merge PDF Files Free — No Upload, No Watermark | PDF Toolkit AI</title>
 <meta name="description" content="Combine unlimited PDFs in your browser — files never leave your device. No signup, no watermark, no page limit. Works on Mac, Windows, Linux and mobile." />
 <meta property="og:title" content="Merge PDF Files Free — No Upload, No Watermark | PDF Toolkit AI" />
@@ -110,6 +108,8 @@
 <meta property="og:image:height" content="630" />
 <meta property="og:site_name" content="PDF Toolkit AI" />
 <meta name="twitter:image" content="https://wezzik.com/assets/og-image.png" />
+<script defer src="../js/main.js?v=12.32"></script>
+<script defer src="../js/tools/merge.js?v=12.27"></script>
 </head>
 <body>
 
@@ -160,17 +160,21 @@
     </div>
 
     <div class="options-panel" id="options">
-      <p class="soft">Loading options…</p>
+      <div class="field">
+        <label for="outName">Output filename</label>
+        <input type="text" id="outName" value="merged.pdf" />
+      </div>
+      <p class="soft" style="font-size:13px;">💡 Drag the ⠿ handle to reorder. No watermark will be added.</p>
     </div>
 
     <div class="file-list" id="fileList"></div>
 
     <div class="actions">
-      <button id="btnRun" class="btn btn-primary btn-lg" disabled>Process</button>
+      <button id="btnRun" class="btn btn-primary btn-lg" disabled>🧩 Merge PDFs</button>
       <button id="btnReset" class="btn btn-ghost btn-lg">Reset</button>
     </div>
 
-    <div class="progress-wrap" id="progress">
+    <div class="progress-wrap" id="progress" role="status">
       <div class="progress-label"><span class="txt">Processing…</span><span class="pct">0%</span></div>
       <div class="progress"><div class="progress-bar"></div></div>
     </div>
@@ -182,7 +186,7 @@
     <h2>About this tool</h2>
     <p>Combine multiple PDF files into one. Drag to reorder, no watermark, no signup. Files stay in your browser.</p>
     <h3>Privacy</h3>
-    <p>Everything runs in your browser using pdf-lib and pdf.js. Your file never touches a server. Open DevTools → Network and you'll see zero traffic from this page.</p>
+    <p>Everything runs in your browser using pdf-lib. Your PDF files stay on your device.</p>
     <h3>Tips</h3>
     <ul>
       <li>Use Chrome, Edge, or Safari for the best performance.</li>
@@ -310,8 +314,6 @@
     </div>
 </footer>
 
-<script defer src="../js/main.js?v=12.32"></script>
-<script defer src="../js/tools/merge.js?v=12.26"></script>
   <script defer src="/js/feedback.js"></script>
   <script defer src="/js/visitor-counter.js?v=12.33"></script>
 </body>
