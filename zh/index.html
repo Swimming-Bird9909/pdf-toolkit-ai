@@ -46,16 +46,16 @@
 <meta property="og:site_name" content="PDF Toolkit AI" />
 <meta name="twitter:image" content="https://wezzik.com/assets/og-image.png" />
 <script type="speculationrules">
-{"prefetch":[{"urls":["/tools/merge.html"],"eagerness":"eager"}]}
+{"prefetch":[{"urls":["/tools/merge.html","/tools/split.html"],"eagerness":"eager"}]}
 </script>
 <style>
-  a[href$="/merge.html"]:active, a[href$="/merge.html"][aria-busy="true"] {
+  a:is([href$="/merge.html"], [href$="/split.html"]):is(:active, [aria-busy="true"]) {
     outline: 2px solid currentColor;
     outline-offset: 2px;
     cursor: progress;
   }
 </style>
-<script defer src="/js/merge-entry.js"></script>
+<script defer src="/js/tool-entry-v2.js"></script>
 </head>
 <body>
 
