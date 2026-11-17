@@ -1,102 +1,143 @@
-/* ==========================================================================
-   merge.js — Merge multiple PDFs, drag to reorder
-   ========================================================================== */
 (function () {
   'use strict';
 
-  let currentFiles = [];
+  const input = document.querySelector('#dz input[type="file"]');
   const btn = document.getElementById('btnRun');
   const btnReset = document.getElementById('btnReset');
+  const outName = document.getElementById('outName');
+  const fileList = document.getElementById('fileList');
+  const progress = document.getElementById('progress');
+  const result = document.getElementById('result');
+  const idleLabel = btn.textContent;
+  let files = [];
+  let worker;
+  let busy = false;
 
-  document.getElementById('options').innerHTML = `
-    <div class="field">
-      <label>Output filename</label>
-      <input type="text" id="outName" value="merged.pdf" />
-    </div>
-    <p class="soft" style="font-size:13px;">💡 Drag the ⠿ handle to reorder. No watermark will be added.</p>
-  `;
+  function stopWorker() {
+    worker?.terminate();
+    worker = undefined;
+  }
 
-  window.initDropzone('#dz', (files) => {
-    // Append instead of replace — user can keep clicking the dropzone to add more PDFs.
-    const incoming = Array.from(files).filter(f => /\.pdf$/i.test(f.name));
-    currentFiles = currentFiles.concat(incoming);
-    renderList();
-    btn.disabled = currentFiles.length === 0;
-    // Reset the underlying <input> so re-selecting the SAME file still fires `change`.
-    const input = document.querySelector('#dz input[type="file"]');
-    if (input) input.value = '';
-  });
+  function showResult(title, message) {
+    const heading = document.createElement('h4');
+    heading.textContent = title;
+    const detail = document.createElement('div');
+    detail.className = 'result-meta';
+    detail.textContent = message;
+    result.replaceChildren(heading, detail);
+    result.classList.add('active');
+  }
+
+  function setBusy(value) {
+    busy = value;
+    input.disabled = value;
+    outName.disabled = value;
+    btn.disabled = value || files.length === 0;
+    btn.textContent = value ? 'Merging…' : idleLabel;
+    fileList.inert = value;
+  }
+
+  function fail(message) {
+    stopWorker();
+    progress.classList.remove('active');
+    showResult('Merge failed', message);
+    setBusy(false);
+  }
+
+  function prepareWorker() {
+    if (worker) return;
+    const next = new Worker('/js/pdf-merge/worker-v1.js');
+    worker = next;
+    next.onerror = () => {
+      if (worker !== next) return;
+      if (busy) fail('The merge engine could not start. Please try again.');
+      else stopWorker();
+    };
+  }
 
   function renderList() {
-    const c = document.getElementById('fileList');
-    c.innerHTML = '';
-    currentFiles.forEach((f, i) => {
+    fileList.replaceChildren();
+    files.forEach((file, index) => {
       const row = document.createElement('div');
       row.className = 'file-row';
       row.draggable = true;
-      row.dataset.i = i;
-      row.innerHTML = `
-        <span style="cursor:grab;">⠿</span>
-        <span class="name">${f.name}</span>
-        <span class="size">${window.fmtSize(f.size)}</span>
-        <button class="x" data-i="${i}">×</button>
-      `;
-      row.querySelector('.x').addEventListener('click', (e) => {
-        currentFiles.splice(parseInt(e.target.dataset.i, 10), 1);
-        renderList();
-        btn.disabled = currentFiles.length === 0;
-      });
-      // drag reorder
-      row.addEventListener('dragstart', (e) => e.dataTransfer.setData('text/plain', String(i)));
-      row.addEventListener('dragover', (e) => e.preventDefault());
-      row.addEventListener('drop', (e) => {
-        e.preventDefault();
-        const from = parseInt(e.dataTransfer.getData('text/plain'), 10);
-        const to = parseInt(row.dataset.i, 10);
-        if (from === to) return;
-        const [moved] = currentFiles.splice(from, 1);
-        currentFiles.splice(to, 0, moved);
+      row.innerHTML = '<span style="cursor:grab;">⠿</span><span class="name"></span><span class="size"></span><button type="button" class="x">×</button>';
+      row.querySelector('.name').textContent = file.name;
+      row.querySelector('.size').textContent = window.fmtSize(file.size);
+      const remove = row.querySelector('.x');
+      remove.setAttribute('aria-label', `Remove ${file.name}`);
+      remove.addEventListener('click', () => {
+        files.splice(index, 1);
         renderList();
       });
-      c.appendChild(row);
+      row.addEventListener('dragstart', event => event.dataTransfer.setData('text/plain', String(index)));
+      row.addEventListener('dragover', event => event.preventDefault());
+      row.addEventListener('drop', event => {
+        event.preventDefault();
+        const from = Number.parseInt(event.dataTransfer.getData('text/plain'), 10);
+        if (!files[from] || from === index) return;
+        files.splice(index, 0, files.splice(from, 1)[0]);
+        renderList();
+      });
+      fileList.appendChild(row);
     });
+    btn.disabled = busy || files.length === 0;
   }
 
-  btnReset.addEventListener('click', () => location.reload());
-  btn.innerHTML = '🧩 Merge PDFs';
+  window.initDropzone('#dz', incoming => {
+    if (busy) return;
+    files.push(...Array.from(incoming).filter(file => /\.pdf$/i.test(file.name)));
+    input.value = '';
+    renderList();
+    if (files.length) {
+      try { prepareWorker(); } catch (_) { /* 点击处理时显示错误并允许重试 */ }
+    }
+  });
 
-  btn.addEventListener('click', async () => {
-    if (currentFiles.length === 0) return;
-    btn.disabled = true;
-    btn.innerHTML = '<span class="loader"></span> Merging…';
-    document.getElementById('result').classList.remove('active');
+  btnReset.addEventListener('click', () => {
+    stopWorker();
+    files = [];
+    input.value = '';
+    outName.value = outName.defaultValue;
+    result.classList.remove('active');
+    progress.classList.remove('active');
+    setBusy(false);
+    renderList();
+  });
+
+  btn.addEventListener('click', () => {
+    if (busy || !files.length) return;
+    const filename = outName.value || outName.defaultValue;
+    setBusy(true);
+    result.classList.remove('active');
+    window.setProgress('#progress', 0, 'Starting merge…');
     try {
-      const { PDFDocument } = await window.loadPdfLib();
-      const out = await PDFDocument.create();
-      for (let i = 0; i < currentFiles.length; i++) {
-        window.setProgress('#progress', (i / currentFiles.length) * 100, `Adding file ${i+1}/${currentFiles.length}…`);
-        const buf = await window.readFileBuffer(currentFiles[i]);
-        const src = await PDFDocument.load(buf);
-        const pages = await out.copyPages(src, src.getPageIndices());
-        pages.forEach(p => out.addPage(p));
-      }
-      const bytes = await out.save();
-      window.setProgress('#progress', 100, 'Done');
-      const filename = document.getElementById('outName').value || 'merged.pdf';
-      window.showResult('#result', `
-        <h4>✅ Merged ${currentFiles.length} file(s)</h4>
-        <div class="result-meta">${window.fmtSize(bytes.byteLength)} · ${out.getPageCount()} pages</div>
-        <button class="btn btn-primary" id="dlBtn">⬇ Download ${filename}</button>
-      `);
-      document.getElementById('dlBtn').addEventListener('click', () => {
-        window.downloadBlob(bytes, filename, 'application/pdf');
-      });
-    } catch (err) {
-      console.error(err);
-      window.showResult('#result', `<h4 style="color:var(--danger)">❌ Failed</h4><p class="soft">${err.message || err}</p>`);
-    } finally {
-      btn.disabled = false;
-      btn.innerHTML = '🧩 Merge PDFs';
+      prepareWorker();
+      worker.onmessage = ({ data }) => {
+        if (data.error) {
+          fail(data.error);
+          return;
+        }
+        if (!data.bytes) {
+          window.setProgress('#progress', data.progress, data.label);
+          return;
+        }
+
+        window.setProgress('#progress', 100, 'Done');
+        showResult(`Merged ${files.length} file(s)`, `${window.fmtSize(data.bytes.byteLength)} · ${data.pages} pages`);
+        const download = document.createElement('button');
+        download.type = 'button';
+        download.id = 'dlBtn';
+        download.className = 'btn btn-primary';
+        download.textContent = `⬇ Download ${filename}`;
+        download.addEventListener('click', () => window.downloadBlob(data.bytes, filename, 'application/pdf'));
+        result.appendChild(download);
+        stopWorker();
+        setBusy(false);
+      };
+      worker.postMessage(files);
+    } catch (error) {
+      fail(error.message);
     }
   });
 })();
